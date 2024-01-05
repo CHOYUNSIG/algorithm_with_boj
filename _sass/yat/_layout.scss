@@ -826,3 +826,17 @@ a:visited .post-badges .post-badge.badge-new {
   color: $background-color;
   background-color: $background-color;
 }
+
+
+.sidebar {
+  max-width: 207.98px;
+}
+
+.search-result {
+  color: $text-color;
+  display: block;
+  width: 147.95px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
