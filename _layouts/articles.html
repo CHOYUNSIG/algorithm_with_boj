@@ -7,6 +7,10 @@ layout: framework
     {% assign banner = page.title %}
   {% endif %}
 
+  <div>
+    {% include views/search.html %}
+  </div>
+
   {{ content }}
 
   {% include views/pagination.html %}
