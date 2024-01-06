@@ -587,7 +587,7 @@ html {
 .page-banner {
   display: block;
   position: relative;
-  height: $banner-height;
+  //height: $banner-height;
   background-color: $banner-background;
   transition: height 0.2s;
 
@@ -617,10 +617,12 @@ html {
   }
 
   .page-banner-inner {
-    @include vertical-center(relative);
+    //@include vertical-center(relative);
 
     color: $banner-text-color;
+    margin-top: 120px;
     padding: 10px 5px;
+    position: relative;
     text-shadow: 1px 1px 2px #33333355;
 
     & > *:first-child {
@@ -711,6 +713,7 @@ html {
   }
 
   .sidebar {
+    max-width: 200px;
     padding-left: 8px;
     transition: top 0.2s, display 0.2s;
 
@@ -721,6 +724,15 @@ html {
     }
 
   }
+}
+
+.search-result {
+  color: $text-color;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 
@@ -825,18 +837,4 @@ a:visited .post-badges .post-badge.badge-new {
   display: none;
   color: $background-color;
   background-color: $background-color;
-}
-
-
-.sidebar {
-  max-width: 207.98px;
-}
-
-.search-result {
-  color: $text-color;
-  display: block;
-  width: 147.95px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
