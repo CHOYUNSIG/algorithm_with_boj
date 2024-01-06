@@ -119,6 +119,10 @@ html {
   position: absolute;
   right: 0;
   top: 0;
+  
+  .trigger {
+    padding: 10px 0px;
+  }
 
   .nav-trigger {
     display: none;
@@ -488,6 +492,13 @@ html {
       background-color: #ebebeb;
       border: none;
     }
+
+    table {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      width: max-content;
+    }
   }
 
   .post-related {
@@ -590,6 +601,7 @@ html {
   height: $banner-height;
   background-color: $banner-background;
   transition: height 0.2s;
+  max-height: 50vh;
 
   .page-banner-img {
     position: absolute;
@@ -622,6 +634,7 @@ html {
     color: $banner-text-color;
     padding: 10px 5px;
     text-shadow: 2px 2px 5px #000000AA;
+    word-break: keep-all;
 
     & > *:first-child {
       margin: 0;
@@ -656,7 +669,7 @@ html {
     .post-subtitle {
       @include relative-font-size(1.525);
       color: #ffffffcc;
-      padding-right: 280px;
+      //padding-right: 280px;
 
       @include media-query($on-palm) {
         padding-right: 0;
@@ -722,6 +735,10 @@ html {
     }
 
   }
+}
+
+#search-demo-container {
+  border: 1px solid #999;
 }
 
 .search-result {

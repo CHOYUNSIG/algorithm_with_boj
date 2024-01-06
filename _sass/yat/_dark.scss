@@ -215,6 +215,10 @@ html[data-theme="dark"]  {
     background-color: $dark-background-color;
   }
 
+  #search-demo-container {
+    border: 1px solid #666;
+  }
+
   .search-result {
     color: #ddd
   }
