@@ -33,11 +33,12 @@
       min-height: {{ banner_min_height }};
     }
     html[data-scroll-status="top"] .page-banner {
-      height: {{ banner_height }};
+      height: 50vh;
     }
   </style>
   {%- endif -%}
 
+  <!--
   {%- if banner_opacity -%}
   <style>
     html .page-banner .page-banner-img > *:first-child {
@@ -49,6 +50,7 @@
     }
   </style>
   {%- endif -%}
+  -->
   {%- if banner_heading_style -%}
   <style>
     html .page-banner .page-banner-inner > *:first-child > *:nth-child(1) {

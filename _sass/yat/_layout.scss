@@ -489,7 +489,7 @@ html {
 
     hr {
       height: 1px;
-      background-color: #ebebeb;
+      background-color: $text-color;
       border: none;
     }
 
@@ -611,6 +611,7 @@ html {
 
     & > *:first-child {
       @include center-image;
+      opacity: 0.8;
       transition: 0.1s all ease-in-out;
     }
 

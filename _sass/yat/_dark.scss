@@ -104,7 +104,7 @@ html[data-theme="dark"]  {
   .page-banner {
     .page-banner-img {
       & > *:first-child {
-        opacity: 0.718;
+        opacity: 0.6;
       }
     }
   }
@@ -148,7 +148,7 @@ html[data-theme="dark"]  {
       }
 
       hr {
-        background-color: #555;
+        background-color: $dark-text-color;
       }
     }
 
