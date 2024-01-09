@@ -29,15 +29,15 @@ sidebar: null
 정점의 개수가 $N$인 그래프에서 시작점 A에 대하여 최단 거리 표 $W_{k}$을 다음과 같이 정의하자.
 
 $$
-W_{k}[n] \overset{\underset{\mathrm{def}}{}}{=} \text{시작점에서 출발해 간선을 }k\text{개 이하로 거쳐 노드 }n\text{로 가는 최소 경로의 길이}
+W_{k}[n] \overset{\underset{\mathrm{def}}{}}{=} \left( \displaylines{\text{시작점에서 출발해} \\ \text{간선을 }k\text{개 이하로 거쳐} \\ \text{노드 }n\text{로 가는} \\ \text{최소 경로의 길이}} \right)
 $$
 
 만약 그러한 경로가 없을 경우에는 무한대로 간주한다. $W_{0}$은 $W_{0}[A]$만 0으로 초기화하고 나머지 셀은 전부 무한으로 초기화한다. $W_{k}$를 안다고 가정하자. 이를 바탕으로 $W_{k+1}$를 구할 수 있을까? $W_{k+1}$는 $W_{k}$의 경로에서 간선을 한 번 더 지날 수 있게 된 것으로 해석할 수 있다.
 
 ```mermaid!
 graph LR
-A -- <p style="text-shadow: 0px 0px 2px #FFF">W[A][I]</p> --> I
-A -- <p style="text-shadow: 0px 0px 2px #FFF">W[A][J]</p> --> J
+A -- <p style="text-shadow: 0px 0px 2px #FFF">W[I]</p> --> I
+A -- <p style="text-shadow: 0px 0px 2px #FFF">W[J]</p> --> J
 I -- <p style="text-shadow: 0px 0px 2px #FFF">c</p> --> J
 
 A((A))
@@ -78,13 +78,13 @@ $W_{1}$을 바탕으로 $W_{2}$을 구해보자. $W_{1}$의 방법으로 노드 
 
 |         |  A  |  B  |  C  |  D  |
 | ---     | --- | --- | --- | --- |
-| $W_{2}$ |  0  |  2  |  3  |  4  |
+| $W_{2}$ |  0  |  2  |  5  |  4  |
 
 $W_{2}$을 바탕으로 $W_{3}$을 구해보자. 앞서 계산한 $W_{2}[D]$보다 $W_{2}[B] + 1$이 더 짧으므로 $W_{3}[D] = W_{2}[B] + 1 = 3$이다.
 
 |         |  A  |  B  |  C  |  D  |
 | ---     | --- | --- | --- | --- |
-| $W_{3}$ |  0  |  2  |  3  |  3  |
+| $W_{3}$ |  0  |  2  |  5  |  3  |
 
 이렇게 해서 완성한 $W_{3}$은 이 그래프의 궁극적인 최단 거리 표이다.
 
