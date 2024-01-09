@@ -27,31 +27,31 @@ sidebar: null
 ## 원리
 어떠한 두 노드 A와 B 사이의 최단 경로가 다음과 같이 노드 C를 경유한다고 가정하자.
 
-```mermaid!
-graph LR
-A --- other1 --- C --- other2 --- B
+<pre class="mermaid">
+    graph LR
+    A --- other1 --- C --- other2 --- B
 
-A((A))
-B((B))
-C((C))
-other1((other nodes))
-other2((other nodes))
-```
+    A((A))
+    B((B))
+    C((C))
+    other1((other nodes))
+    other2((other nodes))
+</pre>
 
 위 그림에서 노드 A와 B 사이의 최단 경로는 노드 A와 C, 노드 C와 B의 최단 경로의 합이라고 생각할 수 있다. 또한 노드 A와 C 사이의 최단 경로는 그 사이의 어떤 노드에 접하는 두 최단 경로의 합으로 생각할 수 있고, 이러한 재귀적인 생각은 두 노드 사이의 경로에 경유하는 노드가 없어질 때까지(즉 두 노드가 직접 연결될 때까지) 반복할 수 있을 것이다. 이를 반대로 생각하면 모든 노드의 직접 연결 정보, 즉 인접행렬을 가지고 모든 노드 사이의 최단 경로를 구하는 알고리즘을 생각해 볼 수 있다. 먼저 다음과 같은 그래프가 있고 이를 인접행렬 $W_{\varnothing}$로 표현했다고 가정하자.
 
-```mermaid!
-graph LR
-A <-- <p style="text-shadow: 0px 0px 2px #FFF">2</p> --> B
-B <-- <p style="text-shadow: 0px 0px 2px #FFF">3</p> --> C
-B <-- <p style="text-shadow: 0px 0px 2px #FFF">7</p> --> D
-A <-- <p style="text-shadow: 0px 0px 2px #FFF">3</p> --> D
+<pre class="mermaid">
+    graph LR
+    A <-- <p style="color: #888">2</p> --> B
+    B <-- <p style="color: #888">3</p> --> C
+    B <-- <p style="color: #888">7</p> --> D
+    A <-- <p style="color: #888">3</p> --> D
 
-A((A))
-B((B))
-C((C))
-D((D))
-```
+    A((A))
+    B((B))
+    C((C))
+    D((D))
+</pre>
 
 | $W_{\varnothing}$ |  A  |  B  |  C  |  D  |
 | --- | --- | --- | --- | --- |

@@ -34,16 +34,16 @@ $$
 
 만약 그러한 경로가 없을 경우에는 무한대로 간주한다. $W_{0}$은 $W_{0}[A]$만 0으로 초기화하고 나머지 셀은 전부 무한으로 초기화한다. $W_{k}$를 안다고 가정하자. 이를 바탕으로 $W_{k+1}$를 구할 수 있을까? $W_{k+1}$는 $W_{k}$의 경로에서 간선을 한 번 더 지날 수 있게 된 것으로 해석할 수 있다.
 
-```mermaid!
-graph LR
-A -- <p style="text-shadow: 0px 0px 2px #FFF">W[I]</p> --> I
-A -- <p style="text-shadow: 0px 0px 2px #FFF">W[J]</p> --> J
-I -- <p style="text-shadow: 0px 0px 2px #FFF">c</p> --> J
+<pre class="mermaid">
+    graph LR
+    A -- <p style="color: #888">W[I]</p> --> I
+    A -- <p style="color: #888">W[J]</p> --> J
+    I -- <p style="color: #888">c</p> --> J
 
-A((A))
-I((I))
-J((J))
-```
+    A((A))
+    I((I))
+    J((J))
+</pre>
 
 만약 노드 $I$에서 노드 $J$로 가는 간선의 가중치가 $c$이고 $W_{k}[I] + c < W_{k}[J]$라면 (즉 $W_{k}[I]$가 함유하는 방법으로 노드 $I$로 간 뒤 가중치가 $c$인 간선을 통해 노드 $J$로 가는 방법이 기존의 $W_{k}[J]$의 방법보다 거리가 짧다면) $W_{k+1}[J]$를 $W_{k}[I] + c$로 결정할 수 있을 것이다. 이러한 방식으로 $W_{0}$으로부터 $W_{1}$을 구하고, $W_{1}$로부터 $W_{2}$을 구하며, 재귀적으로 $W_{N-1}$을 구할 수 있다. $W_{N-1}$은 $N-1$개 이하의 간선을 거쳐 갈 때의 최단 거리이므로 우리가 구하고자 하는 궁극적인 최단 거리 표가 될 것이다.
 
@@ -51,18 +51,18 @@ J((J))
 
 예시로 이해해보자. 다음과 같은 그래프에 시작점 노드 A가 있다고 가정하자.
 
-```mermaid!
-graph LR
-A -- <p style="text-shadow: 0px 0px 2px #FFF">3</p> --> B
-B -- <p style="text-shadow: 0px 0px 2px #FFF">1</p> --> D
-A -- <p style="text-shadow: 0px 0px 2px #FFF">5</p> --> C
-C -- <p style="text-shadow: 0px 0px 2px #FFF">-3</p> --> B
+<pre class="mermaid">
+    graph LR
+    A -- <p style="color: #888">3</p> --> B
+    B -- <p style="color: #888">1</p> --> D
+    A -- <p style="color: #888">5</p> --> C
+    C -- <p style="color: #888">-3</p> --> B
 
-A((A))
-B((B))
-C((C))
-D((D))
-```
+    A((A))
+    B((B))
+    C((C))
+    D((D))
+</pre>
 
 |         |  A  |  B  |  C  |  D  |
 | ---     | --- | --- | --- | --- |
@@ -92,16 +92,16 @@ $W_{2}$을 바탕으로 $W_{3}$을 구해보자. 앞서 계산한 $W_{2}[D]$보�
 
 음수 가중치 그래프에서 최단 경로를 계산할 때의 주의할 점은 해당 그래프가 음수 사이클을 가지고 있을 수 있다는 것이다. 음수 사이클이란 어떠한 한 노드에서 다른 노드를 거쳐 다시 돌아왔을 때 비용이 더 적어지는 경로를 말한다. 다음은 음수 사이클의 한 예이다.
 
-```mermaid!
-graph LR
-A -- <p style="text-shadow: 0px 0px 2px #FFF">1</p> --> B
-B -- <p style="text-shadow: 0px 0px 2px #FFF">-2</p> --> A
-B -- <p style="text-shadow: 0px 0px 2px #FFF">100</p> --> C
+<pre class="mermaid">
+    graph LR
+    A -- <p style="color: #888">1</p> --> B
+    B -- <p style="color: #888">-2</p> --> A
+    B -- <p style="color: #888">100</p> --> C
 
-A((A))
-B((B))
-C((C))
-```
+    A((A))
+    B((B))
+    C((C))
+</pre>
 
 노드 A에서 B를 거친 후 다시 A로 오면 총 비용이 1만큼 줄어있다. 이 행위를 무한히 반복하면 총 비용을 음의 무한대로 발산시킬 수 있다. 이 상황에서 노드 A에서 C로 가는 최단 경로를 계산해 볼 수 있는가? 결국 이 그래프에서 최단 거리를 재는 것은 무의미하다. 우리가 벨만-포드 알고리즘을 사용하여 계산한 최단 거리도 음수 사이클을 감지하지 못하면 사실은 유효하지 않을 수 있다. (위 그래프를 상대로 벨만-포드 알고리즘을 수행해보라. 적어도 음의 무한대를 표현해 주지는 못한다.) 그러므로 벨만-포드를 사용할 때는 음수 사이클을 감지해 주는 과정이 필수이다.
 
