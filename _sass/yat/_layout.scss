@@ -474,7 +474,7 @@ html {
       margin-right: auto;
     }
 
-    img:not(.emoji), svg, iframe {
+    img:not(.emoji), iframe {
       display: block;
       max-height: 50vh;
     }
@@ -855,6 +855,20 @@ a:visited .post-badges .post-badge.badge-new {
   background-color: $background-color;
 }
 
+/**
+ * Mermaid
+ */
+
 .mermaid {
   background-color: #0000;
+  text-align: center;
+}
+
+.flowchart-link {
+  stroke: #888 !important;
+}
+
+.marker {
+  fill: #888 !important;
+  stroke: #888 !important;
 }
