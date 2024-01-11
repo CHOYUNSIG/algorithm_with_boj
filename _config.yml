@@ -70,10 +70,10 @@ yat:
 # enableDNT: "false"
 
 # If you want to generate website sitemap, you can set true
-# sitemap: false
+sitemap: true
 
 # If you want to change site language, you can set lang option
-# lang: "en"  # default lang is en
+lang: "ko"  # default lang is ko
 
 # Translate languges
 # langs refer to https://cloud.google.com/translate/docs/languages
@@ -140,7 +140,7 @@ yat:
 # it will be always kept on every visit (i.e. no matter
 # the browser is closed or not)
 #
-night_mode: "auto"
+night_mode: "manual"
 
 # Code badge setting
 # You can enable or disable the code badge and so on
@@ -155,7 +155,6 @@ night_mode: "auto"
 header_pages:
   - index.md
   - archives.html
-  - categories.html
   - tags.html
 
 # Page default value

@@ -91,12 +91,19 @@ function googleTranslateElementInit() {
 
     if (target && target.matches('.lang-select')) {
       var lang = target.getAttribute('data-lang');
-      if (googleCombo.value == lang) {
-        restoreLang();
-      } else {
-        target.parentElement.classList.add('ct-language-selected');
+      console.log(googleCombo.value, lang)
+      target.parentElement.classList.add('ct-language-selected');
+      if (lang === '{{ lang }}') {
+        if (googleCombo.value) {
+          googleCombo.value = '{{ lang }}';
+          googleCombo.dispatchEvent(new Event('change'));
+          googleCombo.value = '{{ lang }}';
+          googleCombo.dispatchEvent(new Event('change'));
+        }
+      }
+      else if (googleCombo.value != lang) {
         googleCombo.value = lang;
-        triggerHtmlEvent(googleCombo, 'change');
+        googleCombo.dispatchEvent(new Event('change'));
       }
     }
 
