@@ -25,6 +25,8 @@ banner: "/assets/images/banners/home.jpeg"
     #greedy[#그리디 알고리즘]
 </pre>
 
+<br>
+
 ## 2. 자료구조
 
 <pre class="mermaid">
@@ -60,6 +62,8 @@ banner: "/assets/images/banners/home.jpeg"
     #tree_set[#트리를 사용한 집합과 맵]
     #trees[#트리]
 </pre>
+
+<br>
 
 ## 3. 알고리즘
 
@@ -174,10 +178,10 @@ banner: "/assets/images/banners/home.jpeg"
     #merge_sort_tree[#머지 소트 트리]
     #pst[#퍼시스턴트 세그먼트 트리]
     #rb_tree[#레드-블랙 트리]
-    #segtree[#세그먼트 트리]
+    #segtree[<a href="post/2024/01/11/segtree.html">#세그먼트 트리</a>]
     #splay_tree[#스플레이 트리]
     #trees[#트리]
-    #trie[#트라이]
+    #trie[<a href="post/2024/01/03/trie.html">#트라이</a>]
 </pre>
 
 ### 3-3. 그래프
@@ -212,14 +216,14 @@ banner: "/assets/images/banners/home.jpeg"
 
     #2_sat[#2-sat]
     #articulation[#단절점과 단절선]
-    #bellman_ford[#벨만–포드]
+    #bellman_ford[<a href="post/2024/01/07/bellman_ford.html">#벨만–포드</a>]
     #biconnected_component[#이중 연결 요소]
     #bipartite_graph[#이분 그래프]
     #bipartite_matching[#이분 매칭]
     #cactus[#선인장]
-    #dijkstra[#데이크스트라]
+    #dijkstra[<a href="post/2024/01/01/dijkstra.html">#데이크스트라</a>]
     #flow[#최대 유량]
-    #floyd_warshall[#플로이드–워셜]
+    #floyd_warshall[<a href="post/2024/01/07/floyd_warshall.html">#플로이드–워셜</a>]
     #graph_traversal[#그래프 탐색]
     #graphs[#그래프 이론]
     #mcmf[#최소 비용 최대 유량]
@@ -251,7 +255,7 @@ banner: "/assets/images/banners/home.jpeg"
     #rabin_karp[#라빈–카프]
     #string[#문자열]
     #suffix_array[#접미사 배열과 LCP 배열]
-    #trie[#트라이]
+    #trie[<a href="post/2024/01/03/trie.html">#트라이</a>]
 </pre>
 
 ### 3-5. 오프라인 쿼리
