@@ -22,7 +22,12 @@
     </main>
 
     {%- include views/footer.html -%}
-
+    
+    {%- include functions.html func='log' level='debug' msg='Get using_search value' -%}
+    {%- assign name = 'using_search' -%}
+    {%- include functions.html func='get_value' default=false -%}
+    {%- assign using_search = return -%}
+    {% if using_search %}
     <script src="{{ site.baseurl }}/assets/js/simple-jekyll-search.min.js"></script>
     <script>
       window.simpleJekyllSearch = new SimpleJekyllSearch({
@@ -36,5 +41,6 @@
         exclude: ['Welcome']
       })
     </script>
+    {% endif %}
   </body>
 </html>
