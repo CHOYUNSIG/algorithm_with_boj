@@ -57,7 +57,7 @@ banner:
     #linked_list[#연결 리스트]
     #priority_queue[#우선순위 큐]
     #queue[#큐]
-    #segtree[#세그먼트 트리]
+    #segtree[<a href="post/2024/01/11/segtree.html">#세그먼트 트리</a>]
     #stack[#스택]
     #string[#문자열]
     #tree_set[#트리를 사용한 집합과 맵]
@@ -170,7 +170,7 @@ banner:
 
     #centroid[#센트로이드]
     #centroid_decomposition[#센트로이드 분할]
-    #disjoint_set[#분리 집합]
+    #disjoint_set[<a href="post/2024/01/13/disjoint_set.html">#분리 집합</a>]
     #euler_tour_technique[#오일러 경로 테크닉]
     #graph_traversal[#그래프 탐색]
     #hld[#Heavy-light 분할]
