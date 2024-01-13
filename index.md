@@ -4,7 +4,8 @@
 
 layout: home
 title: Home
-banner: "/assets/images/banners/home.jpeg"
+banner:
+    image: "/assets/images/banners/home.jpeg"
 ---
 
 ## 1. 패러다임

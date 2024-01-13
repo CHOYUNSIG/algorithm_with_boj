@@ -598,10 +598,8 @@ html {
 .page-banner {
   display: block;
   position: relative;
-  height: $banner-height;
   background-color: $banner-background;
   transition: height 0.2s;
-  max-height: 50vh;
 
   .page-banner-img {
     position: absolute;
@@ -630,10 +628,9 @@ html {
   }
 
   .page-banner-inner {
-    @include vertical-center(relative);
-
+    position: relative;
     color: $banner-text-color;
-    padding: 10px 5px;
+    padding: 80px 5px 50px 5px;
     text-shadow: 2px 2px 5px #000000AA;
     word-break: keep-all;
 
@@ -708,9 +705,11 @@ html {
     }
   }
 
+  /*
   @include media-query($on-palm) {
     height: calc($banner-height / 1.5);
   }
+  */
 }
 
 
