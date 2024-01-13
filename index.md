@@ -181,6 +181,7 @@ banner:
     #rb_tree[#레드-블랙 트리]
     #segtree[<a href="post/2024/01/11/segtree.html">#세그먼트 트리</a>]
     #splay_tree[#스플레이 트리]
+    #priority_queue[#우선순위 큐]
     #trees[#트리]
     #trie[<a href="post/2024/01/03/trie.html">#트라이</a>]
 </pre>
