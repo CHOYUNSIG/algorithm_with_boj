@@ -151,7 +151,7 @@ banner:
 
     #trees --> #graph_traversal
     #trees --> BST
-    #trees --> Heap
+    #trees --> #priority_queue
     #trees --> #trie
     #trees --> #segtree
     #trees --> #euler_tour_technique
