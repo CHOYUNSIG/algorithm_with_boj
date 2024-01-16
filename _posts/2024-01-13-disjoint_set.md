@@ -16,7 +16,7 @@ banner:
   min_height: null
   heading_style: null
   subheading_style: null
-tags: 분리_집합 disjoint_set
+tags: 분리_집합(disjoint_set)
 sidebar: null
 ---
 

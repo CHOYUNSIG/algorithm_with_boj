@@ -16,7 +16,7 @@ banner:
   min_height: null
   heading_style: null
   subheading_style: null
-tags: 벨만-포드 bellman_ford
+tags: 벨만-포드(bellman_ford)
 sidebar: null
 ---
 
