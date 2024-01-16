@@ -43,12 +43,10 @@ author: CHOYUNSIG
 # copyright: "Unpublished Work (cleft) 2017-{currentYear} {author}"
 
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Algorithm blog written by CHOYUNSIG
 
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. https://example.com
+baseurl: "/algorithm_with_boj" # the subpath of your site, e.g. /blog
+url: "https://choyunsig.github.io" # the base hostname & protocol for your site, e.g. https://example.com
 favicon: "assets/images/icons/favicon.ico" # the favicon for your site
 
 # Yat date format
