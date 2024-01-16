@@ -305,6 +305,14 @@ class PriorityQueue:
             self.array[min_child], self.array[now] = self.array[now], self.array[min_child]
             now = min_child
         return result
+
+    # 최솟값 확인
+    def peak(self) -> int:
+        return self.array[1]
+
+    # 비었는지 확인
+    def empty(self) -> bool:
+        return len(self.array) == 1
 ```
 
 두 연산 모두 현재의 노드를 가리기는 변수 `now`를 두고 각각 자식 또는 부모 노드와 값을 비교하며 위아래로 움직이는 모양새를 하고 있다.
