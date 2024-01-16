@@ -861,6 +861,17 @@ a:visited .post-badges .post-badge.badge-new {
 .mermaid {
   background-color: #0000;
   text-align: center;
+
+  .cluster {
+    rect {
+      fill: #8881 !important;
+      stroke: #888 !important;
+    }
+
+    span {
+      color: #888 !important;
+    }
+  }
 }
 
 .flowchart-link {
