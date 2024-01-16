@@ -25,6 +25,7 @@ sidebar:
 
     {%- include views/article.html -%}
 
+    <!--
     {%- assign result = hidden | where_exp: "item", "item == 'navigator'" -%}
     {%- if result.size == 0 -%}
     <div class="post-nav">
@@ -42,18 +43,30 @@ sidebar:
       {%- endif -%}
     </div>
     {%- endif -%}
+    -->
 
     {%- assign result = hidden | where_exp: "item", "item == 'related_posts'" -%}
     {%- if result.size == 0 -%}
     <div class="post-related">
       <div>Related Articles</div>
       <ul>
-        {% assign posts = site[page.collection] | sample:4 %}
+        {% assign posts = site[page.collection] %}
         {%- for post in posts -%}
           {%- assign post_item_class = "" -%}
           {%- if post.top -%}
             {%- assign post_item_class = "top-post" -%}
           {%- endif -%}
+          {%- assign registered = false -%}
+          {%- for tag in post.tags -%}
+            {%- if registered == true -%}
+              {%- break -%}
+            {%- endif -%}
+            {%- for now_tag in page.tags -%}
+              {%- if registered == true -%}
+                {%- break -%}
+              {%- endif -%}
+              {%- if tag == now_tag -%}
+                {%- assign registered = true -%}
         <li class="{{ post_item_class }}">
           <a class="post-link"
             href="{{ post.url | relative_url }}"
@@ -62,6 +75,9 @@ sidebar:
             {%- include views/post-badges.html -%}
           </a>
         </li>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endfor -%}
         {%- endfor -%}
       </ul>
     </div>
