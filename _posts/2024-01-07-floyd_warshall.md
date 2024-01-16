@@ -16,7 +16,7 @@ banner:
   min_height: null
   heading_style: null
   subheading_style: null
-tags: 플로이드-워셜(floyd_warshall)
+tags: 그래프_이론(graphs) 최단_경로(shortest_path) 플로이드-워셜(floyd_warshall)
 sidebar: null
 ---
 
