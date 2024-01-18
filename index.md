@@ -15,7 +15,11 @@ banner:
       securityLevel: 'loose',
     };
     mermaid.initialize(config);
-  </script>
+</script>
+
+## 소개
+
+<a href="">APSwBT</a>(<u>A</u>lgorithm <u>P</u>roblem <u>S</u>olving <u>w</u>ith <u>B</u>eakjoon <u>T</u>ag)는 <a href="https://www.acmicpc.net/" target="_blank">백준</a>과 <a href="https://solved.ac/" target="_blank">솔브드</a>의 모든 태그의 카테고리를 분류하고 난이도 별로 정리한 블로그입니다. 각 태그의 색깔은 해당 태그가 쓰인 문제들의 평균 티어를 나타내며, 빨간색 배지가 있는 태그를 클릭하시면 관련 포스트로 이동하실 수 있습니다. 블로그의 모든 글은 <a href="https://github.com/CHOYUNSIG" target="_blank">CHOYUNSIG</a>이 작성하였으며, 오타 및 내용 상의 오류나 개선 사항이 있을 경우 의견을 남겨주시면 수정하도록 하겠습니다.
 
 ## 1. 패러다임
 
@@ -29,7 +33,8 @@ banner:
     Paradigm --> #heuristics
     #bruteforcing --> #backtracking
 
-    Paradigm((패러다임))
+    Paradigm((문제 해결 패러다임)):::paradigm
+    classDef paradigm stroke:#0000
 
     #greedy(["#그리디 알고리즘"]):::tier1
     #dp(["#다이나믹 프로그래밍"]):::tier2
@@ -115,7 +120,7 @@ banner:
 
 ## 3. 알고리즘
 
-### 3-0. 정렬과 검색
+### 3-1. 정렬과 검색
 
 <pre class="mermaid">
     graph LR
@@ -137,7 +142,7 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-### 3-1. 트리
+### 3-2. 트리
 
 <pre class="mermaid">
     graph LR
@@ -171,9 +176,17 @@ banner:
     #hld <--> #tree_decomposition
     #centroid_decomposition <--> #tree_decomposition
 
-    subgraph 이진검색트리
+    subgraph 이진 검색 트리
         #splay_tree
         #rb_tree
+    end
+
+    subgraph 세그먼트 트리
+        #segtree
+        #merge_sort_tree
+        #lazyprop
+        #pst
+        #multi_segtree
     end
 
     #hld(["#Heavy-light 분할"]):::tier4
@@ -208,7 +221,7 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-### 3-2. 그래프
+### 3-3. 그래프
 
 <pre class="mermaid">
     graph LR
@@ -235,11 +248,11 @@ banner:
     #shortest_path --> #dijkstra
     #shortest_path --> #bellman_ford
     #shortest_path --> #floyd_warshall
+    #flow --> #circulation
+    #flow --> #stoer_wagner
     #flow --> #mcmf
     #flow --> #mfmc
-    #flow --> #circulation
     #flow --> #bipartite_matching
-    #flow --> #stoer_wagner
     #bipartite_graph --> #bipartite_matching
     #bipartite_matching --> #hall
     #bipartite_matching --> #hungarian
@@ -252,6 +265,20 @@ banner:
     #dijkstra --> #a_star
     #dag --> #topological_sorting
     #dag --> #lgv
+    
+    subgraph 최단 경로
+        #shortest_path
+        #dijkstra
+        #bellman_ford
+        #floyd_warshall
+    end
+
+    subgraph 유량 그래프
+        #flow
+        #mcmf
+        #mfmc
+        #bipartite_matching
+    end
 
     #0_1_bfs(["#0-1 너비 우선 탐색"]):::tier2
     #2_sat(["#2-sat"]):::tier3
@@ -299,7 +326,7 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-### 3-3. 문자열
+### 3-4. 문자열
 
 <pre class="mermaid">
     graph LR
@@ -323,7 +350,7 @@ banner:
         #palindrome_tree
     end
 
-    subgraph 패턴매칭
+    subgraph 패턴 매칭
         #aho_corasick
         #kmp
         #rabin_karp
@@ -355,7 +382,7 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-### 3-4. 오프라인 쿼리
+### 3-5. 오프라인 쿼리
 
 <pre class="mermaid">
     graph LR
@@ -389,7 +416,7 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-### 3-5. 수학
+### 3-6. 수학
 
 <pre class="mermaid">
     graph LR
@@ -397,16 +424,101 @@ banner:
     #math --> #number_theory
     #math --> #geometry
     #math --> #linear_algebra
+    #math --> #combinatorics
     #math --> #game_theory
     #math --> #calculus
-    #math --> #combinatorics
     #math --> #probability
+    #math --> #pigeonhole_principle
     #math --> #statistics
     #math --> #physics
-    #math --> #numerical_analysis
     #math --> #arithmetic
-    #math --> #pigeonhole_principle
     #math --> #duality
+    #linear_algebra --> #gaussian_elimination
+    #linear_algebra --> #sparse_table
+    #linear_algebra --> #matroid
+    #game_theory --> #sprague_grundy
+    #sprague_grundy --> #hackenbush
+    #calculus --> #fft
+    #calculus --> #gradient_descent
+    #calculus --> #ternary_search
+    #calculus --> #green
+    #calculus --> #numerical_analysis
+    #fft --> #multipoint_evaluation
+    #combinatorics --> #matroid
+    #combinatorics --> #inclusion_and_exclusion
+    #combinatorics --> #lucas
+    #combinatorics --> #burnside
+    #combinatorics --> #generating_function
+    #probability --> #bayes
+    #probability --> #linearity_of_expectation
+    #probability --> #randomization
+    #probability --> #differential_cryptanalysis
+    #probability --> #birthday
+    #randomization --> #simulated_annealing
+    #numerical_analysis --> #linear_programming
+    #numerical_analysis --> #polynomial_interpolation
+    #arithmetic --> #arbitrary_precision
+    #arithmetic --> #discrete_kth_root
+    #arithmetic --> #discrete_log
+    #arithmetic --> #discrete_sqrt
+    #arithmetic --> #exponentiation_by_squaring
+    #pigeonhole_principle --> #birthday
+
+    #gaussian_elimination(["#가우스 소거법"]):::tier3
+    #game_theory(["#게임 이론"]):::tier2
+    #gradient_descent(["#경사 하강법"]):::tier3
+    #fft(["#고속 푸리에 변환"]):::tier4
+    #green(["#그린 정리"]):::tier4
+    #linearity_of_expectation(["#기댓값의 선형성"]):::tier2
+    #geometry(["#기하학"]):::tier1
+    #multipoint_evaluation(["#다중 대입값 계산"]):::tier5
+    #polynomial_interpolation(["#다항식 보간법"]):::tier4
+    #simulated_annealing(["#담금질 기법"]):::tier3
+    #lucas(["#뤼카 정리"]):::tier3
+    #matroid(["#매트로이드"]):::tier5
+    #randomization(["#무작위화"]):::tier2
+    #physics(["#물리학"]):::tier1
+    #calculus(["#미적분학"]):::tier2
+    #burnside(["#번사이드 보조정리"]):::tier3
+    #bayes(["#베이즈 정리"]):::tier3
+    #exponentiation_by_squaring(["#분할 정복을 이용한 거듭제곱"]):::tier2
+    #pigeonhole_principle(["#비둘기집 원리"]):::tier1
+    #arithmetic(["#사칙연산"]):::tier0
+    #ternary_search(["#삼분 탐색"]):::tier2
+    #generating_function(["#생성 함수"]):::tier4
+    #birthday(["#생일 문제"]):::tier2
+    #linear_programming(["#선형 계획법"]):::tier4
+    #linear_algebra(["#선형대수학"]):::tier3
+    #numerical_analysis(["#수치해석"]):::tier3
+    #math(["#수학"]):::tier1
+    #sprague_grundy(["#스프라그–그런디 정리"]):::tier3
+    #duality(["#쌍대성"]):::tier4
+    #discrete_kth_root(["#이산 k제곱근"]):::tier3
+    #discrete_log(["#이산 로그"]):::tier4
+    #discrete_sqrt(["#이산 제곱근"]):::tier4
+    #arbitrary_precision(["#임의 정밀도 / 큰 수 연산"]):::tier1
+    #number_theory(["#정수론"]):::tier1
+    #combinatorics(["#조합론"]):::tier2
+    #differential_cryptanalysis(["#차분 공격"]):::tier1
+    #statistics(["#통계학"]):::tier2
+    #inclusion_and_exclusion(["#포함 배제의 원리"]):::tier2
+    #hackenbush(["#하켄부시 게임"]):::tier5
+    #probability(["#확률론"]):::tier2
+    #sparse_table(["#희소 배열"]):::tier3
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
+</pre>
+
+#### 3-6-1. 정수론
+
+<pre class="mermaid">
+    graph LR
+
     #number_theory --> #crt
     #number_theory --> #euler_phi
     #number_theory --> #modular_multiplicative_inverse
@@ -421,6 +533,35 @@ banner:
     #euclidean --> #extended_euclidean
     #euclidean --> #pollard_rho
     #miller_rabin --> #pollard_rho
+
+    #modular_multiplicative_inverse(["#모듈로 곱셈 역원"]):::tier2
+    #mobius_inversion(["#뫼비우스 반전 공식"]):::tier4
+    #miller_rabin(["#밀러–라빈 소수 판별법"]):::tier3
+    #primality_test(["#소수 판정"]):::tier1
+    #sieve(["#에라토스테네스의 체"]):::tier1
+    #euler_phi(["#오일러 피 함수"]):::tier3
+    #euclidean(["#유클리드 호제법"]):::tier1
+    #number_theory(["#정수론"]):::tier1
+    #crt(["#중국인의 나머지 정리"]):::tier3
+    #lte(["#지수승강 보조정리"]):::tier4
+    #flt(["#페르마의 소정리"]):::tier2
+    #pollard_rho(["#폴라드 로"]):::tier3
+    #extended_euclidean(["#확장 유클리드 호제법"]):::tier3
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
+</pre>
+
+
+#### 3-6-2. 기하
+
+<pre class="mermaid">
+    graph LR
+
     #geometry --> #pythagoras
     #geometry --> #line_intersection
     #geometry --> #sweeping
@@ -440,145 +581,27 @@ banner:
     #line_intersection --> #half_plane_intersection
     #convex_hull --> #rotating_calipers
     #convex_hull --> #point_in_convex_polygon
-    #linear_algebra --> #gaussian_elimination
-    #linear_algebra --> #sparse_table
-    #game_theory --> #sprague_grundy
-    #sprague_grundy --> #hackenbush
-    #calculus --> #fft
-    #calculus --> #gradient_descent
-    #calculus --> #polynomial_interpolation
-    #calculus --> #ternary_search
-    #calculus --> #green
-    #fft --> #multipoint_evaluation
-    #combinatorics --> #inclusion_and_exclusion
-    #combinatorics --> #lucas
-    #combinatorics --> #matroid
-    #combinatorics --> #burnside
-    #combinatorics --> #generating_function
-    #probability --> #bayes
-    #probability --> #linearity_of_expectation
-    #probability --> #randomization
-    #probability --> #differential_cryptanalysis
-    #randomization --> #simulated_annealing
-    #numerical_analysis --> #linear_programming
-    #arithmetic --> #arbitrary_precision
-    #arithmetic --> #discrete_kth_root
-    #arithmetic --> #discrete_log
-    #arithmetic --> #discrete_sqrt
-    #arithmetic --> #exponentiation_by_squaring
-    #pigeonhole_principle --> #birthday
-
-    subgraph 정수론
-        #modular_multiplicative_inverse
-        #mobius_inversion
-        #miller_rabin
-        #primality_test
-        #sieve
-        #euler_phi
-        #euclidean
-        #number_theory
-        #crt
-        #lte
-        #flt
-        #pollard_rho
-        #extended_euclidean
-    end
-
-    subgraph 기하학
-        #geometry_3d
-        #geometry_hyper
-        #coordinate_compression
-        #geometry
-        #polygon_area
-        #delaunay
-        #geometric_boolean_operations
-        #half_plane_intersection
-        #voronoi
-        #convex_hull
-        #point_in_convex_polygon
-        #line_intersection
-        #sweeping
-        #point_in_non_convex_polygon
-        #euler_characteristic
-        #min_enclosing_circle
-        #planar_graph
-        #pythagoras
-        #pick
-        #rotating_calipers
-    end
 
     #geometry_3d(["#3차원 기하학"]):::tier1
     #geometry_hyper(["#4차원 이상의 기하학"]):::tier2
-    #gaussian_elimination(["#가우스 소거법"]):::tier3
     #coordinate_compression(["#값 / 좌표 압축"]):::tier2
-    #game_theory(["#게임 이론"]):::tier2
-    #gradient_descent(["#경사 하강법"]):::tier3
-    #fft(["#고속 푸리에 변환"]):::tier4
-    #green(["#그린 정리"]):::tier4
-    #linearity_of_expectation(["#기댓값의 선형성"]):::tier2
     #geometry(["#기하학"]):::tier1
     #polygon_area(["#다각형의 넓이"]):::tier2
-    #multipoint_evaluation(["#다중 대입값 계산"]):::tier5
-    #polynomial_interpolation(["#다항식 보간법"]):::tier4
-    #simulated_annealing(["#담금질 기법"]):::tier3
     #delaunay(["#델로네 삼각분할"]):::tier5
     #geometric_boolean_operations(["#도형에서의 불 연산"]):::tier5
-    #lucas(["#뤼카 정리"]):::tier3
-    #matroid(["#매트로이드"]):::tier5
-    #modular_multiplicative_inverse(["#모듈로 곱셈 역원"]):::tier2
-    #mobius_inversion(["#뫼비우스 반전 공식"]):::tier4
-    #randomization(["#무작위화"]):::tier2
-    #physics(["#물리학"]):::tier1
-    #calculus(["#미적분학"]):::tier2
-    #miller_rabin(["#밀러–라빈 소수 판별법"]):::tier3
     #half_plane_intersection(["#반평면 교집합"]):::tier4
-    #burnside(["#번사이드 보조정리"]):::tier3
-    #bayes(["#베이즈 정리"]):::tier3
     #voronoi(["#보로노이 다이어그램"]):::tier3
     #convex_hull(["#볼록 껍질"]):::tier3
     #point_in_convex_polygon(["#볼록 다각형 내부의 점 판정"]):::tier3
-    #exponentiation_by_squaring(["#분할 정복을 이용한 거듭제곱"]):::tier2
-    #pigeonhole_principle(["#비둘기집 원리"]):::tier1
-    #arithmetic(["#사칙연산"]):::tier0
-    #ternary_search(["#삼분 탐색"]):::tier2
-    #generating_function(["#생성 함수"]):::tier4
-    #birthday(["#생일 문제"]):::tier2
     #line_intersection(["#선분 교차 판정"]):::tier2
-    #linear_programming(["#선형 계획법"]):::tier4
-    #linear_algebra(["#선형대수학"]):::tier3
-    #primality_test(["#소수 판정"]):::tier1
-    #numerical_analysis(["#수치해석"]):::tier3
-    #math(["#수학"]):::tier1
     #sweeping(["#스위핑"]):::tier2
-    #sprague_grundy(["#스프라그–그런디 정리"]):::tier3
-    #duality(["#쌍대성"]):::tier4
-    #sieve(["#에라토스테네스의 체"]):::tier1
     #point_in_non_convex_polygon(["#오목 다각형 내부의 점 판정"]):::tier3
     #euler_characteristic(["#오일러 지표 (χ=V-E+F)"]):::tier3
-    #euler_phi(["#오일러 피 함수"]):::tier3
-    #euclidean(["#유클리드 호제법"]):::tier1
-    #discrete_kth_root(["#이산 k제곱근"]):::tier3
-    #discrete_log(["#이산 로그"]):::tier4
-    #discrete_sqrt(["#이산 제곱근"]):::tier4
-    #arbitrary_precision(["#임의 정밀도 / 큰 수 연산"]):::tier1
-    #number_theory(["#정수론"]):::tier1
-    #combinatorics(["#조합론"]):::tier2
-    #crt(["#중국인의 나머지 정리"]):::tier3
-    #lte(["#지수승강 보조정리"]):::tier4
-    #differential_cryptanalysis(["#차분 공격"]):::tier1
     #min_enclosing_circle(["#최소 외접원"]):::tier3
-    #statistics(["#통계학"]):::tier2
-    #flt(["#페르마의 소정리"]):::tier2
     #planar_graph(["#평면 그래프"]):::tier3
-    #inclusion_and_exclusion(["#포함 배제의 원리"]):::tier2
-    #pollard_rho(["#폴라드 로"]):::tier3
     #pythagoras(["#피타고라스 정리"]):::tier0
     #pick(["#픽의 정리"]):::tier2
-    #hackenbush(["#하켄부시 게임"]):::tier5
-    #probability(["#확률론"]):::tier2
-    #extended_euclidean(["#확장 유클리드 호제법"]):::tier3
     #rotating_calipers(["#회전하는 캘리퍼스"]):::tier3
-    #sparse_table(["#희소 배열"]):::tier3
 
     classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
     classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
@@ -588,7 +611,7 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-### 3-6. 동적계획법
+### 3-7. 동적계획법
 
 <pre class="mermaid">
     graph LR
