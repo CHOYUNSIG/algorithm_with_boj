@@ -8,18 +8,95 @@ banner:
     image: "/assets/images/banners/home.jpeg"
 ---
 
-<script>
-    const config = {
-      startOnLoad: true,
-      flowchart: { curve: 'monotoneX' },
-      securityLevel: 'loose',
-    };
-    mermaid.initialize(config);
-</script>
-
 ## 소개
 
-<a href="">APSwBT</a>(<u>A</u>lgorithm <u>P</u>roblem <u>S</u>olving <u>w</u>ith <u>B</u>eakjoon <u>T</u>ag)는 <a href="https://www.acmicpc.net/" target="_blank">백준</a>과 <a href="https://solved.ac/" target="_blank">솔브드</a>의 모든 태그의 카테고리를 분류하고 난이도 별로 정리한 블로그입니다. 각 태그의 색깔은 해당 태그가 쓰인 문제들의 평균 티어를 나타내며, 빨간색 배지가 있는 태그를 클릭하시면 관련 포스트로 이동하실 수 있습니다. 블로그의 모든 글은 <a href="https://github.com/CHOYUNSIG" target="_blank">CHOYUNSIG</a>이 작성하였으며, 오타 및 내용 상의 오류나 개선 사항이 있을 경우 의견을 남겨주시면 수정하도록 하겠습니다.
+<a href="">APSwBT</a>(<u>A</u>lgorithm <u>P</u>roblem <u>S</u>olving <u>w</u>ith <u>B</u>eakjoon <u>T</u>ag)는 <a href="https://www.acmicpc.net/" target="_blank">백준</a>과 <a href="https://solved.ac/" target="_blank">솔브드</a>의 모든 태그의 카테고리를 분류하고 난이도 별로 정리한 블로그입니다. 
+
+<pre class="mermaid">
+    graph LR
+
+    home --> paradigm
+    home --> data_structure
+    home --> algorithm
+    home --> none
+    algorithm --> sorting_search
+    algorithm --> trees
+    algorithm --> graphs
+    algorithm --> strings
+    algorithm --> offline_query
+    algorithm --> math
+    algorithm --> dp
+    math --> number_theory
+    math --> geometry
+
+    subgraph Navigation
+        home
+        posts
+        tags
+    end
+
+    home(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="">Home</a>"]):::tier1
+    posts(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="archives.html">Posts</a>"]):::tier1
+    tags(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="tags.html">Tags</a>"]):::tier1
+    paradigm(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-1-패러다임">패러다임</a>"]):::tier2
+    data_structure(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-2-자료구조">자료구조</a>"]):::tier2
+    algorithm(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-알고리즘">알고리즘</a>"]):::tier2
+    sorting_search(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-1-정렬과-검색">정렬과 탐색</a>"]):::tier3
+    trees(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-2-트리">트리</a>"]):::tier3
+    graphs(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-3-그래프">그래프</a>"]):::tier3
+    strings(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-4-문자열">문자열</a>"]):::tier3
+    offline_query(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-5-오프라인-쿼리">오프라인 쿼리</a>"]):::tier3
+    math(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-6-수학">수학</a>"]):::tier3
+    dp(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-7-동적계획법">동적계획법</a>"]):::tier3
+    number_theory(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-6-1-정수론">정수론</a>"]):::tier3
+    geometry(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-6-2-기하">기하</a>"]):::tier3
+    none(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-a-미분류">미분류</a>"]):::tier0
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+</pre>
+
+빨간색 배지가 있는 태그를 클릭하시면 관련 포스트로 이동하실 수 있습니다. 
+
+<pre class="mermaid">
+    graph LR
+
+    bronze --> silver --> gold --> platinum --> diamond --> ruby
+
+    subgraph 쉬움
+        bronze
+        silver
+    end
+
+    subgraph 어려움
+        diamond
+        ruby
+    end
+
+    bronze([Bronze]):::tier0
+    silver([Silver]):::tier1
+    gold([Gold]):::tier2
+    platinum([Platinum]):::tier3
+    diamond([Diamond]):::tier4
+    ruby([Ruby]):::tier5
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
+</pre>
+
+각 태그의 색깔은 해당 태그가 사용된 백준 문제의 평균 솔브드 티어입니다.
+
+<div style="text-align: center; margin-bottom: 16px">
+    <img src="https://github-readme-solvedac.hyp3rflow.vercel.app/api/?handle=asdfghjkl46" width="80%">
+</div>
+
+블로그의 모든 글은 <b>조윤식</b>(깃허브: <a href="https://github.com/CHOYUNSIG" target="_blank">CHOYUNSIG</a>, 솔브드: <a href="https://solved.ac/profile/asdfghjkl46" target="_blank">asdfghjkl46</a>)이 작성하였습니다. 오타 및 내용 상의 오류나 개선 사항이 있을 경우 의견을 보내주세요.
 
 ## 1. 패러다임
 
@@ -157,9 +234,6 @@ banner:
     #trees --> #centroid
     #priority_queue --> #cartesian_tree
     #lca --> #link_cut_tree
-    #disjoint_set --> #offline_dynamic_connectivity
-    #disjoint_set --> #smaller_to_larger
-    #disjoint_set <--> #tree_compression
     #centroid --> #centroid_decomposition
     #centroid --> #tree_isomorphism
     #splay_tree --> #link_cut_tree
@@ -172,9 +246,12 @@ banner:
     #segtree --> #hld
     #segtree --> #offline_dynamic_connectivity
     #lazyprop --> #link_cut_tree
-    #hld <--> #tree_compression
     #hld <--> #tree_decomposition
+    #hld <--> #tree_compression
     #centroid_decomposition <--> #tree_decomposition
+    #disjoint_set --> #offline_dynamic_connectivity
+    #disjoint_set --> #smaller_to_larger
+    #disjoint_set <--> #tree_compression
 
     subgraph 이진 검색 트리
         #splay_tree
