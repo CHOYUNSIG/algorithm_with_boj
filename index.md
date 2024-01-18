@@ -8,6 +8,15 @@ banner:
     image: "/assets/images/banners/home.jpeg"
 ---
 
+<script>
+    const config = {
+      startOnLoad: true,
+      flowchart: { curve: 'monotoneX' },
+      securityLevel: 'loose',
+    };
+    mermaid.initialize(config);
+  </script>
+
 ## 1. 패러다임
 
 <pre class="mermaid">
@@ -22,12 +31,19 @@ banner:
 
     Paradigm((패러다임))
 
-    #greedy(["#그리디 알고리즘"])
-    #dp(["#다이나믹 프로그래밍"])
-    #backtracking(["#백트래킹"])
-    #divide_and_conquer(["#분할 정복"])
-    #bruteforcing(["#브루트포스 알고리즘"])
-    #heuristics(["#휴리스틱"])
+    #greedy(["#그리디 알고리즘"]):::tier1
+    #dp(["#다이나믹 프로그래밍"]):::tier2
+    #backtracking(["#백트래킹"]):::tier1
+    #divide_and_conquer(["#분할 정복"]):::tier3
+    #bruteforcing(["#브루트포스 알고리즘"]):::tier1
+    #heuristics(["#휴리스틱"]):::tier2
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
 <br>
@@ -44,11 +60,11 @@ banner:
     #data_structures --> #linked_list
     #data_structures --> #graphs
     #data_structures --> #trees
-    #data_structures --> #hash_set
-    #graphs --> #graph_traversal
     #trees --> #priority_queue
     #trees --> #tree_set
     #trees --> #segtree
+    #data_structures --> #hash_set
+    #graphs --> #graph_traversal
     #graph_traversal --> #dfs
     #graph_traversal --> #bfs
     #recursion --> #dfs
@@ -63,32 +79,36 @@ banner:
 
     subgraph 비선형
         #graphs
-        #graph_traversal
-        #dfs
-        #bfs
         #segtree
         #priority_queue
         #trees
         #tree_set
     end
 
-    #graphs(["#그래프 이론"])
-    #graph_traversal(["#그래프 탐색"])
-    #dfs(["#깊이 우선 탐색"])
-    #bfs(["#너비 우선 탐색"])
-    #deque(["#덱"])
-    #string(["#문자열"])
-    #segtree(["<a href="post/2024/01/11/segtree.html">#세그먼트 트리</a>"])
-    #stack(["#스택"])
-    #linked_list(["#연결 리스트"])
-    #priority_queue(["<a href="post/2024/01/15/priority_queue.html">#우선순위 큐</a>"])
-    #data_structures(["#자료 구조"])
-    #recursion(["#재귀"])
-    #queue(["#큐"])
-    #trees(["#트리"])
-    #tree_set(["#트리를 사용한 집합과 맵"])
-    #hash_set(["#해시를 사용한 집합과 맵"])
-    #hashing(["#해싱"])
+    #graphs(["#그래프 이론"]):::tier2
+    #graph_traversal(["#그래프 탐색"]):::tier2
+    #dfs(["#깊이 우선 탐색"]):::tier2
+    #bfs(["#너비 우선 탐색"]):::tier2
+    #deque(["#덱"]):::tier2
+    #string(["#문자열"]):::tier0
+    #segtree(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/11/segtree.html">#세그먼트 트리</a>"]):::tier3
+    #stack(["#스택"]):::tier1
+    #linked_list(["#연결 리스트"]):::tier2
+    #priority_queue(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/15/priority_queue.html">#우선순위 큐</a>"]):::tier2
+    #data_structures(["#자료 구조"]):::tier2
+    #recursion(["#재귀"]):::tier1
+    #queue(["#큐"]):::tier1
+    #trees(["#트리"]):::tier2
+    #tree_set(["#트리를 사용한 집합과 맵"]):::tier2
+    #hash_set(["#해시를 사용한 집합과 맵"]):::tier1
+    #hashing(["#해싱"]):::tier3
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
 <br>
@@ -104,10 +124,17 @@ banner:
     #binary_search --> #parametric_search
     #parametric_search --> #pbs
 
-    #parametric_search(["#매개 변수 탐색"])
-    #pbs(["#병렬 이분 탐색"])
-    #binary_search(["#이분 탐색"])
-    #sorting(["#정렬"])
+    #parametric_search(["#매개 변수 탐색"]):::tier2
+    #pbs(["#병렬 이분 탐색"]):::tier4
+    #binary_search(["#이분 탐색"]):::tier2
+    #sorting(["#정렬"]):::tier1
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
 ### 3-1. 트리
@@ -117,12 +144,11 @@ banner:
 
     #trees --> #splay_tree
     #trees --> #rb_tree
+    #trees --> #lca
     #trees --> #priority_queue
-    #trees --> #trie
     #trees --> #segtree
     #trees --> #euler_tour_technique
     #trees --> #disjoint_set
-    #trees --> #lca
     #trees --> #centroid
     #priority_queue --> #cartesian_tree
     #lca --> #link_cut_tree
@@ -150,30 +176,36 @@ banner:
         #rb_tree
     end
 
-    #hld(["#Heavy-light 분할"])
-    #lazyprop(["#느리게 갱신되는 세그먼트 트리"])
-    #multi_segtree(["#다차원 세그먼트 트리"])
-    #cartesian_tree(["#데카르트 트리"])
-    #rb_tree(["#레드-블랙 트리"])
-    #link_cut_tree(["#링크/컷 트리"])
-    #merge_sort_tree(["#머지 소트 트리"])
-    #disjoint_set(["<a href="post/2024/01/13/disjoint_set.html">#분리 집합</a>"])
-    #segtree(["<a href="post/2024/01/11/segtree.html">#세그먼트 트리</a>"])
-    #centroid(["#센트로이드"])
-    #centroid_decomposition(["#센트로이드 분할"])
-    #splay_tree(["#스플레이 트리"])
-    #euler_tour_technique(["#오일러 경로 테크닉"])
-    #offline_dynamic_connectivity(["#오프라인 동적 연결성 판정"])
-    #priority_queue(["<a href="post/2024/01/15/priority_queue.html">#우선순위 큐</a>"])
-    #smaller_to_larger(["#작은 집합에서 큰 집합으로 합치는 테크닉"])
-    #lca(["#최소 공통 조상"])
-    #top_tree(["#탑 트리"])
-    #trie(["<a href="post/2024/01/03/trie.html">#트라이</a>"])
-    #trees(["#트리"])
-    #tree_isomorphism(["#트리 동형 사상"])
-    #tree_decomposition(["#트리 분할"])
-    #tree_compression(["#트리 압축"])
-    #pst(["#퍼시스턴트 세그먼트 트리"])
+    #hld(["#Heavy-light 분할"]):::tier4
+    #lazyprop(["#느리게 갱신되는 세그먼트 트리"]):::tier3
+    #multi_segtree(["#다차원 세그먼트 트리"]):::tier3
+    #cartesian_tree(["#데카르트 트리"]):::tier4
+    #rb_tree(["#레드-블랙 트리"]):::tier5
+    #link_cut_tree(["#링크/컷 트리"]):::tier4
+    #merge_sort_tree(["#머지 소트 트리"]):::tier3
+    #disjoint_set(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/13/disjoint_set.html">#분리 집합</a>"]):::tier2
+    #segtree(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/11/segtree.html">#세그먼트 트리</a>"]):::tier3
+    #centroid(["#센트로이드"]):::tier4
+    #centroid_decomposition(["#센트로이드 분할"]):::tier4
+    #splay_tree(["#스플레이 트리"]):::tier4
+    #euler_tour_technique(["#오일러 경로 테크닉"]):::tier3
+    #offline_dynamic_connectivity(["#오프라인 동적 연결성 판정"]):::tier4
+    #priority_queue(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/15/priority_queue.html">#우선순위 큐</a>"]):::tier2
+    #smaller_to_larger(["#작은 집합에서 큰 집합으로 합치는 테크닉"]):::tier3
+    #lca(["#최소 공통 조상"]):::tier3
+    #top_tree(["#탑 트리"]):::tier5
+    #trees(["#트리"]):::tier2
+    #tree_isomorphism(["#트리 동형 사상"]):::tier3
+    #tree_decomposition(["#트리 분할"]):::tier4
+    #tree_compression(["#트리 압축"]):::tier3
+    #pst(["#퍼시스턴트 세그먼트 트리"]):::tier4
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
 ### 3-2. 그래프
@@ -186,11 +218,11 @@ banner:
     #graphs --> #bipartite_graph
     #graphs --> #general_matching
     #graphs --> #scc
+    #graphs --> #functional_graph
     #graphs --> #articulation
     #graphs --> #mst
     #graphs --> #tsp
     #graphs --> #dag
-    #graphs --> #functional_graph
     #graphs --> #chordal_graph
     #graphs --> #degree_sequence
     #graphs --> #dual_graph
@@ -215,48 +247,56 @@ banner:
     #mst --> #directed_mst
     #scc --> #2_sat
     #scc --> #permutation_cycle_decomposition
+    #functional_graph --> #permutation_cycle_decomposition
     #dijkstra --> #0_1_bfs
     #dijkstra --> #a_star
     #dag --> #topological_sorting
     #dag --> #lgv
 
-    #0_1_bfs(["#0-1 너비 우선 탐색"])
-    #2_sat(["#2-sat"])
-    #a_star(["#a*"])
-    #scc(["#강한 연결 요소"])
-    #graphs(["#그래프 이론"])
-    #articulation(["#단절점과 단절선"])
-    #dijkstra(["<a href="post/2024/01/01/dijkstra.html">#데이크스트라</a>"])
-    #dominator_tree(["#도미네이터 트리"])
-    #lgv(["#린드스트롬–게셀–비엔노 보조정리"])
-    #dag(["#방향 비순환 그래프"])
-    #bellman_ford(["<a href="post/2024/01/07/bellman_ford.html">#벨만–포드</a>"])
-    #circulation(["#서큘레이션"])
-    #cactus(["#선인장"])
-    #permutation_cycle_decomposition(["#순열 사이클 분할"])
-    #stoer_wagner(["#스토어–바그너"])
-    #dual_graph(["#쌍대 그래프"])
-    #stable_marriage(["#안정 결혼 문제"])
-    #eulerian_path(["#오일러 경로"])
-    #tsp(["#외판원 순회 문제"])
-    #topological_sorting(["#위상 정렬"])
-    #directed_mst(["#유향 최소 신장 트리"])
-    #bipartite_graph(["#이분 그래프"])
-    #bipartite_matching(["#이분 매칭"])
-    #biconnected_component(["#이중 연결 요소"])
-    #general_matching(["#일반적인 매칭"])
-    #degree_sequence(["#차수열"])
-    #shortest_path(["#최단 경로"])
-    #flow(["#최대 유량"])
-    #mfmc(["#최대 유량 최소 컷 정리"])
-    #mcmf(["#최소 비용 최대 유량"])
-    #mst(["#최소 스패닝 트리"])
-    #flood_fill(["#플러드 필"])
-    #floyd_warshall(["<a href="post/2024/01/07/floyd_warshall.html">#플로이드–워셜</a>"])
-    #functional_graph(["#함수형 그래프"])
-    #hungarian(["#헝가리안"])
-    #chordal_graph(["#현 그래프"])
-    #hall(["#홀의 결혼 정리"])
+    #0_1_bfs(["#0-1 너비 우선 탐색"]):::tier2
+    #2_sat(["#2-sat"]):::tier3
+    #a_star(["#a*"]):::tier5
+    #scc(["#강한 연결 요소"]):::tier3
+    #graphs(["#그래프 이론"]):::tier2
+    #articulation(["#단절점과 단절선"]):::tier3
+    #dijkstra(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/01/dijkstra.html">#데이크스트라</a>"]):::tier2
+    #dominator_tree(["#도미네이터 트리"]):::tier4
+    #lgv(["#린드스트롬–게셀–비엔노 보조정리"]):::tier5
+    #dag(["#방향 비순환 그래프"]):::tier2
+    #bellman_ford(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/07/bellman_ford.html">#벨만–포드</a>"]):::tier2
+    #circulation(["#서큘레이션"]):::tier4
+    #cactus(["#선인장"]):::tier3
+    #permutation_cycle_decomposition(["#순열 사이클 분할"]):::tier2
+    #stoer_wagner(["#스토어–바그너"]):::tier4
+    #dual_graph(["#쌍대 그래프"]):::tier4
+    #stable_marriage(["#안정 결혼 문제"]):::tier3
+    #eulerian_path(["#오일러 경로"]):::tier2
+    #tsp(["#외판원 순회 문제"]):::tier2
+    #topological_sorting(["#위상 정렬"]):::tier2
+    #directed_mst(["#유향 최소 신장 트리"]):::tier4
+    #bipartite_graph(["#이분 그래프"]):::tier2
+    #bipartite_matching(["#이분 매칭"]):::tier3
+    #biconnected_component(["#이중 연결 요소"]):::tier3
+    #general_matching(["#일반적인 매칭"]):::tier5
+    #degree_sequence(["#차수열"]):::tier2
+    #shortest_path(["#최단 경로"]):::tier2
+    #flow(["#최대 유량"]):::tier3
+    #mfmc(["#최대 유량 최소 컷 정리"]):::tier3
+    #mcmf(["#최소 비용 최대 유량"]):::tier3
+    #mst(["#최소 스패닝 트리"]):::tier2
+    #flood_fill(["#플러드 필"]):::tier2
+    #floyd_warshall(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/07/floyd_warshall.html">#플로이드–워셜</a>"]):::tier2
+    #functional_graph(["#함수형 그래프"]):::tier3
+    #hungarian(["#헝가리안"]):::tier3
+    #chordal_graph(["#현 그래프"]):::tier4
+    #hall(["#홀의 결혼 정리"]):::tier4
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
 ### 3-3. 문자열
@@ -264,34 +304,55 @@ banner:
 <pre class="mermaid">
     graph LR
 
-    #string --> #parsing
-    #string --> #kmp
-    #string --> #trie
+    #string --> #utf8
     #string --> #manacher
+    #string --> #palindrome_tree
+    #string --> #rope
+    #string --> #parsing
+    #string --> #trie
+    #string --> #kmp
     #string --> #rabin_karp
     #string --> #suffix_array
     #string --> #z
-    #string --> #utf8
-    #string --> #palindrome_tree
-    #string --> #rope
     #parsing --> #regex
     #trie --> #aho_corasick
     #trie --> #suffix_tree
 
-    #kmp(["#KMP"])
-    #utf8(["#utf-8 입력 처리"])
-    #z(["#z"])
-    #rabin_karp(["#라빈–카프"])
-    #rope(["#로프"])
-    #manacher(["#매내처"])
-    #string(["#문자열"])
-    #aho_corasick(["#아호-코라식"])
-    #suffix_array(["#접미사 배열과 LCP 배열"])
-    #suffix_tree(["#접미사 트리"])
-    #regex(["#정규 표현식"])
-    #trie(["<a href="post/2024/01/03/trie.html">#트라이</a>"])
-    #parsing(["#파싱"])
-    #palindrome_tree(["#회문 트리"])
+    subgraph 회문
+        #manacher
+        #palindrome_tree
+    end
+
+    subgraph 패턴매칭
+        #aho_corasick
+        #kmp
+        #rabin_karp
+        #suffix_array
+        #suffix_tree
+        #z
+    end
+
+    #kmp(["#KMP"]):::tier3
+    #utf8(["#utf-8 입력 처리"]):::tier0
+    #z(["#z"]):::tier3
+    #rabin_karp(["#라빈–카프"]):::tier3
+    #rope(["#로프"]):::tier4
+    #manacher(["#매내처"]):::tier3
+    #string(["#문자열"]):::tier0
+    #aho_corasick(["#아호-코라식"]):::tier3
+    #suffix_array(["#접미사 배열과 LCP 배열"]):::tier3
+    #suffix_tree(["#접미사 트리"]):::tier5
+    #regex(["#정규 표현식"]):::tier1
+    #trie(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/03/trie.html">#트라이</a>"]):::tier3
+    #parsing(["#파싱"]):::tier1
+    #palindrome_tree(["#회문 트리"]):::tier4
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
 ### 3-4. 오프라인 쿼리
@@ -301,24 +362,31 @@ banner:
 
     #offline_queries --> #sqrt_decomposition
     #offline_queries --> #prefix_sum
-    #offline_queries --> #majority_vote
     #offline_queries --> #two_pointer
+    #offline_queries --> #majority_vote
     #offline_queries --> #lis
     #two_pointer --> #mo
     #two_pointer --> #sliding_window
     #two_pointer --> #mitm
     #mitm --> #bidirectional_search
 
-    #mo(["#mo's"])
-    #lis(["#가장 긴 증가하는 부분 수열: O(n log n)"])
-    #prefix_sum(["#누적 합"])
-    #two_pointer(["#두 포인터"])
-    #majority_vote(["#보이어–무어 다수결 투표"])
-    #sliding_window(["#슬라이딩 윈도우"])
-    #bidirectional_search(["#양방향 탐색"])
-    #offline_queries(["#오프라인 쿼리"])
-    #sqrt_decomposition(["#제곱근 분할법"])
-    #mitm(["#중간에서 만나기"])
+    #mo(["#mo's"]):::tier3
+    #lis(["#가장 긴 증가하는 부분 수열: O(n log n)"]):::tier2
+    #prefix_sum(["#누적 합"]):::tier2
+    #two_pointer(["#두 포인터"]):::tier2
+    #majority_vote(["#보이어–무어 다수결 투표"]):::tier2
+    #sliding_window(["#슬라이딩 윈도우"]):::tier1
+    #bidirectional_search(["#양방향 탐색"]):::tier3
+    #offline_queries(["#오프라인 쿼리"]):::tier3
+    #sqrt_decomposition(["#제곱근 분할법"]):::tier3
+    #mitm(["#중간에서 만나기"]):::tier2
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
 ### 3-5. 수학
@@ -381,6 +449,7 @@ banner:
     #calculus --> #polynomial_interpolation
     #calculus --> #ternary_search
     #calculus --> #green
+    #fft --> #multipoint_evaluation
     #combinatorics --> #inclusion_and_exclusion
     #combinatorics --> #lucas
     #combinatorics --> #matroid
@@ -438,77 +507,85 @@ banner:
         #rotating_calipers
     end
 
-    #geometry_3d(["#3차원 기하학"])
-    #geometry_hyper(["#4차원 이상의 기하학"])
-    #gaussian_elimination(["#가우스 소거법"])
-    #coordinate_compression(["#값 / 좌표 압축"])
-    #game_theory(["#게임 이론"])
-    #gradient_descent(["#경사 하강법"])
-    #fft(["#고속 푸리에 변환"])
-    #green(["#그린 정리"])
-    #linearity_of_expectation(["#기댓값의 선형성"])
-    #geometry(["#기하학"])
-    #polygon_area(["#다각형의 넓이"])
-    #polynomial_interpolation(["#다항식 보간법"])
-    #simulated_annealing(["#담금질 기법"])
-    #delaunay(["#델로네 삼각분할"])
-    #geometric_boolean_operations(["#도형에서의 불 연산"])
-    #lucas(["#뤼카 정리"])
-    #matroid(["#매트로이드"])
-    #modular_multiplicative_inverse(["#모듈로 곱셈 역원"])
-    #mobius_inversion(["#뫼비우스 반전 공식"])
-    #randomization(["#무작위화"])
-    #physics(["#물리학"])
-    #calculus(["#미적분학"])
-    #miller_rabin(["#밀러–라빈 소수 판별법"])
-    #half_plane_intersection(["#반평면 교집합"])
-    #burnside(["#번사이드 보조정리"])
-    #bayes(["#베이즈 정리"])
-    #voronoi(["#보로노이 다이어그램"])
-    #convex_hull(["#볼록 껍질"])
-    #point_in_convex_polygon(["#볼록 다각형 내부의 점 판정"])
-    #exponentiation_by_squaring(["#분할 정복을 이용한 거듭제곱"])
-    #pigeonhole_principle(["#비둘기집 원리"])
-    #arithmetic(["#사칙연산"])
-    #ternary_search(["#삼분 탐색"])
-    #generating_function(["#생성 함수"])
-    #birthday(["#생일 문제"])
-    #line_intersection(["#선분 교차 판정"])
-    #linear_programming(["#선형 계획법"])
-    #linear_algebra(["#선형대수학"])
-    #primality_test(["#소수 판정"])
-    #numerical_analysis(["#수치해석"])
-    #math(["#수학"])
-    #sweeping(["#스위핑"])
-    #sprague_grundy(["#스프라그–그런디 정리"])
-    #duality(["#쌍대성"])
-    #sieve(["#에라토스테네스의 체"])
-    #point_in_non_convex_polygon(["#오목 다각형 내부의 점 판정"])
-    #euler_characteristic(["#오일러 지표 (χ=V-E+F)"])
-    #euler_phi(["#오일러 피 함수"])
-    #euclidean(["#유클리드 호제법"])
-    #discrete_kth_root(["#이산 k제곱근"])
-    #discrete_log(["#이산 로그"])
-    #discrete_sqrt(["#이산 제곱근"])
-    #arbitrary_precision(["#임의 정밀도 / 큰 수 연산"])
-    #number_theory(["#정수론"])
-    #combinatorics(["#조합론"])
-    #crt(["#중국인의 나머지 정리"])
-    #lte(["#지수승강 보조정리"])
-    #differential_cryptanalysis(["#차분 공격"])
-    #min_enclosing_circle(["#최소 외접원"])
-    #statistics(["#통계학"])
-    #flt(["#페르마의 소정리"])
-    #planar_graph(["#평면 그래프"])
-    #inclusion_and_exclusion(["#포함 배제의 원리"])
-    #pollard_rho(["#폴라드 로"])
-    #pythagoras(["#피타고라스 정리"])
-    #pick(["#픽의 정리"])
-    #hackenbush(["#하켄부시 게임"])
-    #probability(["#확률론"])
-    #extended_euclidean(["#확장 유클리드 호제법"])
-    #rotating_calipers(["#회전하는 캘리퍼스"])
-    #sparse_table(["#희소 배열"])
+    #geometry_3d(["#3차원 기하학"]):::tier1
+    #geometry_hyper(["#4차원 이상의 기하학"]):::tier2
+    #gaussian_elimination(["#가우스 소거법"]):::tier3
+    #coordinate_compression(["#값 / 좌표 압축"]):::tier2
+    #game_theory(["#게임 이론"]):::tier2
+    #gradient_descent(["#경사 하강법"]):::tier3
+    #fft(["#고속 푸리에 변환"]):::tier4
+    #green(["#그린 정리"]):::tier4
+    #linearity_of_expectation(["#기댓값의 선형성"]):::tier2
+    #geometry(["#기하학"]):::tier1
+    #polygon_area(["#다각형의 넓이"]):::tier2
+    #multipoint_evaluation(["#다중 대입값 계산"]):::tier5
+    #polynomial_interpolation(["#다항식 보간법"]):::tier4
+    #simulated_annealing(["#담금질 기법"]):::tier3
+    #delaunay(["#델로네 삼각분할"]):::tier5
+    #geometric_boolean_operations(["#도형에서의 불 연산"]):::tier5
+    #lucas(["#뤼카 정리"]):::tier3
+    #matroid(["#매트로이드"]):::tier5
+    #modular_multiplicative_inverse(["#모듈로 곱셈 역원"]):::tier2
+    #mobius_inversion(["#뫼비우스 반전 공식"]):::tier4
+    #randomization(["#무작위화"]):::tier2
+    #physics(["#물리학"]):::tier1
+    #calculus(["#미적분학"]):::tier2
+    #miller_rabin(["#밀러–라빈 소수 판별법"]):::tier3
+    #half_plane_intersection(["#반평면 교집합"]):::tier4
+    #burnside(["#번사이드 보조정리"]):::tier3
+    #bayes(["#베이즈 정리"]):::tier3
+    #voronoi(["#보로노이 다이어그램"]):::tier3
+    #convex_hull(["#볼록 껍질"]):::tier3
+    #point_in_convex_polygon(["#볼록 다각형 내부의 점 판정"]):::tier3
+    #exponentiation_by_squaring(["#분할 정복을 이용한 거듭제곱"]):::tier2
+    #pigeonhole_principle(["#비둘기집 원리"]):::tier1
+    #arithmetic(["#사칙연산"]):::tier0
+    #ternary_search(["#삼분 탐색"]):::tier2
+    #generating_function(["#생성 함수"]):::tier4
+    #birthday(["#생일 문제"]):::tier2
+    #line_intersection(["#선분 교차 판정"]):::tier2
+    #linear_programming(["#선형 계획법"]):::tier4
+    #linear_algebra(["#선형대수학"]):::tier3
+    #primality_test(["#소수 판정"]):::tier1
+    #numerical_analysis(["#수치해석"]):::tier3
+    #math(["#수학"]):::tier1
+    #sweeping(["#스위핑"]):::tier2
+    #sprague_grundy(["#스프라그–그런디 정리"]):::tier3
+    #duality(["#쌍대성"]):::tier4
+    #sieve(["#에라토스테네스의 체"]):::tier1
+    #point_in_non_convex_polygon(["#오목 다각형 내부의 점 판정"]):::tier3
+    #euler_characteristic(["#오일러 지표 (χ=V-E+F)"]):::tier3
+    #euler_phi(["#오일러 피 함수"]):::tier3
+    #euclidean(["#유클리드 호제법"]):::tier1
+    #discrete_kth_root(["#이산 k제곱근"]):::tier3
+    #discrete_log(["#이산 로그"]):::tier4
+    #discrete_sqrt(["#이산 제곱근"]):::tier4
+    #arbitrary_precision(["#임의 정밀도 / 큰 수 연산"]):::tier1
+    #number_theory(["#정수론"]):::tier1
+    #combinatorics(["#조합론"]):::tier2
+    #crt(["#중국인의 나머지 정리"]):::tier3
+    #lte(["#지수승강 보조정리"]):::tier4
+    #differential_cryptanalysis(["#차분 공격"]):::tier1
+    #min_enclosing_circle(["#최소 외접원"]):::tier3
+    #statistics(["#통계학"]):::tier2
+    #flt(["#페르마의 소정리"]):::tier2
+    #planar_graph(["#평면 그래프"]):::tier3
+    #inclusion_and_exclusion(["#포함 배제의 원리"]):::tier2
+    #pollard_rho(["#폴라드 로"]):::tier3
+    #pythagoras(["#피타고라스 정리"]):::tier0
+    #pick(["#픽의 정리"]):::tier2
+    #hackenbush(["#하켄부시 게임"]):::tier5
+    #probability(["#확률론"]):::tier2
+    #extended_euclidean(["#확장 유클리드 호제법"]):::tier3
+    #rotating_calipers(["#회전하는 캘리퍼스"]):::tier3
+    #sparse_table(["#희소 배열"]):::tier3
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
 ### 3-6. 동적계획법
@@ -547,65 +624,61 @@ banner:
         #hirschberg
     end
 
-    #alien(["#Aliens 트릭"])
-    #dp(["#다이나믹 프로그래밍"])
-    #monotone_queue_optimization(["#단조 큐를 이용한 최적화"])
-    #deque_trick(["#덱을 이용한 구간 최댓값 트릭"])
-    #dp_deque(["#덱을 이용한 다이나믹 프로그래밍"])
-    #knapsack(["#배낭 문제"])
-    #berlekamp_massey(["#벌리캠프–매시"])
-    #cht(["#볼록 껍질을 이용한 최적화"])
-    #dp_sum_over_subsets(["#부분집합의 합 다이나믹 프로그래밍"])
-    #divide_and_conquer_optimization(["#분할 정복을 사용한 최적화"])
-    #bitset(["#비트 집합"])
-    #bitmask(["#비트마스킹"])
-    #dp_bitfield(["#비트필드를 이용한 다이나믹 프로그래밍"])
-    #dp_digit(["#자릿수를 이용한 다이나믹 프로그래밍"])
-    #dp_connection_profile(["#커넥션 프로파일을 이용한 다이나믹 프로그래밍"])
-    #knuth(["#크누스 최적화"])
-    #kitamasa(["#키타마사"])
-    #dp_tree(["#트리에서의 다이나믹 프로그래밍"])
-    #slope_trick(["#함수 개형을 이용한 최적화"])
-    #hirschberg(["#히르쉬버그"])
+    #alien(["#Aliens 트릭"]):::tier4
+    #dp(["#다이나믹 프로그래밍"]):::tier2
+    #monotone_queue_optimization(["#단조 큐를 이용한 최적화"]):::tier4
+    #deque_trick(["#덱을 이용한 구간 최댓값 트릭"]):::tier3
+    #dp_deque(["#덱을 이용한 다이나믹 프로그래밍"]):::tier3
+    #knapsack(["#배낭 문제"]):::tier2
+    #berlekamp_massey(["#벌리캠프–매시"]):::tier3
+    #cht(["#볼록 껍질을 이용한 최적화"]):::tier3
+    #dp_sum_over_subsets(["#부분집합의 합 다이나믹 프로그래밍"]):::tier4
+    #divide_and_conquer_optimization(["#분할 정복을 사용한 최적화"]):::tier4
+    #bitset(["#비트 집합"]):::tier3
+    #bitmask(["#비트마스킹"]):::tier2
+    #dp_bitfield(["#비트필드를 이용한 다이나믹 프로그래밍"]):::tier3
+    #dp_digit(["#자릿수를 이용한 다이나믹 프로그래밍"]):::tier3
+    #dp_connection_profile(["#커넥션 프로파일을 이용한 다이나믹 프로그래밍"]):::tier4
+    #knuth(["#크누스 최적화"]):::tier4
+    #kitamasa(["#키타마사"]):::tier4
+    #dp_tree(["#트리에서의 다이나믹 프로그래밍"]):::tier3
+    #slope_trick(["#함수 개형을 이용한 최적화"]):::tier4
+    #hirschberg(["#히르쉬버그"]):::tier4
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-## 4. 부록
-
-### 4-1. 구현
+## A. 미분류
 
 <pre class="mermaid">
     graph LR
 
-    #implementation --> #multipoint_evaluation
     #implementation --> #case_work
     #implementation --> #simulation
-
-    #implementation(["#구현"])
-    #multipoint_evaluation(["#다중 대입값 계산"])
-    #case_work(["#많은 조건 분기"])
-    #simulation(["#시뮬레이션"])
-</pre>
-
-### 4-2. 백트래킹 최적화
-
-<pre class="mermaid">
-    graph LR
-
     #backtracking --> #precomputation
     #backtracking --> #dancing_links
     #dancing_links --> #knuth_x
+    #constructive <--> #ad_hoc
 
-    #precomputation(["#런타임 전의 전처리"])
-    #backtracking(["#백트래킹"])
-    #dancing_links(["#춤추는 링크"])
-    #knuth_x(["#크누스 X"])
-</pre>
+    #implementation(["#구현"]):::tier0
+    #precomputation(["#런타임 전의 전처리"]):::tier1
+    #case_work(["#많은 조건 분기"]):::tier1
+    #backtracking(["#백트래킹"]):::tier1
+    #simulation(["#시뮬레이션"]):::tier0
+    #ad_hoc(["#애드 혹"]):::tier2
+    #dancing_links(["#춤추는 링크"]):::tier4
+    #knuth_x(["#크누스 X"]):::tier4
+    #constructive(["#해 구성하기"]):::tier2
 
-### 4-3. 발상
-
-<pre class="mermaid">
-    graph LR
-
-    #ad_hoc(["#애드 혹"])
-    #constructive(["#해 구성하기"])
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>

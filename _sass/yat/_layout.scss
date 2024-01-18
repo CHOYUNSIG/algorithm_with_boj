@@ -872,13 +872,22 @@ a:visited .post-badges .post-badge.badge-new {
       color: #888 !important;
     }
   }
+
+  .nodeLabel {
+    font-family: $base-font-family;
+  }
+
+  a {
+    color: white;
+    font-weight: bold;
+  }
 }
 
 .flowchart-link {
-  stroke: #888 !important;
+  stroke: #555 !important;
 }
 
 .marker {
-  fill: #888 !important;
-  stroke: #888 !important;
+  fill: #555 !important;
+  stroke: #555 !important;
 }
