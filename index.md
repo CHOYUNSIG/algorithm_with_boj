@@ -100,7 +100,7 @@ banner:
 
 블로그의 모든 글은 <b>조윤식</b>(깃허브: <a href="https://github.com/CHOYUNSIG" target="_blank">CHOYUNSIG</a>, 솔브드: <a href="https://solved.ac/profile/asdfghjkl46" target="_blank">asdfghjkl46</a>)이 작성하였습니다. 오타 및 내용 상의 오류나 개선 사항이 있을 경우 의견을 보내주세요.
 
-<hr style="margin-bottom: 16pt">
+<hr style="margin-top: 50pt; margin-bottom: 50pt">
 
 ## 1. 패러다임
 
@@ -132,7 +132,7 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-<hr style="margin-bottom: 16pt">
+<hr style="margin-top: 50pt; margin-bottom: 50pt">
 
 ## 2. 자료구조
 
@@ -197,7 +197,7 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-<hr style="margin-bottom: 16pt">
+<hr style="margin-top: 50pt; margin-bottom: 50pt">
 
 ## 3. 알고리즘
 
@@ -756,7 +756,7 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-<hr style="margin-bottom: 16pt">
+<hr style="margin-top: 50pt; margin-bottom: 50pt">
 
 ## A. 미분류
 
