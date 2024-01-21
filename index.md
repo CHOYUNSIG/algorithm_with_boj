@@ -600,7 +600,6 @@ banner:
 
     #number_theory --> #crt
     #number_theory --> #euler_phi
-    #number_theory --> #modular_multiplicative_inverse
     #number_theory --> #euclidean
     #number_theory --> #flt
     #number_theory --> #primality_test
@@ -612,6 +611,7 @@ banner:
     #euclidean --> #extended_euclidean
     #euclidean --> #pollard_rho
     #miller_rabin --> #pollard_rho
+    #extended_euclidean --> #modular_multiplicative_inverse
 
     #modular_multiplicative_inverse(["#모듈로 곱셈 역원"]):::tier2
     #mobius_inversion(["#뫼비우스 반전 공식"]):::tier4
