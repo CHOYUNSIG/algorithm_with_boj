@@ -230,7 +230,6 @@ banner:
 
     #trees --> #splay_tree
     #trees --> #rb_tree
-    #trees --> #lca
     #trees --> #priority_queue
     #trees --> #segtree
     #trees --> #euler_tour_technique
@@ -242,20 +241,21 @@ banner:
     #centroid --> #tree_isomorphism
     #splay_tree --> #link_cut_tree
     #link_cut_tree --> #top_tree
-    #euler_tour_technique --> #hld
     #segtree --> #merge_sort_tree
     #segtree --> #lazyprop
     #segtree --> #pst
     #segtree --> #multi_segtree
     #segtree --> #hld
     #segtree --> #offline_dynamic_connectivity
+    #euler_tour_technique --> #hld
+    #euler_tour_technique --> #lca
     #lazyprop --> #link_cut_tree
-    #hld <--> #tree_decomposition
-    #hld <--> #tree_compression
-    #centroid_decomposition <--> #tree_decomposition
     #disjoint_set --> #offline_dynamic_connectivity
     #disjoint_set --> #smaller_to_larger
-    #disjoint_set <--> #tree_compression
+    #disjoint_set <--> #tree_compression 
+    #centroid_decomposition <--> #tree_decomposition 
+    #hld <--> #tree_compression
+    #hld <--> #tree_decomposition
 
     subgraph 이진 검색 트리
         #splay_tree
@@ -282,7 +282,7 @@ banner:
     #centroid(["#센트로이드"]):::tier4
     #centroid_decomposition(["#센트로이드 분할"]):::tier4
     #splay_tree(["#스플레이 트리"]):::tier4
-    #euler_tour_technique(["#오일러 경로 테크닉"]):::tier3
+    #euler_tour_technique(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/18/euler_tour_technique.html">#오일러 경로 테크닉</a>"]):::tier3
     #offline_dynamic_connectivity(["#오프라인 동적 연결성 판정"]):::tier4
     #priority_queue(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/15/priority_queue.html">#우선순위 큐</a>"]):::tier2
     #smaller_to_larger(["#작은 집합에서 큰 집합으로 합치는 테크닉"]):::tier3

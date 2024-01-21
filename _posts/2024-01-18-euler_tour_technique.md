@@ -1,0 +1,172 @@
+---
+layout: post
+title: 오일러 경로 테크닉(Euler Tour Technique)
+subtitle: 트리를 선형 자료구조로 접근하는 방법
+author: CHOYUNSIG
+categories: post
+banner:
+  video: null
+  loop: true
+  volume: 0
+  start_at: 0
+  image: https://images.unsplash.com/photo-1460317442991-0ec209397118?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  opacity: 1.0
+  background: "rgba(0, 0, 0, 0.8)"
+  height: null
+  min_height: null
+  heading_style: null
+  subheading_style: null
+tags: 트리(trees) 오일러_경로_테크닉(euler_tour_technique)
+sidebar: null
+---
+
+## 소개
+
+트리는 비선형 자료구조다. 비선형이라고 함은 적어도 2차원 상에서 생각해야 한다는 것이다. 오일러 경로 테크닉은 비선형 자료구조인 트리를 다루기 쉬운 선형 자료구조로 환원하는 방법을 제시한다. 오일러 경로 테크닉이라고 해서 오일러 경로에 대한 정의나 오일러 경로를 구하는 알고리즘을 알 필요는 없다.
+
+## 원리
+
+오일러 경로 테크닉은 쉽게 말해서 DFS로 정점에 순서를 부여하고 그 순서대로 나열하는 것이다. 아래 트리를 오일러 경로 테크닉을 통해 정점에 순서를 부여해보자.
+
+<div style="column-count: 2">
+    <pre class="mermaid">
+        graph TD
+        A --> B
+        A --> C
+        A --> D
+        B --> E
+        B --> F
+        E --> G
+
+        A((A))
+        B((B))
+        C((C))
+        D((D))
+        E((E))
+        F((F))
+        G((G))
+    </pre>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Stirling_permutation_Euler_tour.svg/306px-Stirling_permutation_Euler_tour.svg.png" style="background-color: white">
+</div>
+
+위 트리를 옆의 그림과 같이 DFS 방식으로 순회하면서 각 노드에 총 두 개의 번호 $\text{in}$, $\text{out}$을 부여한다. $\text{in}$은 DFS를 하면서 노드에 방문한 순서이고, $\text{out}$은 해당 노드를 탈출하는 시점에서 다음으로 방문할 노드에 부여할 $\text{in}$ 번호이다. 번호를 전부 매기면 다음과 같이 될 것이다.
+
+|              | $\text A$ | $\text B$ | $\text C$ | $\text D$ | $\text E$ | $\text F$ | $\text G$ |
+| ---          | ---       | ---       | ---       | ---       | ---       | ---       | ---       |
+| $\text{in}$  | 0         | 1         | 5         | 6         | 2         | 4         | 3         |
+| $\text{out}$ | 7         | 5         | 6         | 7         | 4         | 5         | 4         |
+
+노드들을 $\text{in}$ 번호 순서대로 나열하고 배열을 만들어보자. 각 노드의 $\text{in}$ 번호가 이 배열에서의 인덱스와 일치한다.
+
+$$
+\left[\text{A, B, E ,G, F, C, D}\right]
+$$
+
+$\text{in}$ 번호와 $\text{out}$ 번호는 무엇을 의미할까? 신기하게도 어떠한 노드 $\text X$를 루트로 하는 서브 트리의 모든 노드는 $\text X$의 $\text{in}$ 번호와 $\text{out}$ 번호의 사이에 있다. 즉 $\text{in}$ 번호와 $\text{out}$ 번호는 서브 트리의 구간을 나타낸다. 예시로 노드 $\text B$를 보자. 노드 $\text B$의 $\text{in}$ 번호와 $\text{out}$ 번호가 각각 1과 5이므로, $\text B$를 루트로 하는 서브 트리의 모든 노드들은 배열에서 1 이상 5 미만의 인덱스 구간에 있다. 이상($\le$)과 미만($<$)에 유의해야 한다.
+
+$$
+\text{A, [B, E ,G, F], C, D}
+$$
+
+<pre class="mermaid">
+    graph TD
+    A --> B
+    A --> C
+    A --> D
+    B --> E
+    B --> F
+    E --> G
+
+    A((A))
+    B((B)):::red
+    C((C))
+    D((D))
+    E((E)):::red
+    F((F)):::red
+    G((G)):::red
+
+    classDef red stroke:#F00, fill:#FEE
+</pre>
+
+오일러 경로 테크닉은 다시 해석하면 서브 트리들의 모든 노드들을 배열의 인접한 구간에 위치하도록 하는 것이다. 이렇게 만들면 서브 트리 및 조상 노드와 후손 노드 사이에 대한 쿼리를 세그먼트 트리 등을 적용해 쉽게 풀 수 있다.
+
+## 응용
+
+### 루트에서 경로 찾기
+
+트리의 어떤 노드에서부터 임의의 후손 노드까지의 경로를 찾아야 한다고 해보자. 후손 노드까지 가려면 수많은 자식 노드를 선택하면서 전진해야 할 것이다.
+
+<pre class="mermaid">
+    graph TD
+        A --> B
+        A --> C
+        A --> D
+
+    A((Parent))
+    B(("Child 1
+    in = w ~ out = x"))
+    C(("Child 2
+    in = x ~ out = y"))
+    D(("Child 3
+    in = y ~ out = z"))
+</pre>
+
+전진할 자식 노드를 선택하려면 자식 노드들의 $\text{in}$ 번호와 $\text{out}$ 번호가 나타내는 범위를 보면 된다. 탐색하는 노드의 $\text{in}$ 번호를 $m$이라고 하면 자식 노드 중 $m$을 범위에 포함하고 있는 노드로 전진한다. 왜냐하면 $\text{in} \le m < \text{out}$는 곧 그 노드를 서브 트리의 노드로 가지고 있다는 뜻이기 때문이다.
+
+<pre class="mermaid">
+    graph TD
+        A --> B
+        A --"if x <= m < y"--> C
+        A --> D
+
+    A((Parent))
+    B(("Child 1
+    in = w ~ out = x"))
+    C(("Child 2
+    in = x ~ out = y")):::red
+    D(("Child 3
+    in = y ~ out = z"))
+
+    classDef red stroke:#F00, fill:#FEE
+</pre>
+
+각 노드 안에서는 자식 노드들이 $\text{in}$ 번호 기준으로 정렬되어 있으므로 해당되는 자식 노드를 선택할 때 이분 탐색을 적용할 수 있다. 
+
+### 최소 공통 조상
+
+최소 공통 조상 문제는 트리의 어떠한 두 노드가 주어지면 해당 노드들의 가장 가까운 공통 조상을 찾는 문제이다. 이 문제는 오일러 경로 테크닉을 사용하여 $O(\log N)$ 시간만에 해결할 수 있다. 이에 대한 글은 추후에 작성한다.
+
+### 서브 트리에 대한 쿼리
+
+각 정점이 가중치를 지니고 있는 트리가 있다. 이 트리에서 다음과 같은 문제를 정의할 수 있다.
+
+> 다음 쿼리를 처리하는 프로그램을 작성하라.
+> 1. 임의의 노드를 루트로 하는 서브 트리의 모든 노드의 가중치의 합을 구한다.
+> 2. 임의의 노드의 가중치를 변경한다.
+
+1번 쿼리를 DFS로 해결하려 할 경우 매 쿼리마다 $O(N)$이므로 많은 시간이 걸릴 것이다. 이 문제는 오일러 경로 테크닉으로 만든 배열을 <a href="../../../2024/01/11/segtree.html">세그먼트 트리</a>로 관리하면 풀 수 있다. 임의의 노드의 서브 트리의 모든 노드들은 배열에서 해당 노드의 $\text{in}$ 번호와 $\text{out}$ 번호 사이에 있으므로 이를 배열에서의 구간 쿼리로 해석해 $O(\log N)$만에 쿼리를 수행할 수 있다.
+
+$$
+\text{A, [B, E ,G, F], C, D}
+$$
+
+<pre class="mermaid">
+    graph TD
+    A --> B
+    A --> C
+    A --> D
+    B --> E
+    B --> F
+    E --> G
+
+    A((A))
+    B((B)):::red
+    C((C))
+    D((D))
+    E((E)):::red
+    F((F)):::red
+    G((G)):::red
+
+    classDef red stroke:#F00, fill:#FEE
+</pre>
