@@ -286,7 +286,7 @@ banner:
     #offline_dynamic_connectivity(["#오프라인 동적 연결성 판정"]):::tier4
     #priority_queue(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/15/priority_queue.html">#우선순위 큐</a>"]):::tier2
     #smaller_to_larger(["#작은 집합에서 큰 집합으로 합치는 테크닉"]):::tier3
-    #lca(["#최소 공통 조상"]):::tier3
+    #lca(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/20/lca.html">#최소 공통 조상</a>"]):::tier3
     #top_tree(["#탑 트리"]):::tier5
     #trees(["#트리"]):::tier2
     #tree_isomorphism(["#트리 동형 사상"]):::tier3
