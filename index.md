@@ -104,15 +104,11 @@ banner:
 <pre class="mermaid">
     graph LR
     
-    Paradigm --> #divide_and_conquer
-    Paradigm --> #dp
-    Paradigm --> #bruteforcing
-    Paradigm --> #greedy
-    Paradigm --> #heuristics
+    #divide_and_conquer
+    #dp
     #bruteforcing --> #backtracking
-
-    Paradigm((문제 해결 패러다임)):::paradigm
-    classDef paradigm stroke:#0000
+    #greedy
+    #heuristics
 
     #greedy(["#그리디 알고리즘"]):::tier1
     #dp(["#다이나믹 프로그래밍"]):::tier2
