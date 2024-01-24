@@ -19,14 +19,13 @@ banner:
         home --> paradigm
         home --> data_structure
         home --> algorithm
-        home --> none
         algorithm --> sorting_search
         algorithm --> trees
         algorithm --> graphs
         algorithm --> strings
-        algorithm --> offline_query
         algorithm --> math
-        algorithm --> optimization
+        algorithm --> dp
+        algorithm --> others
         math --> number_theory
         math --> geometry
 
@@ -46,14 +45,12 @@ banner:
         trees(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-2-트리">트리</a>"]):::tier3
         graphs(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-3-그래프">그래프</a>"]):::tier3
         strings(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-4-문자열">문자열</a>"]):::tier3
-        offline_query(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-5-오프라인-쿼리">오프라인 쿼리</a>"]):::tier3
-        math(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-6-수학">수학</a>"]):::tier3
-        optimization(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-7-최적화-및-기법">최적화 및 기법</a>"]):::tier3
-        number_theory(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-6-1-정수론">정수론</a>"]):::tier3
-        geometry(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-6-2-기하">기하</a>"]):::tier3
-        none(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-a-미분류">미분류</a>"]):::tier0
+        math(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-5-수학">수학</a>"]):::tier3
+        dp(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-6-동적계획법">동적계획법</a>"]):::tier3
+        others(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-7-기타">기타</a>"]):::tier3
+        number_theory(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-5-1-정수론">정수론</a>"]):::tier3
+        geometry(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-5-2-기하">기하</a>"]):::tier3
 
-        classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
         classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
         classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
         classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
@@ -132,8 +129,6 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-<hr style="margin-top: 50pt; margin-bottom: 50pt">
-
 ## 2. 자료구조
 
 <pre class="mermaid">
@@ -196,8 +191,6 @@ banner:
     classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
-
-<hr style="margin-top: 50pt; margin-bottom: 50pt">
 
 ## 3. 알고리즘
 
@@ -445,41 +438,7 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-### 3-5. 오프라인 쿼리
-
-<pre class="mermaid">
-    graph LR
-
-    #offline_queries --> #sqrt_decomposition
-    #offline_queries --> #prefix_sum
-    #offline_queries --> #two_pointer
-    #offline_queries --> #majority_vote
-    #offline_queries --> #lis
-    #two_pointer --> #mo
-    #two_pointer --> #sliding_window
-    #two_pointer --> #mitm
-    #mitm --> #bidirectional_search
-
-    #mo(["#mo's"]):::tier3
-    #lis(["#가장 긴 증가하는 부분 수열: O(n log n)"]):::tier2
-    #prefix_sum(["#누적 합"]):::tier2
-    #two_pointer(["#두 포인터"]):::tier2
-    #majority_vote(["#보이어–무어 다수결 투표"]):::tier2
-    #sliding_window(["#슬라이딩 윈도우"]):::tier1
-    #bidirectional_search(["#양방향 탐색"]):::tier3
-    #offline_queries(["#오프라인 쿼리"]):::tier3
-    #sqrt_decomposition(["#제곱근 분할법"]):::tier3
-    #mitm(["#중간에서 만나기"]):::tier2
-
-    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
-    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
-    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
-    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
-    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
-    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
-</pre>
-
-### 3-6. 수학
+### 3-5. 수학
 
 <pre class="mermaid">
     graph LR
@@ -575,7 +534,7 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-#### 3-6-1. 정수론
+#### 3-5-1. 정수론
 
 <pre class="mermaid">
     graph LR
@@ -617,7 +576,7 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-#### 3-6-2. 기하
+#### 3-5-2. 기하
 
 <pre class="mermaid">
     graph LR
@@ -671,16 +630,20 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-### 3-7. 최적화 및 기법
+### 3-6. 동적계획법
 
 <pre class="mermaid">
     graph LR
 
+    #dp --> #prefix_sum
+    #dp --> #lis
     #dp --> #knapsack
     #dp --> #dp_deque
     #dp --> #dp_digit
     #dp --> #dp_tree
-    #dp --> #bitmask
+    #dp --> #dp_connection_profile
+    #dp --> #dp_bitfield
+    #dp --> #dp_sum_over_subsets
     #dp --> #slope_trick
     #dp --> #cht
     #dp --> #divide_and_conquer_optimization
@@ -695,9 +658,6 @@ banner:
     #bitmask --> #dp_connection_profile
     #bitset --> #dp_bitfield
     #bitset --> #dp_sum_over_subsets
-    #backtracking --> #dancing_links
-    #dancing_links --> #knuth_x
-    #heuristics --> #simulated_annealing
 
     subgraph 점화식
         #alien
@@ -711,13 +671,13 @@ banner:
     end
 
     #alien(["#Aliens 트릭"]):::tier4
+    #lis(["#가장 긴 증가하는 부분 수열: O(n log n)"]):::tier2
+    #prefix_sum(["#누적 합"]):::tier2
     #dp(["#다이나믹 프로그래밍"]):::tier2
     #monotone_queue_optimization(["#단조 큐를 이용한 최적화"]):::tier4
-    #simulated_annealing(["#담금질 기법"]):::tier3
     #deque_trick(["#덱을 이용한 구간 최댓값 트릭"]):::tier3
     #dp_deque(["#덱을 이용한 다이나믹 프로그래밍"]):::tier3
     #knapsack(["#배낭 문제"]):::tier2
-    #backtracking(["#백트래킹"]):::tier1
     #berlekamp_massey(["#벌리캠프–매시"]):::tier3
     #cht(["#볼록 껍질을 이용한 최적화"]):::tier3
     #dp_sum_over_subsets(["#부분집합의 합 다이나믹 프로그래밍"]):::tier4
@@ -726,14 +686,11 @@ banner:
     #bitmask(["#비트마스킹"]):::tier2
     #dp_bitfield(["#비트필드를 이용한 다이나믹 프로그래밍"]):::tier3
     #dp_digit(["#자릿수를 이용한 다이나믹 프로그래밍"]):::tier3
-    #dancing_links(["#춤추는 링크"]):::tier4
     #dp_connection_profile(["#커넥션 프로파일을 이용한 다이나믹 프로그래밍"]):::tier4
-    #knuth_x(["#크누스 X"]):::tier4
     #knuth(["#크누스 최적화"]):::tier4
     #kitamasa(["#키타마사"]):::tier4
     #dp_tree(["#트리에서의 다이나믹 프로그래밍"]):::tier3
     #slope_trick(["#함수 개형을 이용한 최적화"]):::tier4
-    #heuristics(["#휴리스틱"]):::tier2
     #hirschberg(["#히르쉬버그"]):::tier4
 
     classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
@@ -744,24 +701,44 @@ banner:
     classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
 </pre>
 
-<hr style="margin-top: 50pt; margin-bottom: 50pt">
-
-## A. 미분류
+### 3-7. 기타
 
 <pre class="mermaid">
     graph LR
 
+    #two_pointer --> #sliding_window
+    #two_pointer --> #mitm
+    #two_pointer --> #sqrt_decomposition
+    #two_pointer --> #mo
+    #offline_queries --> #mo
+    #mitm --> #bidirectional_search
+    #dancing_links --> #knuth_x
+    #heuristics --> #simulated_annealing
     #implementation --> #case_work
     #implementation --> #simulation
-    #constructive --> #precomputation
-    #constructive <--> #ad_hoc
+    #precomputation
+    #constructive
+    #ad_hoc
+    #majority_vote
 
+    #mo(["#mo's"]):::tier3
     #implementation(["#구현"]):::tier0
+    #simulated_annealing(["#담금질 기법"]):::tier3
+    #two_pointer(["#두 포인터"]):::tier2
     #precomputation(["#런타임 전의 전처리"]):::tier1
     #case_work(["#많은 조건 분기"]):::tier1
+    #majority_vote(["#보이어–무어 다수결 투표"]):::tier2
+    #sliding_window(["#슬라이딩 윈도우"]):::tier1
     #simulation(["#시뮬레이션"]):::tier0
     #ad_hoc(["#애드 혹"]):::tier2
+    #bidirectional_search(["#양방향 탐색"]):::tier3
+    #offline_queries(["#오프라인 쿼리"]):::tier3
+    #sqrt_decomposition(["#제곱근 분할법"]):::tier3
+    #mitm(["#중간에서 만나기"]):::tier2
+    #dancing_links(["#춤추는 링크"]):::tier4
+    #knuth_x(["#크누스 X"]):::tier4
     #constructive(["#해 구성하기"]):::tier2
+    #heuristics(["#휴리스틱"]):::tier2
 
     classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
     classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
