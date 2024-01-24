@@ -235,6 +235,9 @@ banner:
     #trees --> #euler_tour_technique
     #trees --> #disjoint_set
     #trees --> #centroid
+    #trees --> #tree_compression
+    #trees --> #tree_decomposition
+    #trees --> #smaller_to_larger
     #priority_queue --> #cartesian_tree
     #lca --> #link_cut_tree
     #centroid --> #centroid_decomposition
@@ -251,23 +254,16 @@ banner:
     #euler_tour_technique --> #lca
     #lazyprop --> #link_cut_tree
     #disjoint_set --> #offline_dynamic_connectivity
-    #disjoint_set --> #smaller_to_larger
-    #disjoint_set <--> #tree_compression 
-    #centroid_decomposition <--> #tree_decomposition 
-    #hld <--> #tree_compression
-    #hld <--> #tree_decomposition
 
     subgraph 이진 검색 트리
         #splay_tree
         #rb_tree
     end
 
-    subgraph 세그먼트 트리
-        #segtree
-        #merge_sort_tree
-        #lazyprop
-        #pst
-        #multi_segtree
+    subgraph 기법
+        #tree_compression
+        #tree_decomposition
+        #smaller_to_larger
     end
 
     #hld(["#Heavy-light 분할"]):::tier4
@@ -346,20 +342,6 @@ banner:
     #dijkstra --> #a_star
     #dag --> #topological_sorting
     #dag --> #lgv
-    
-    subgraph 최단 경로
-        #shortest_path
-        #dijkstra
-        #bellman_ford
-        #floyd_warshall
-    end
-
-    subgraph 유량 그래프
-        #flow
-        #mcmf
-        #mfmc
-        #bipartite_matching
-    end
 
     #0_1_bfs(["#0-1 너비 우선 탐색"]):::tier2
     #2_sat(["#2-sat"]):::tier3
