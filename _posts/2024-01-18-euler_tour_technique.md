@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 오일러 경로 테크닉(Euler Tour Technique)
-subtitle: 트리를 선형 자료구조로 접근하는 방법
+title: 오일러 경로 테크닉
+subtitle: Euler Tour Technique
 author: CHOYUNSIG
 categories: post
 banner:

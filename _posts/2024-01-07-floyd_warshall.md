@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 플로이드-워셜(Floyd-Warshall)
-subtitle: 그래프의 모든 정점 간의 최단 거리를 찾는 알고리즘
+title: 플로이드-워셜
+subtitle: Floyd-Warshall
 author: CHOYUNSIG
 categories: post
 banner:

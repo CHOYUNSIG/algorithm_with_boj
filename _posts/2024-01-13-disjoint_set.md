@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 분리 집합(Disjoint Set), Union-Find
-subtitle: 집합을 합치거나 같은 집합에 있는지를 판별하는 연산을 지원하는 자료구조
+title: 분리 집합, 서로소 집합, Union-Find
+subtitle: Disjoint Set, Union-Find
 author: CHOYUNSIG
 categories: post
 banner:

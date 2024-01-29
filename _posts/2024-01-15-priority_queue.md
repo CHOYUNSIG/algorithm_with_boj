@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 우선순위 큐(Priority Queue), 힙(Heap)
-subtitle: 우선순위 순서대로 나오는 큐
+title: 우선순위 큐, 힙
+subtitle: Priority Queue, Heap
 author: CHOYUNSIG
 categories: post
 banner:
