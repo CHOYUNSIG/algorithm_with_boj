@@ -256,7 +256,7 @@ banner:
     end
 
     #hld(["#Heavy-light 분할"]):::tier4
-    #lazyprop(["#느리게 갱신되는 세그먼트 트리"]):::tier3
+    #lazyprop(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/29/lazyprop.html">#느리게 갱신되는 세그먼트 트리</a>"]):::tier3
     #multi_segtree(["#다차원 세그먼트 트리"]):::tier3
     #cartesian_tree(["#데카르트 트리"]):::tier4
     #rb_tree(["#레드-블랙 트리"]):::tier5
