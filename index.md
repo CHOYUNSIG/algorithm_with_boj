@@ -632,7 +632,6 @@ banner:
     graph LR
 
     #dp --> #prefix_sum
-    #dp --> #lis
     #dp --> #knapsack
     #dp --> #dp_deque
     #dp --> #dp_digit
@@ -652,8 +651,8 @@ banner:
     #dp_deque --> #deque_trick
     #bitmask --> #bitset
     #bitmask --> #dp_connection_profile
-    #bitset --> #dp_bitfield
-    #bitset --> #dp_sum_over_subsets
+    #bitmask --> #dp_bitfield
+    #bitmask --> #dp_sum_over_subsets
 
     subgraph 점화식
         #alien
@@ -667,7 +666,6 @@ banner:
     end
 
     #alien(["#Aliens 트릭"]):::tier4
-    #lis(["#가장 긴 증가하는 부분 수열: O(n log n)"]):::tier2
     #prefix_sum(["#누적 합"]):::tier2
     #dp(["#다이나믹 프로그래밍"]):::tier2
     #monotone_queue_optimization(["#단조 큐를 이용한 최적화"]):::tier4
@@ -708,33 +706,86 @@ banner:
     #two_pointer --> #mo
     #offline_queries --> #mo
     #mitm --> #bidirectional_search
-    #dancing_links --> #knuth_x
-    #heuristics --> #simulated_annealing
-    #implementation --> #case_work
-    #implementation --> #simulation
-    #precomputation
-    #constructive
-    #ad_hoc
-    #majority_vote
-
+    
     #mo(["#mo's"]):::tier3
-    #implementation(["#구현"]):::tier0
-    #simulated_annealing(["#담금질 기법"]):::tier3
     #two_pointer(["#두 포인터"]):::tier2
-    #precomputation(["#런타임 전의 전처리"]):::tier1
-    #case_work(["#많은 조건 분기"]):::tier1
-    #majority_vote(["#보이어–무어 다수결 투표"]):::tier2
     #sliding_window(["#슬라이딩 윈도우"]):::tier1
-    #simulation(["#시뮬레이션"]):::tier0
-    #ad_hoc(["#애드 혹"]):::tier2
     #bidirectional_search(["#양방향 탐색"]):::tier3
     #offline_queries(["#오프라인 쿼리"]):::tier3
     #sqrt_decomposition(["#제곱근 분할법"]):::tier3
     #mitm(["#중간에서 만나기"]):::tier2
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
+</pre>
+
+<pre class="mermaid">
+    graph LR
+
+    #dancing_links --> #knuth_x
+
     #dancing_links(["#춤추는 링크"]):::tier4
     #knuth_x(["#크누스 X"]):::tier4
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
+</pre>
+
+<pre class="mermaid">
+    graph LR
+
+    #implementation --> #case_work
+    #implementation --> #simulation
+
+    #implementation(["#구현"]):::tier0
+    #case_work(["#많은 조건 분기"]):::tier1
+    #simulation(["#시뮬레이션"]):::tier0
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
+</pre>
+
+<pre class="mermaid">
+    graph TD
+
+    #majority_vote
+    #lis
+
+    #lis(["#가장 긴 증가하는 부분 수열: O(n log n)"]):::tier2
+    #majority_vote(["#보이어–무어 다수결 투표"]):::tier2
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
+</pre>
+
+<pre class="mermaid">
+    graph TD
+
+    #simulated_annealing
+    #constructive
+    #ad_hoc
+    #precomputation
+
+    #simulated_annealing(["#담금질 기법"]):::tier3
+    #precomputation(["#런타임 전의 전처리"]):::tier1
+    #ad_hoc(["#애드 혹"]):::tier2
     #constructive(["#해 구성하기"]):::tier2
-    #heuristics(["#휴리스틱"]):::tier2
 
     classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
     classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
