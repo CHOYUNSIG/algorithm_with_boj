@@ -170,3 +170,34 @@ $$
 
     classDef red stroke:#F00, fill:#FEE
 </pre>
+
+## 구현
+
+오일러 경로 테크닉은 결국 단순 DFS의 결과이므로 구현이 어렵지 않다. 아래 코드는 노드 객체에 오일러 경로 테크닉 함수를 구현한 것이다.
+
+```python
+class Node:
+    def __init__(self):
+        self.edge: list['Node'] = []  # 간선으로 연결된 다른 노드들
+        self.in_num = 0
+        self.out_num = 0
+
+    # 오일러 경로 테크닉으로 생성되는 리스트 반환
+    def euler_tour(self, array: list['Node'] = [], parent: 'Node' or None = None, num: int = 0) -> list['Node']:
+        self.in_num = num
+        self.out_num = num + 1
+        array.append(self)
+        for node in self.edge:
+            if node is not parent:
+                node.euler_tour(array, self, self.out_num)  # 재귀
+                self.out_num = node.out_num
+        return array
+
+
+# 두 노드의 연결
+def connect(a: Node, b: Node):
+    a.edge.append(b)
+    b.edge.append(a)
+```
+
+루트 노드의 `euler_tour` 함수를 호출하면 트리의 모든 노드의 `in_num`과 `out_num`이 계산되며 그로 인해 만들어지는 배열이 반환된다.
