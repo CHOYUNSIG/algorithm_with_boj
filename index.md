@@ -277,7 +277,7 @@ banner:
     #tree_isomorphism(["#트리 동형 사상"]):::tier3
     #tree_decomposition(["#트리 분할"]):::tier4
     #tree_compression(["#트리 압축"]):::tier3
-    #pst(["#퍼시스턴트 세그먼트 트리"]):::tier4
+    #pst(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/30/pst.html">#퍼시스턴트 세그먼트 트리</a>"]):::tier4
 
     classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
     classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
