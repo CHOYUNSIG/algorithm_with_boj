@@ -42,5 +42,17 @@
       })
     </script>
     {% endif %}
+
+    <script>
+      var postContentDiv = document.querySelector('div.post-content');
+      var tables = postContentDiv.querySelectorAll('table');
+      tables.forEach(function(table) {
+          var div = document.createElement('div');
+          div.style.overflow = 'auto';
+          div.style.marginBottom = '16px';
+          table.parentNode.replaceChild(div, table);
+          div.appendChild(table);
+      });
+    </script>
   </body>
 </html>
