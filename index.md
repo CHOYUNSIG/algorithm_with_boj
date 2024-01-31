@@ -221,14 +221,15 @@ banner:
     #trees --> #rb_tree
     #trees --> #priority_queue
     #trees --> #segtree
-    #trees --> #euler_tour_technique
     #trees --> #disjoint_set
+    #trees --> #euler_tour_technique
     #trees --> #centroid
     #trees --> #tree_compression
     #trees --> #tree_decomposition
     #trees --> #smaller_to_larger
     #priority_queue --> #cartesian_tree
     #lca --> #link_cut_tree
+    #lca --> #hld
     #centroid --> #centroid_decomposition
     #centroid --> #tree_isomorphism
     #splay_tree --> #link_cut_tree
@@ -237,9 +238,8 @@ banner:
     #segtree --> #lazyprop
     #segtree --> #pst
     #segtree --> #multi_segtree
-    #segtree --> #hld
     #segtree --> #offline_dynamic_connectivity
-    #euler_tour_technique --> #hld
+    #segtree --> #hld
     #euler_tour_technique --> #lca
     #lazyprop --> #link_cut_tree
     #disjoint_set --> #offline_dynamic_connectivity
@@ -255,7 +255,7 @@ banner:
         #smaller_to_larger
     end
 
-    #hld(["#Heavy-light 분할"]):::tier4
+    #hld(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/31/hld.html">#Heavy-light 분할</a>"]):::tier4
     #lazyprop(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/29/lazyprop.html">#느리게 갱신되는 세그먼트 트리</a>"]):::tier3
     #multi_segtree(["#다차원 세그먼트 트리"]):::tier3
     #cartesian_tree(["#데카르트 트리"]):::tier4

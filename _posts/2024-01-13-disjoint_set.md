@@ -16,7 +16,7 @@ banner:
   min_height: null
   heading_style: null
   subheading_style: null
-tags: 자료_구조(data_structures) 트리(trees) 분리_집합(disjoint_set)
+tags: 자료_구조(data_structures) 트리(trees) 트리_압축(tree_compression) 분리_집합(disjoint_set)
 sidebar: null
 ---
 
