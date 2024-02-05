@@ -13,7 +13,7 @@ banner:
 <a href="">APSwBT</a>(<u>A</u>lgorithm <u>P</u>roblem <u>S</u>olving <u>w</u>ith <u>B</u>eakjoon <u>T</u>ag)는 <a href="https://www.acmicpc.net/" target="_blank">백준</a>과 <a href="https://solved.ac/" target="_blank">솔브드</a>의 모든 태그의 카테고리를 분류하고 난이도 별로 정리한 블로그입니다. 
 
 <center>
-    <pre class="mermaid" style="max-width: 70%">
+    <pre class="mermaid">
         graph LR
 
         home --> paradigm
