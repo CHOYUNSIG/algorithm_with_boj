@@ -104,9 +104,9 @@ from copy import deepcopy
 
 
 # weight는 간선의 가중치를 나타내는 2차원 배열이다. 즉, 인접행렬이다.
-# weight[\text A][\text B]는 정점 a에서 b로 가는 간선의 가중치이다.
-# 정점 a에서 b로 가는 간선이 없다면 weight[\text A][\text B]는 INF이다.
-# a == b라면 weight[\text A][\text B]는 0이다.
+# weight[A][B]는 정점 a에서 b로 가는 간선의 가중치이다.
+# 정점 a에서 b로 가는 간선이 없다면 weight[A][B]는 INF이다.
+# a == b라면 weight[A][B]는 0이다.
 def floyd_warshall(weight: list[list[int]]) -> list[list[int]]:
     result = deepcopy(weight)
     for m in range(len(weight)):
