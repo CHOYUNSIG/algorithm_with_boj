@@ -359,7 +359,7 @@ banner:
     #general_matching(["#일반적인 매칭"]):::tier5
     #degree_sequence(["#차수열"]):::tier2
     #shortest_path(["#최단 경로"]):::tier2
-    #flow(["#최대 유량"]):::tier3
+    #flow(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/02/01/flow.html">#최대 유량</a>"]):::tier3
     #mfmc(["#최대 유량 최소 컷 정리"]):::tier3
     #mcmf(["#최소 비용 최대 유량"]):::tier3
     #mst(["#최소 스패닝 트리"]):::tier2
