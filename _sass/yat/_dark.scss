@@ -94,7 +94,6 @@ html[data-theme="dark"]  {
 
   .site-footer {
     color: #fff;
-    background-color: #000;
   }
 
   .left-vsplit:before {
@@ -134,6 +133,12 @@ html[data-theme="dark"]  {
       a {
         color: #ddd;
       }
+    }
+  }
+
+  .framework {
+    .post, .post-menu {
+      background-color: $dark-background-color;
     }
   }
 
@@ -221,6 +226,10 @@ html[data-theme="dark"]  {
 
   .search-result {
     color: #ddd
+  }
+
+  .theme-toggle label {
+    background-color: #0002;
   }
 }
 

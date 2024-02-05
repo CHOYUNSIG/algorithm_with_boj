@@ -93,7 +93,7 @@ html {
 
 .site-brand {
   line-height: $header-height;
-  margin-right: 50px;
+  margin-right: 20px;
 
   .site-brand-inner {
     @include relative-font-size(1.125);
@@ -115,7 +115,7 @@ html {
 
 .site-nav {
   @include relative-font-size(1.125);
-  line-height: $header-height;
+  line-height: 48px;
   position: absolute;
   right: 0;
   top: 0;
@@ -147,6 +147,7 @@ html {
   }
 
   @include media-query($on-laptop) {
+    line-height: 70px;
     position: absolute;
     top: 0;
     text-align: left;
@@ -195,9 +196,10 @@ html {
 .site-footer {
   @include relative-font-size(1.0);
   color: $footer-text-color;
-  background-color: $footer-background-color;
+  background-color: transparent;
   text-align: left;
   transition: background-color 0.2s;
+  z-index: 1;
 
   .site-footer-inner {
     transition: border-top 0.2s;
@@ -251,6 +253,7 @@ html {
  * Page content
  */
 .page-content {
+  z-index: 1;
   @extend %flex-1; /* <-- Keep footer on the bottom */
   -ms-flex: none; /* <-- Fix IE footer issue */
   //padding: $spacing-unit * 2 0;
@@ -599,19 +602,20 @@ html {
 .page-banner {
   display: block;
   position: relative;
-  background-color: $banner-background;
   transition: height 0.2s;
 
   .page-banner-img {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    background-attachment: fixed;
+    filter: brightness(80%);
 
     & > *:first-child {
       @include center-image;
       opacity: 0.8;
-      transition: 0.1s all ease-in-out;
+      transition: $base-transition-duration all ease-in-out;
     }
 
     & > video {
@@ -631,7 +635,7 @@ html {
   .page-banner-inner {
     position: relative;
     color: $banner-text-color;
-    padding: 80px 5px 50px 5px;
+    padding: 100px 20px 50px 20px;
     text-shadow: 2px 2px 5px #000000AA;
     word-break: keep-all;
 
@@ -725,7 +729,6 @@ html {
   }
 
   .sidebar {
-    max-width: 200px;
     padding-left: 8px;
     transition: top 0.2s, display 0.2s;
 
@@ -734,7 +737,16 @@ html {
     @include media-query($on-laptop) {
       display: none;
     }
+  }
 
+  .post, .post-menu {
+    padding: 15px;
+    border-radius: 20px;
+    background-color: $background-color;
+
+    @include media-query($on-laptop) {
+      padding: 10px;
+    }
   }
 }
 

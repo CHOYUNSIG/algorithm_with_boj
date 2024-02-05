@@ -1,10 +1,7 @@
 .theme-toggle {
   position: relative;
+  display: inline-block;
   width: $base-font-size * 7.65;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 60px;
-  margin-left: auto;
   transition: .3s cubic-bezier(.4,.03,0,1);
 
   label, .toggle {
@@ -13,7 +10,7 @@
 
   label {
     display: block;
-    background-color: rgba(120,120,120,.15);
+    background-color: #0008;
     cursor: pointer;
   }
 
@@ -40,7 +37,6 @@
   .names p {
     margin-bottom: 0;
     line-height: 24px;
-    opacity: .5;
   }
 
   label .light {
@@ -70,13 +66,8 @@
     color: #ccc;
   }
 
-  @include media-query(1024px) {
-    margin-right: 35px;
-  }
-
   @include media-query($on-palm) {
     width: $base-font-size * 6.65;
-    margin-right: 20px;
 
     .names {
       font-size: .85em;
