@@ -127,6 +127,15 @@
 
         {%- endif -%}
       </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var pageBannerInner = document.querySelector('.page-banner-inner');
+
+          window.addEventListener('scroll', function () {
+            pageBannerInner.style.opacity = Math.max((0.5 * window.innerHeight - window.scrollY) / (0.5 * window.innerHeight), 0);
+          });
+        });
+      </script>
     </div>
   </section>
 {%- endif -%}
