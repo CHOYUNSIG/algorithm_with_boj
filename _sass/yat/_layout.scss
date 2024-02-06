@@ -619,10 +619,12 @@ html {
 
   .wrapper {
     height: $banner-height;
+    min-height: $banner-min-height;
   }
 
   .page-banner-inner {
     height: $banner-height;
+    min-height: $banner-min-height;
     display: flex;
     flex-direction: column;
     justify-content: center;
