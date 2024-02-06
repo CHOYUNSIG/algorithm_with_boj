@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 분리 집합, 서로소 집합, Union-Find
-subtitle: Disjoint Set, Union-Find
+title: 분리 집합, 서로소 집합
+subtitle: Disjoint Set
 author: CHOYUNSIG
 categories: post
 banner:
