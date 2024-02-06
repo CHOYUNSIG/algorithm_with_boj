@@ -4,8 +4,6 @@
 
 layout: home
 title: Home
-banner:
-    image: "/assets/images/banners/home.jpeg"
 ---
 
 ## 소개

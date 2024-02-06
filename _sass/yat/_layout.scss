@@ -256,8 +256,6 @@ html {
   z-index: 1;
   @extend %flex-1; /* <-- Keep footer on the bottom */
   -ms-flex: none; /* <-- Fix IE footer issue */
-  //padding: $spacing-unit * 2 0;
-  //padding-top: 72px;
 }
 
 .page-heading {
@@ -275,15 +273,6 @@ html {
   .post-list {
     margin-left: 0;
     list-style: none;
-
-    > li {
-      margin-bottom: $spacing-unit * 1.5;
-      padding-bottom: 30px;
-
-      &:not(:last-child) {
-        border-bottom: 1px solid #e3e3e3;
-      }
-    }
   }
 
   .post-title {
@@ -629,11 +618,11 @@ html {
   }
 
   .wrapper {
-    height: 100vh;
+    height: $banner-height;
   }
 
   .page-banner-inner {
-    height: 100%;
+    height: $banner-height;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -743,23 +732,14 @@ html {
       display: none;
     }
   }
-
-  div.post-section, div.post-menu {
-    padding: 15px;
-    border-radius: 20px;
-    background-color: $background-color;
-    box-shadow: 2px 2px 10px #0005;
-  }
-
-  div.post-section {
-    padding: 20px;
-    margin-bottom: 30px;
-  }
-
 }
 
-#search-demo-container {
-  border: 1px solid #999;
+div.post-section, div.post-menu, .post-item, .search, .page-segments-section {
+  padding: 15px;
+  border-radius: 20px;
+  background-color: $background-color;
+  box-shadow: 2px 2px 10px #0005;
+  margin-bottom: 30px;
 }
 
 .search-result {
@@ -776,9 +756,33 @@ html {
  * Segments page
  */
 .page-segments {
+  column-count: 2;
+
+  @include media-query($on-laptop) {
+    column-count: 1;
+  }
+
   .page-segments-list {
     margin-left: 0;
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    .page-segments-section {
+      box-sizing: border-box;
+      max-width: 300px;
+      width: max-content;
+
+      @include media-query($on-laptop) {
+        max-width: calc(100vw - 50px);
+      }
+
+      li {
+        overflow: hidden;
+      }
+    }
   }
 
   .segment-name {
@@ -790,12 +794,6 @@ html {
 
     &:not(:first-child) {
       margin-top: 28px;
-    }
-
-    &:hover:before {
-      content: '#';
-      left: -1em;
-      position: absolute;
     }
   }
 
@@ -912,3 +910,4 @@ a:visited .post-badges .post-badge.badge-new {
   fill: #555 !important;
   stroke: #555 !important;
 }
+

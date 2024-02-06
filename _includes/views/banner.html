@@ -38,7 +38,7 @@
   </style>
   {%- endif -%}
 
-  <!--
+  {% comment %}
   {%- if banner_opacity -%}
   <style>
     html .page-banner .page-banner-img > *:first-child {
@@ -50,7 +50,7 @@
     }
   </style>
   {%- endif -%}
-  -->
+  {% endcomment %}
   {%- if banner_heading_style -%}
   <style>
     html .page-banner .page-banner-inner > *:first-child > *:nth-child(1) {
@@ -132,7 +132,7 @@
           var pageBannerInner = document.querySelector('.page-banner-inner');
 
           window.addEventListener('scroll', function () {
-            pageBannerInner.style.opacity = Math.max((0.5 * window.innerHeight - window.scrollY) / (0.5 * window.innerHeight), 0);
+            pageBannerInner.style.opacity = Math.max((0.26 * window.innerHeight - window.scrollY) / (0.25 * window.innerHeight), 0);
           });
         });
       </script>

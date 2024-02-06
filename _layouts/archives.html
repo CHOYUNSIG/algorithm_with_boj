@@ -1,9 +1,11 @@
 ---
 layout: articles
+banner:
+    image: "/assets/images/banners/home.jpeg"
 using_search: true
 ---
 
-<!--
+{% comment %}
 {%- if site.posts.size > 0 -%}
 
   {% include functions.html func='log' level='debug' msg='Get datetimes value' %}
@@ -17,7 +19,7 @@ using_search: true
   {% include views/segments.html %}
 
 {%- endif -%}
--->
+{% endcomment %}
 
 <div>
   {% include views/search.html %}

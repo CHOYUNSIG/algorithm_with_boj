@@ -41,7 +41,7 @@
               {%- endif -%}
             {%- endfor -%}
             
-            <!--
+            {% comment %}
             {%- assign name = 'translate_langs' -%}
             {%- include functions.html func='get_value' -%}
             {%- assign translate_langs = return -%}
@@ -53,7 +53,7 @@
                   {%- include extensions/google-translate.html -%}
               </span>
             {%- endif -%}
-            -->
+            {% endcomment %}
           </div>
         </nav>
       {%- endif -%}
