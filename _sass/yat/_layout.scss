@@ -744,15 +744,18 @@ html {
     }
   }
 
-  .post, .post-menu {
+  div.post-section, div.post-menu {
     padding: 15px;
     border-radius: 20px;
     background-color: $background-color;
-
-    @include media-query($on-laptop) {
-      padding: 10px;
-    }
+    box-shadow: 2px 2px 10px #0005;
   }
+
+  div.post-section {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+
 }
 
 #search-demo-container {

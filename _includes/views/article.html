@@ -5,5 +5,34 @@
       {{ content }}
 
     </div>
+    <script>
+      // 두 h2 태그 사이의 요소들을 div로 묶는 함수
+      function wrapElementsBetweenH2() {
+        // h2 태그들을 선택
+        var postContentDiv = document.querySelector('div.post-content');
+
+        // 첫 번째 h2 태그와 두 번째 h2 태그 사이의 요소들을 담을 div 생성
+        var divContainer = [];
+
+        // h2 태그와 다음 h2 태그 이전까지의 요소들을 div에 추가
+        while (postContentDiv.children.length > 0) {
+          var currentElement = postContentDiv.children[0];
+          if (currentElement.tagName.toLowerCase() === 'h2') {
+            var newDiv = document.createElement('div');
+            newDiv.classList.add('post-section');
+            divContainer.push(newDiv);
+          }
+          divContainer[divContainer.length - 1].appendChild(currentElement);
+        }
+
+        // div를 요소에 추가
+        for (var i = 0; i < divContainer.length; i++) {
+          postContentDiv.appendChild(divContainer[i]);
+        }
+      }
+
+      // 함수 호출
+      wrapElementsBetweenH2();
+    </script>
 
 </article>
