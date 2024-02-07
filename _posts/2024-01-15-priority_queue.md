@@ -322,6 +322,7 @@ class PriorityQueue:
 우선순위 큐를 이용할 때 번거롭게 매번 구현하는 행위를 없애기 위해 많은 언어에서 기본으로 제공하는 라이브러리를 통해 우선순위 큐를 제공하고 있다.
 
 | 언어 | 라이브러리 포함 구문 |
+| --- | --- |
 | C++    | `#include <queue>`               |
 | Java   | `import java.util.PriorityQueue` |
 | Python | `import heapq`                   |
