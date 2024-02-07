@@ -89,11 +89,13 @@ title: Home
 
 각 태그의 색깔은 해당 태그가 사용된 백준 문제의 평균 솔브드 티어입니다.
 
-<div style="text-align: center; margin-bottom: 16px">
-    <img src="https://github-readme-solvedac.hyp3rflow.vercel.app/api/?handle=asdfghjkl46" width="90%">
-</div>
+| 플랫폼 | 아이디 |
+| --- | --- |
+| GitHub | <a href="https://github.com/CHOYUNSIG" target="_blank">CHOYUNSIG</a> |
+| Baekjoon Online Judge | <a href="https://www.acmicpc.net/user/asdfghjkl46" target="_blank">asdfghjkl46</a> |
+| solved.ac | <a href="https://solved.ac/profile/asdfghjkl46" target="_blank">asdfghjkl46</a> |
 
-블로그의 모든 글은 <b>조윤식</b>(깃허브: <a href="https://github.com/CHOYUNSIG" target="_blank">CHOYUNSIG</a>, 솔브드: <a href="https://solved.ac/profile/asdfghjkl46" target="_blank">asdfghjkl46</a>)이 작성하였습니다. 오타 및 내용 상의 오류나 개선 사항이 있을 경우 의견을 보내주세요.
+블로그의 모든 글은 <b>조윤식</b>이 작성하였습니다. 오타 및 내용 상의 오류나 개선 사항이 있을 경우 의견을 보내주세요.
 
 ## 1. 패러다임
 
