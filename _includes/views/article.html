@@ -6,33 +6,36 @@
 
     </div>
     <script>
-      // 두 h2 태그 사이의 요소들을 div로 묶는 함수
-      function wrapElementsBetweenH2() {
-        // h2 태그들을 선택
-        var postContentDiv = document.querySelector('div.post-content');
+      // h2 태그를 제목으로 하고 있는 본문을 div로 묶음
+      var postContentDiv = document.querySelector('div.post-content');
+      var divContainer = [];
 
-        // 첫 번째 h2 태그와 두 번째 h2 태그 사이의 요소들을 담을 div 생성
-        var divContainer = [];
-
-        // h2 태그와 다음 h2 태그 이전까지의 요소들을 div에 추가
-        while (postContentDiv.children.length > 0) {
-          var currentElement = postContentDiv.children[0];
-          if (currentElement.tagName.toLowerCase() === 'h2') {
-            var newDiv = document.createElement('div');
-            newDiv.classList.add('post-section');
-            divContainer.push(newDiv);
-          }
-          divContainer[divContainer.length - 1].appendChild(currentElement);
+      while (postContentDiv.children.length > 0) {
+        var currentElement = postContentDiv.children[0];
+        if (currentElement.tagName.toLowerCase() === 'h2') {
+          var newDiv = document.createElement('div');
+          newDiv.classList.add('post-section');
+          divContainer.push(newDiv);
         }
-
-        // div를 요소에 추가
-        for (var i = 0; i < divContainer.length; i++) {
-          postContentDiv.appendChild(divContainer[i]);
-        }
+        divContainer[divContainer.length - 1].appendChild(currentElement);
       }
 
-      // 함수 호출
-      wrapElementsBetweenH2();
+      for (var i = 0; i < divContainer.length; i++) {
+        postContentDiv.appendChild(divContainer[i]);
+      }
+    </script>
+
+    <script>
+      // 포스트 내 테이블의 overflow 방지 및 margin 추가
+      var postContentDiv = document.querySelector('div.post-content');
+      var tables = postContentDiv.querySelectorAll('table');
+      tables.forEach(function(table) {
+        var div = document.createElement('div');
+        div.style.overflow = 'auto';
+        div.style.marginBottom = '16px';
+        table.parentNode.replaceChild(div, table);
+        div.appendChild(table);
+      });
     </script>
 
 </article>

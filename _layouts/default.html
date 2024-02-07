@@ -21,36 +21,5 @@
 
     {%- include views/footer.html -%}
     
-    {%- include functions.html func='log' level='debug' msg='Get using_search value' -%}
-    {%- assign name = 'using_search' -%}
-    {%- include functions.html func='get_value' default=false -%}
-    {%- assign using_search = return -%}
-    {% if using_search %}
-    <script src="{{ site.baseurl }}/assets/js/simple-jekyll-search.min.js"></script>
-    <script>
-      window.simpleJekyllSearch = new SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        json: '{{ site.baseurl }}/search.json',
-        searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}" class="search-result">{title}</a></li>',
-        noResultsText: 'No results found',
-        limit: 10,
-        fuzzy: false,
-        exclude: ['Welcome']
-      })
-    </script>
-    {% endif %}
-
-    <script>
-      var postContentDiv = document.querySelector('div.post-content');
-      var tables = postContentDiv.querySelectorAll('table');
-      tables.forEach(function(table) {
-          var div = document.createElement('div');
-          div.style.overflow = 'auto';
-          div.style.marginBottom = '16px';
-          table.parentNode.replaceChild(div, table);
-          div.appendChild(table);
-      });
-    </script>
   </body>
 </html>
