@@ -38,8 +38,8 @@
       var currentElement = pageSegmentListUl.children[0];
       if (currentElement.tagName.toLowerCase() === 'h2') {
         var newDiv = document.createElement('div');
+        newDiv.style.display = 'inline-block';
         newDiv.classList.add('page-segments-section');
-        newDiv.style.display = 'table-caption';
         divContainer.push(newDiv);
       }
       divContainer[divContainer.length - 1].appendChild(currentElement);
@@ -48,6 +48,7 @@
     // div를 요소에 추가
     for (var i = 0; i < divContainer.length; i++) {
       var newLi = document.createElement('li');
+      newLi.style.display = 'inline-block';
       newLi.appendChild(divContainer[i]);
       pageSegmentListUl.appendChild(newLi);
     }
