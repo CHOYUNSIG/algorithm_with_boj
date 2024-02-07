@@ -37,6 +37,19 @@ body {
   flex-direction: column;
 }
 
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 20%;
+  background: $brand-color;
+  border-radius: 2.5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: $header-background-color;
+}
 
 
 /**

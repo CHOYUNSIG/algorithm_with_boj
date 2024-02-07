@@ -26,6 +26,10 @@ html[data-theme="dark"]  {
     background-color: $dark-background-color;
   }
 
+  body::-webkit-scrollbar-track {
+    background: #090909;
+  }  
+
   *:not(pre) > code {
     color: $dark-text-color;
     background-color: #454545;
