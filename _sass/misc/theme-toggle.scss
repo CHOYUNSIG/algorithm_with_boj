@@ -74,3 +74,9 @@
     }
   }
 }
+
+html[data-theme="dark"] {
+  .theme-toggle label {
+    background-color: #0002;
+  }
+}

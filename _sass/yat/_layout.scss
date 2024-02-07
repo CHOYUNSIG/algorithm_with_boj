@@ -744,8 +744,13 @@ div.post-section, div.post-menu, .post-item, .search, .page-segments-section {
   padding: 15px;
   border-radius: 20px;
   background-color: $background-color;
-  box-shadow: 2px 2px 10px #0005;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+  transition: 0.5s;
   margin-bottom: 30px;
+}
+
+div.post-section:hover, div.post-menu:hover, .post-item:hover, .search:hover, .page-segments-section:hover {
+  box-shadow: 0px 0px 10px $brand-color;
 }
 
 .search-result {
