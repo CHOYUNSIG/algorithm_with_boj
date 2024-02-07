@@ -5,20 +5,31 @@ html {
   &[data-header-transparent] {
     header.site-header {
       position: fixed;
+      box-shadow: 0px 0px 50px #0005;
+      transition: $base-transition-duration;
+
+      &:hover {
+        box-shadow: 0px 0px 50px $brand-color;
+      }
     }
   }
 
   &[data-scroll-status='top'] {
+    header {
+      .wrapper {
+        margin-top: 12px;
+        transition: margin-top $base-transition-duration;
+      }
+    }
+
     header.site-header-transparent {
       height: 0;
-      margin-top: 12px;
+      box-shadow: none;
       background-color: transparent;
-      transition: 0.1s height,background-color,box-shadow;
 
       &.site-header {
         .site-brand-inner, .page-link {
           color: #fff;
-          transition: 0.1s color;
         }
 
         @include media-query($on-palm) {
@@ -48,6 +59,7 @@ html {
   &[data-scroll-status='down'] {
     header.site-header {
       top: -$header-height;
+      box-shadow: none;
     }
 
     .framework .sidebar {
@@ -99,7 +111,7 @@ html {
     @include relative-font-size(1.125);
     font-weight: $base-font-weight;
     letter-spacing: -1px;
-    transition: 0.1s filter color;
+    transition: $base-transition-duration;
 
     &, &:visited {
       color: $header-text-color;
@@ -135,7 +147,7 @@ html {
   .page-link {
     line-height: $base-line-height;
     color: $header-text-color;
-    transition: 0.1s ease-in-out;
+    transition: $base-transition-duration;
 
     // Gaps between nav items, but not on the last one
     &:not(:last-child) {
@@ -204,6 +216,8 @@ html {
   .site-footer-inner {
     transition: border-top 0.2s;
     padding: $spacing-unit * 1.8 0;
+    color: #fdfdfd;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   }
 
   a {
@@ -489,13 +503,19 @@ html {
       border: none;
     }
 
-    table {
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 0;
-      text-align: center;
-      width: max-content;
+    div.post-table {
+      overflow: auto;
+      margin-bottom: 16px;
+
+      table {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+        text-align: center;
+        width: max-content;
+      }
     }
+    
   }
 
   .post-related {
@@ -672,7 +692,6 @@ html {
     .post-subtitle {
       @include relative-font-size(1.525);
       color: #ffffffcc;
-      //padding-right: 280px;
 
       @include media-query($on-palm) {
         padding-right: 0;
@@ -709,12 +728,6 @@ html {
       }
     }
   }
-
-  /*
-  @include media-query($on-palm) {
-    height: calc($banner-height / 1.5);
-  }
-  */
 }
 
 
@@ -745,12 +758,12 @@ div.post-section, div.post-menu, .post-item, .search, .page-segments-section {
   border-radius: 20px;
   background-color: $background-color;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
-  transition: 0.5s;
+  transition: $base-transition-duration;
   margin-bottom: 30px;
-}
 
-div.post-section:hover, div.post-menu:hover, .post-item:hover, .search:hover, .page-segments-section:hover {
-  box-shadow: 0px 0px 10px $brand-color;
+  &:hover {
+    box-shadow: 0px 0px 10px $brand-color;
+  }
 }
 
 .search-result {
@@ -915,14 +928,13 @@ a:visited .post-badges .post-badge.badge-new {
     color: white;
     font-weight: bold;
   }
-}
 
-.flowchart-link {
-  stroke: #555 !important;
+  .flowchart-link {
+    stroke: #555 !important;
+  }
+  
+  .marker {
+    fill: #555 !important;
+    stroke: #555 !important;
+  }
 }
-
-.marker {
-  fill: #555 !important;
-  stroke: #555 !important;
-}
-
