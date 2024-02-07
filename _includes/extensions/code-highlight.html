@@ -1,8 +1,8 @@
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/atom-one-dark.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
 <script charset="UTF-8"
-        src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/go.min.js"
+        src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"
         async></script>
 
 {%- assign name = 'code_badge.enabled' -%}
@@ -58,9 +58,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
   function handle(block) {
     addLangData(block);
     addBadge(block)
-    hljs.highlightBlock(block);
+    hljs.highlightElement(block);
   }
 
+  hljs.configure({ignoreUnescapedHTML: true});
   for (var i = 0; i < els.length; i++) {
     var el = els[i];
     handle(el);
