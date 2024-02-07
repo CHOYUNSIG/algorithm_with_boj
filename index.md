@@ -91,9 +91,9 @@ title: Home
 
 | 플랫폼 | 아이디 |
 | --- | --- |
-| GitHub | <a href="https://github.com/CHOYUNSIG" target="_blank">CHOYUNSIG</a> |
-| Baekjoon Online Judge | <a href="https://www.acmicpc.net/user/asdfghjkl46" target="_blank">asdfghjkl46</a> |
-| solved.ac | <a href="https://solved.ac/profile/asdfghjkl46" target="_blank">asdfghjkl46</a> |
+| <img src="https://github.githubassets.com/favicons/favicon-dark.svg" style="height: 20px; box-sizing: border-box; padding: 2px; background: black; border-radius: 50%; display: inline-block"> GitHub | <a href="https://github.com/CHOYUNSIG" target="_blank">CHOYUNSIG</a> |
+| <img src="https://www.acmicpc.net/favicon-32x32.png/" style="height: 20px; display: inline-block"> Baekjoon Online Judge | <a href="https://www.acmicpc.net/user/asdfghjkl46" target="_blank">asdfghjkl46</a> |
+| <img src="https://static.solved.ac/logo.svg" style="height: 20px; display: inline-block">solved.ac | <a href="https://solved.ac/profile/asdfghjkl46" target="_blank">asdfghjkl46</a> |
 
 블로그의 모든 글은 <b>조윤식</b>이 작성하였습니다. 오타 및 내용 상의 오류나 개선 사항이 있을 경우 의견을 보내주세요.
 
