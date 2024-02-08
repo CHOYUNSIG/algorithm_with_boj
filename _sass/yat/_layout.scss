@@ -5,12 +5,8 @@ html {
   &[data-header-transparent] {
     header.site-header {
       position: fixed;
-      box-shadow: 0px 0px 50px #0005;
+      box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
       transition: $base-transition-duration;
-
-      &:hover {
-        box-shadow: 0px 0px 50px $brand-color;
-      }
     }
   }
 
@@ -753,6 +749,10 @@ html {
   }
 }
 
+
+/**
+ * Block design
+ */
 div.post-section, div.post-menu, .post-item, .search, .page-segments-section {
   padding: 15px;
   border-radius: 20px;
@@ -760,12 +760,16 @@ div.post-section, div.post-menu, .post-item, .search, .page-segments-section {
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
   transition: $base-transition-duration;
   margin-bottom: 30px;
-
-  &:hover {
-    box-shadow: 0px 0px 10px $brand-color;
-  }
 }
 
+.post-item:hover, .page-segments-section:hover {
+  box-shadow: 0px 0px 10px $brand-color;
+}
+
+
+/**
+ * Search
+ */
 .search-result {
   color: $text-color;
   display: block;
