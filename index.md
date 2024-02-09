@@ -213,8 +213,7 @@ title: Home
 <pre class="mermaid">
     graph LR
 
-    #trees --> #splay_tree
-    #trees --> #rb_tree
+    #trees --> #tree_set
     #trees --> #priority_queue
     #trees --> #segtree
     #trees --> #disjoint_set
@@ -223,6 +222,8 @@ title: Home
     #trees --> #tree_compression
     #trees --> #tree_decomposition
     #trees --> #smaller_to_larger
+    #tree_set --> #splay_tree
+    #tree_set --> #rb_tree
     #priority_queue --> #cartesian_tree
     #lca --> #link_cut_tree
     #lca --> #hld
@@ -239,11 +240,6 @@ title: Home
     #euler_tour_technique --> #lca
     #lazyprop --> #link_cut_tree
     #disjoint_set --> #offline_dynamic_connectivity
-
-    subgraph 이진 검색 트리
-        #splay_tree
-        #rb_tree
-    end
 
     subgraph 기법
         #tree_compression
@@ -273,6 +269,7 @@ title: Home
     #tree_isomorphism(["#트리 동형 사상"]):::tier3
     #tree_decomposition(["#트리 분할"]):::tier4
     #tree_compression(["#트리 압축"]):::tier3
+    #tree_set(["#트리를 사용한 집합과 맵"]):::tier2
     #pst(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="post/2024/01/30/pst.html">#퍼시스턴트 세그먼트 트리</a>"]):::tier4
 
     classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
