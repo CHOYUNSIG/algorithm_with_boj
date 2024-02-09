@@ -10,50 +10,48 @@ title: Home
 
 <a href="">APSwBT</a>(<u>A</u>lgorithm <u>P</u>roblem <u>S</u>olving <u>w</u>ith <u>B</u>eakjoon <u>T</u>ag)는 <a href="https://www.acmicpc.net/" target="_blank">백준</a>과 <a href="https://solved.ac/" target="_blank">솔브드</a>의 모든 태그의 카테고리를 분류하고 난이도 별로 정리한 블로그입니다. 
 
-<center>
-    <pre class="mermaid">
-        graph LR
+<pre class="mermaid">
+    graph LR
 
-        home --> paradigm
-        home --> data_structure
-        home --> algorithm
-        algorithm --> sorting_search
-        algorithm --> trees
-        algorithm --> graphs
-        algorithm --> strings
-        algorithm --> math
-        algorithm --> dp
-        algorithm --> others
-        math --> number_theory
-        math --> geometry
+    home --> paradigm
+    home --> data_structure
+    home --> algorithm
+    algorithm --> sorting_search
+    algorithm --> trees
+    algorithm --> graphs
+    algorithm --> strings
+    algorithm --> math
+    algorithm --> dp
+    algorithm --> others
+    math --> number_theory
+    math --> geometry
 
-        subgraph Navigation
-            home
-            posts
-            tags
-        end
+    subgraph Navigation
+        home
+        posts
+        tags
+    end
 
-        home(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="">Home</a>"]):::tier1
-        posts(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="archives.html">Posts</a>"]):::tier1
-        tags(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="tags.html">Tags</a>"]):::tier1
-        paradigm(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-1-패러다임">패러다임</a>"]):::tier2
-        data_structure(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-2-자료구조">자료구조</a>"]):::tier2
-        algorithm(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-알고리즘">알고리즘</a>"]):::tier2
-        sorting_search(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-1-정렬과-검색">정렬과 탐색</a>"]):::tier3
-        trees(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-2-트리">트리</a>"]):::tier3
-        graphs(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-3-그래프">그래프</a>"]):::tier3
-        strings(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-4-문자열">문자열</a>"]):::tier3
-        math(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-5-수학">수학</a>"]):::tier3
-        dp(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-6-동적계획법">동적계획법</a>"]):::tier3
-        others(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-7-기타">기타</a>"]):::tier3
-        number_theory(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-5-1-정수론">정수론</a>"]):::tier3
-        geometry(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-5-2-기하">기하</a>"]):::tier3
+    home(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="">Home</a>"]):::tier1
+    posts(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="archives.html">Posts</a>"]):::tier1
+    tags(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="tags.html">Tags</a>"]):::tier1
+    paradigm(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-1-패러다임">패러다임</a>"]):::tier2
+    data_structure(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-2-자료구조">자료구조</a>"]):::tier2
+    algorithm(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-알고리즘">알고리즘</a>"]):::tier2
+    sorting_search(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-1-정렬과-탐색">정렬과 탐색</a>"]):::tier3
+    trees(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-2-트리">트리</a>"]):::tier3
+    graphs(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-3-그래프">그래프</a>"]):::tier3
+    strings(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-4-문자열">문자열</a>"]):::tier3
+    math(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-5-수학">수학</a>"]):::tier3
+    dp(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-6-동적계획법">동적계획법</a>"]):::tier3
+    others(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-7-기타">기타</a>"]):::tier3
+    number_theory(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-5-1-정수론">정수론</a>"]):::tier3
+    geometry(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-5-2-기하">기하</a>"]):::tier3
 
-        classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
-        classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
-        classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
-    </pre>
-</center>
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+</pre>
 
 빨간색 배지가 있는 태그를 클릭하시면 관련 포스트로 이동하실 수 있습니다. 
 
@@ -188,7 +186,7 @@ title: Home
 
 ## 3. 알고리즘
 
-### 3-1. 정렬과 검색
+### 3-1. 정렬과 탐색
 
 <pre class="mermaid">
     graph LR
