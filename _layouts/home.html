@@ -30,7 +30,8 @@ sidebar: article-menu
         {%- for post in posts -%}
         posts["{{ post.tags[-1] }}"] = "{{ post.url }}";
         {%- endfor -%}
-        console.log(posts);
+        console.log("post loaded below:");
+        console.log(Object.keys(posts));
 
         document.querySelectorAll('pre.mermaid.tag-connection-define').forEach( pre => {
             let newText = pre.innerHTML + "\n\n";
@@ -39,10 +40,8 @@ sidebar: article-menu
                 if (!(tag in tagData))
                     return;
                 let inner = tagData[tag].ko;
-                if (tagData[tag].full in posts) {
+                if (tagData[tag].full in posts)
                     inner = "<span style=\"background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px\">fa:fa-code</span> <a href=\"{{ site.baseurl }}" + posts[tagData[tag].full] + "\">" + inner + "</a>";
-                    console.log(inner);
-                }
                 newText += "#" + tag + "([\"" + inner + "\"]):::" + tagData[tag].tier + "\n";
             });
             newText += "\n\n";
