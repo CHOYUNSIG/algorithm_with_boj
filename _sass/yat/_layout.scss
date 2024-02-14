@@ -754,12 +754,16 @@ html {
  * Block design
  */
 div.post-section, div.post-menu, .post-item, .search, .page-segments-section, pre.highlight, .post-related {
-  padding: $spacing-unit;
+  padding: $spacing-unit * 2;
   border-radius: $spacing-unit * 1.5;
   background-color: $background-color;
   box-shadow: 0 2px 15px $shadow-color;
   transition: all $base-transition-duration;
   margin-bottom: $spacing-unit * 2;
+
+  @include media-query($on-palm) {
+    padding: $spacing-unit;
+  }
 }
 
 pre.highlight {
