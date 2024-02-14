@@ -25,15 +25,11 @@
     {% endfor %}
   </ul>
   <script>
-    // 두 h2 태그 사이의 요소들을 div로 묶는 함수
     function wrapElementsBetweenH2() {
-    // h2 태그들을 선택
     var pageSegmentListUl = document.querySelector('ul.page-segments-list');
 
-    // 첫 번째 h2 태그와 두 번째 h2 태그 사이의 요소들을 담을 div 생성
     var divContainer = [];
 
-    // h2 태그와 다음 h2 태그 이전까지의 요소들을 div에 추가
     while (pageSegmentListUl.children.length > 0) {
       var currentElement = pageSegmentListUl.children[0];
       if (currentElement.tagName.toLowerCase() === 'h2') {
@@ -45,7 +41,6 @@
       divContainer[divContainer.length - 1].appendChild(currentElement);
     }
 
-    // div를 요소에 추가
     for (var i = 0; i < divContainer.length; i++) {
       var newLi = document.createElement('li');
       newLi.style.display = 'inline-block';
@@ -54,7 +49,6 @@
     }
   }
 
-  // 함수 호출
   wrapElementsBetweenH2();
   </script>
 </div>
