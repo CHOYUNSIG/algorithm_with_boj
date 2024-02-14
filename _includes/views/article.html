@@ -37,47 +37,4 @@
         div.appendChild(table);
       });
     </script>
-
-    <script type="module">
-      // Mermaid 그리기
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'
-      mermaid.initialize({ startOnLoad: false });
-      await mermaid.run({
-        querySelector: '.mermaid',
-      });
-      // Mermaid 노드에 그림자 추가
-      const filterDefinition = `
-        <defs>
-          <filter id="drop-shadow" x="-50%" y="-50%" width="300%" height="300%">
-            <!-- <feFlood flood-color="black" result="color"/>
-            <feComposite in2="SourceGraphic" operator="in"/> -->
-            <feGaussianBlur stdDeviation="5"/>
-            <feComponentTransfer>
-              <feFuncA type="linear" slope="0.7"/>
-            </feComponentTransfer>
-            <feOffset dx="1" dy="2"/>
-            <feMerge> 
-              <feMergeNode />
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-      `;
-      const mermaidPre = document.querySelectorAll('pre.mermaid');
-      for (var i = 0; i < mermaidPre.length; i++) {
-        const current = mermaidPre[i].children[0];
-        current.insertAdjacentHTML('afterbegin', filterDefinition);
-        ['rect', 'circle'].map( shape => {
-          const drawElement = current.querySelectorAll(shape);
-          if (drawElement) {
-            for (var j = 0; j < drawElement.length; j++) {
-              drawElement[j].setAttribute("filter", `url(#drop-shadow)`);
-            }
-          }
-        });
-        current.viewBox.baseVal.width += 10;
-        current.viewBox.baseVal.height += 10;
-      }
-    </script>
-
 </article>
