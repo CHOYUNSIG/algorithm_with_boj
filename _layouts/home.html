@@ -33,15 +33,29 @@ sidebar: article-menu
     let scrollStart = { x: 0, y: 0 };
     let scrolling = false
 
+    function getPos(event) {
+        var x = event.clientX;
+        var y = event.clientY;
+        if (x === undefined || y === undefined) {
+            x = event.changedTouches[0].clientX;
+            y = event.changedTouches[0].clientY;
+        }
+        return { 'x': x, 'y': y };
+    }
+
     function onScrollStart(event) {
+        const a = event.target.closest('a');
+        if (a !== null) {
+            a.click();
+            return false;
+        }
         event.preventDefault();
         const target = event.target.closest('pre.mermaid.tag-connection-define');
         if (!target)
             return false;
         event.stopPropagation();
-        scrollStart.x = event.clientX;
-        scrollStart.y = event.clientY;
-        let matrix = new DOMMatrix(window.getComputedStyle(target.children[0]).getPropertyValue('transform'));
+        scrollStart = getPos(event);
+        var matrix = new DOMMatrix(window.getComputedStyle(target.children[0]).getPropertyValue('transform'));
         if (matrix === "none")
             matrix = new DOMMatrix('matrix(1, 0, 0, 1, 0, 0)');
         scrollBefore.translateX = matrix.m41;
@@ -55,7 +69,8 @@ sidebar: article-menu
             return false;
         event.preventDefault();
         event.stopPropagation();
-        scrollTarget.style.transform = `translate(${scrollBefore.translateX - (scrollStart.x - event.clientX)}px, ${scrollBefore.translateY - (scrollStart.y - event.clientY)}px)`;
+        const pos = getPos(event);
+        scrollTarget.style.transform = `translate(${scrollBefore.translateX - (scrollStart.x - pos.x)}px, ${scrollBefore.translateY - (scrollStart.y - pos.y)}px)`;
     }
 
     function onScrollEnd(event) {
@@ -113,11 +128,11 @@ sidebar: article-menu
             
             pre.addEventListener("mousedown", onScrollStart);
             pre.addEventListener("touchstart", onScrollStart);
+            pre.addEventListener("touchmove", onScrollMove);
+            pre.addEventListener("touchend", onScrollEnd);
         });
         window.addEventListener("mousemove", onScrollMove);
-        window.addEventListener("touchmove", onScrollMove);
         window.addEventListener("mouseup", onScrollEnd);
-        window.addEventListener("touchend", onScrollEnd);
     }
 
     postLoad();
