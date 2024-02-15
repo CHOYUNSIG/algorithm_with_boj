@@ -27,11 +27,11 @@ sidebar: article-menu
 </style>
 
 <script>
-    const mermaid = document.querySelectorAll('pre.mermaid.tag-connection-define');
     let scrollBefore = { translateX: 0, translateY: 0 };
     let scrollTarget = undefined;
     let scrollStart = { x: 0, y: 0 };
-    let scrolling = false
+    let scrolling = false;
+    let scrolled = false;
 
     function getPos(event) {
         var x = event.clientX;
@@ -44,11 +44,6 @@ sidebar: article-menu
     }
 
     function onScrollStart(event) {
-        const a = event.target.closest('a');
-        if (a !== null) {
-            a.click();
-            return false;
-        }
         event.preventDefault();
         const target = event.target.closest('pre.mermaid.tag-connection-define');
         if (!target)
@@ -62,6 +57,7 @@ sidebar: article-menu
         scrollBefore.translateY = matrix.m42;
         scrollTarget = target.children[0];
         scrolling = true;
+        scrolled = false;
     }
 
     function onScrollMove(event) {
@@ -70,13 +66,26 @@ sidebar: article-menu
         event.preventDefault();
         event.stopPropagation();
         const pos = getPos(event);
-        scrollTarget.style.transform = `translate(${scrollBefore.translateX - (scrollStart.x - pos.x)}px, ${scrollBefore.translateY - (scrollStart.y - pos.y)}px)`;
+        const translateX = scrollBefore.translateX - (scrollStart.x - pos.x);
+        const translateY = scrollBefore.translateY - (scrollStart.y - pos.y);
+        if (translateX !== scrollBefore.translateX || translateY !== scrollBefore.translateY)
+            scrolled = true;
+        scrollTarget.style.transform = `translate(${translateX}px, ${translateY}px)`;
     }
 
     function onScrollEnd(event) {
         event.preventDefault();
         event.stopPropagation();
+        const a = event.target.closest('a');
+        if (!scrolled && a !== null)
+            a.click();
         scrolling = false;
+    }
+
+    function onClick(event) {
+        if (scrolled)
+            event.preventDefault();
+        return false;
     }
 
     // 홈 화면의 태그 블록과 블로그 포스트를 연결합니다.
@@ -104,8 +113,9 @@ sidebar: article-menu
         console.log("post loaded below:");
         console.log(Object.keys(posts));
 
-        mermaid.forEach( pre => {
-            let newText = pre.innerHTML + "\n\n";
+        document.querySelectorAll('pre.mermaid.tag-connection-define').forEach( pre => {
+            let newText = "";
+            newText += pre.innerHTML + "\n\n";
             const tags = new Set(pre.innerHTML.split('#').slice(1).map( word => { return word.split(' ')[0].split('\n')[0] } ));
             tags.forEach( tag => {
                 if (!(tag in tagData))
@@ -126,6 +136,7 @@ sidebar: article-menu
             `;
             pre.innerHTML = newText;
             
+            pre.addEventListener("click", onClick);
             pre.addEventListener("mousedown", onScrollStart);
             pre.addEventListener("touchstart", onScrollStart);
             pre.addEventListener("touchmove", onScrollMove);

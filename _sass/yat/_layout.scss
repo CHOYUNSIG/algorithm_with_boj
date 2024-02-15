@@ -927,7 +927,7 @@ pre.mermaid {
     display: none;
   }
 
-  .cluster {
+  .cluster, .subgraph {
     rect {
       fill: #8881 !important;
       stroke: #888 !important;
