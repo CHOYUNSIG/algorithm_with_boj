@@ -68,7 +68,7 @@ sidebar: article-menu
         const pos = getPos(event);
         const translateX = scrollBefore.translateX - (scrollStart.x - pos.x);
         const translateY = scrollBefore.translateY - (scrollStart.y - pos.y);
-        if (translateX !== scrollBefore.translateX || translateY !== scrollBefore.translateY)
+        if ((translateX - scrollBefore.translateX) ** 2 + (translateY - scrollBefore.translateY) ** 2 > 25)
             scrolled = true;
         scrollTarget.style.transform = `translate(${translateX}px, ${translateY}px)`;
     }
