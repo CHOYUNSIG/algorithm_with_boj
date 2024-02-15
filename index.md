@@ -439,15 +439,10 @@ title: Home
 </pre>
 
 <pre class="mermaid tag-connection-define">
-    graph TD
+    graph LR
 
     #majority_vote
     #lis
-</pre>
-
-<pre class="mermaid tag-connection-define">
-    graph TD
-
     #simulated_annealing
     #constructive
     #ad_hoc

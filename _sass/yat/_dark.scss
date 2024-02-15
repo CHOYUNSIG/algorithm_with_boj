@@ -1,4 +1,4 @@
-$dark-background-color: #0e0e0e !default;
+$dark-background-color: #171717 !default;
 $dark-text-color: #b0b0b0 !default;
 
 html[data-theme="dark"]  {
@@ -32,7 +32,6 @@ html[data-theme="dark"]  {
 
   *:not(pre) > code {
     color: $dark-text-color;
-    background-color: #454545;
   }
 
   code {
@@ -48,16 +47,16 @@ html[data-theme="dark"]  {
     color: #9d9d9d;
 
     th {
-      background-color: #111111;
+      background-color: #121212;
     }
 
     tr:nth-child(even) {
-      background-color: #080808;
+      background-color: #202020;
     }
   }
 
   .site-header {
-    background-color: #090909;
+    background-color: $dark-background-color;
 
     .site-brand {
       .site-brand-inner {
@@ -130,7 +129,7 @@ html[data-theme="dark"]  {
     }
   }
 
-  div.post-section, div.post-menu, .post-item, .search, .page-segments-section, .post-related {
+  div.post-section, div.post-menu, .post-item, .search, .page-segments-section, .post-related, pre.mermaid.tag-connection-define {
     background-color: $dark-background-color;
   }
 
@@ -188,7 +187,7 @@ html[data-theme="dark"]  {
         border-left: 1px solid #787878;
 
         .active {
-          background-color: #2d2d2d;
+          background-color: #202020;
           border-left: 2px solid #aaa;
         }
 

@@ -753,7 +753,7 @@ html {
 /**
  * Block design
  */
-div.post-section, div.post-menu, .post-item, .search, .page-segments-section, pre.highlight, .post-related {
+div.post-section, div.post-menu, .post-item, .search, .page-segments-section, pre.highlight, .post-related, pre.mermaid.tag-connection-define {
   padding: $spacing-unit * 2;
   border-radius: $spacing-unit * 1.5;
   background-color: $background-color;
