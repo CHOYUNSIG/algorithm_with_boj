@@ -1,5 +1,5 @@
 ---
-layout: framework
+layout: default
 heading: 'Your awesome heading'
 subheading: 'Your awesome subheading'
 banner:
@@ -90,61 +90,49 @@ sidebar: article-menu
 
     // 홈 화면의 태그 블록과 블로그 포스트를 연결합니다.
     // 태그 블록 트리를 터치 스크롤 화면으로 표시합니다.
-    async function postLoad() {
-        var tagData = {};
+    let tagData = {};
+    {%- for tag in site.data.tags -%}
+    tagData["{{ tag.en }}"] = { post_exp: "{{ tag.post_exp }}", ko: "{{ tag.ko }}", tier: "{{ tag.tier }}"};
+    {% endfor %}
 
-        await fetch("{{ site.baseurl }}/tag.csv")
-        .then(response => response.text())
-        .then(data => {
-            const rows = data.split('\n');
-            for (var i = 0; i < rows.length; i++) {
-                const row = rows[i].trim().split(",");
-                if (row.length < 4) continue;
-                tagData[row[2]] = { full: row[0], tier: row[3], ko: row[1] };
-            }
-        })
-        .catch(error => console.error('Error fetching CSV:', error));
+    const posts = {};
+    {%- assign posts = site.posts -%}
+    {%- for post in posts -%}
+    posts["{{ post.tags[-1] }}"] = "{{ post.url }}";
+    {% endfor %}
+    console.log("post loaded below:");
+    console.log(Object.keys(posts));
 
-        const posts = {};
-        {%- assign posts = site.posts -%}
-        {%- for post in posts -%}
-        posts["{{ post.tags[-1] }}"] = "{{ post.url }}";
-        {%- endfor -%}
-        console.log("post loaded below:");
-        console.log(Object.keys(posts));
-
-        document.querySelectorAll('pre.mermaid.tag-connection-define').forEach( pre => {
-            let newText = "";
-            newText += pre.innerHTML + "\n\n";
-            const tags = new Set(pre.innerHTML.split('#').slice(1).map( word => { return word.split(' ')[0].split('\n')[0] } ));
-            tags.forEach( tag => {
-                if (!(tag in tagData))
-                    return;
-                let inner = "<span style=\"font-size: 1em;\">#" + tagData[tag].ko + "</span> <span style=\"opacity: 0.6; font-size: 0.8em;\">" + tag + "</span>";
-                if (tagData[tag].full in posts)
-                    inner = "<span style=\"background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px\">fa:fa-code</span> <a href=\"{{ site.baseurl }}" + posts[tagData[tag].full] + "\">" + inner + "</a>";
-                newText += "#" + tag + "([\"" + inner + "\"]):::" + tagData[tag].tier + "\n";
-            });
-            newText += "\n\n";
-            newText += `
-                classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
-                classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
-                classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
-                classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
-                classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
-                classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
-            `;
-            pre.innerHTML = newText;
-            
-            pre.addEventListener("click", onClick);
-            pre.addEventListener("mousedown", onScrollStart);
-            pre.addEventListener("touchstart", onScrollStart);
-            pre.addEventListener("touchmove", onScrollMove);
-            pre.addEventListener("touchend", onScrollEnd);
+    document.querySelectorAll('pre.mermaid.tag-connection-define').forEach( pre => {
+        let newText = "";
+        newText += pre.innerHTML + "\n\n";
+        const tags = new Set(pre.innerHTML.split('#').slice(1).map( word => { return word.split(' ')[0].split('\n')[0] } ));
+        tags.forEach( tag => {
+            if (!(tag in tagData))
+                return;
+            let inner = "<span style=\"font-size: 1em;\">#" + tagData[tag].ko + "</span> <span style=\"opacity: 0.6; font-size: 0.8em;\">" + tag + "</span>";
+            if (tagData[tag].post_exp in posts)
+                inner = "<span style=\"background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px\">fa:fa-code</span> <a href=\"{{ site.baseurl }}" + posts[tagData[tag].post_exp] + "\">" + inner + "</a>";
+            newText += "#" + tag + "([\"" + inner + "\"]):::" + tagData[tag].tier + "\n";
         });
-        window.addEventListener("mousemove", onScrollMove);
-        window.addEventListener("mouseup", onScrollEnd);
-    }
+        newText += "\n\n";
+        newText += `
+            classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+            classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+            classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+            classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+            classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+            classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
+        `;
+        pre.innerHTML = newText;
+        
+        pre.addEventListener("click", onClick);
+        pre.addEventListener("mousedown", onScrollStart);
+        pre.addEventListener("touchstart", onScrollStart);
+        pre.addEventListener("touchmove", onScrollMove);
+        pre.addEventListener("touchend", onScrollEnd);
+    });
+    window.addEventListener("mousemove", onScrollMove);
+    window.addEventListener("mouseup", onScrollEnd);
 
-    postLoad();
 </script>
