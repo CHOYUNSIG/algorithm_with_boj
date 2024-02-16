@@ -1,206 +1,206 @@
-﻿post_exp,ko,en,tier
-0-1_너비_우선_탐색(0_1_bfs),0-1 너비 우선 탐색,0_1_bfs,tier2
-2-sat(2_sat),2-sat,2_sat,tier3
-a*(a_star),a*,a_star,tier5
-애드_혹(ad_hoc),애드 혹,ad_hoc,tier2
-아호-코라식(aho_corasick),아호-코라식,aho_corasick,tier3
-Aliens_트릭(alien),Aliens 트릭,alien,tier4
-임의_정밀도_/_큰_수_연산(arbitrary_precision),임의 정밀도 / 큰 수 연산,arbitrary_precision,tier1
-사칙연산(arithmetic),사칙연산,arithmetic,tier0
-단절점과_단절선(articulation),단절점과 단절선,articulation,tier3
-백트래킹(backtracking),백트래킹,backtracking,tier1
-베이즈_정리(bayes),베이즈 정리,bayes,tier3
-벨만–포드(bellman_ford),벨만–포드,bellman_ford,tier2
-벌리캠프–매시(berlekamp_massey),벌리캠프–매시,berlekamp_massey,tier3
-너비_우선_탐색(bfs),너비 우선 탐색,bfs,tier2
-이중_연결_요소(biconnected_component),이중 연결 요소,biconnected_component,tier3
-양방향_탐색(bidirectional_search),양방향 탐색,bidirectional_search,tier3
-이분_탐색(binary_search),이분 탐색,binary_search,tier2
-이분_그래프(bipartite_graph),이분 그래프,bipartite_graph,tier2
-이분_매칭(bipartite_matching),이분 매칭,bipartite_matching,tier3
-생일_문제(birthday),생일 문제,birthday,tier2
-비트마스킹(bitmask),비트마스킹,bitmask,tier2
-비트_집합(bitset),비트 집합,bitset,tier3
-브루트포스_알고리즘(bruteforcing),브루트포스 알고리즘,bruteforcing,tier1
-번사이드_보조정리(burnside),번사이드 보조정리,burnside,tier3
-선인장(cactus),선인장,cactus,tier3
-미적분학(calculus),미적분학,calculus,tier2
-데카르트_트리(cartesian_tree),데카르트 트리,cartesian_tree,tier4
-많은_조건_분기(case_work),많은 조건 분기,case_work,tier1
-센트로이드(centroid),센트로이드,centroid,tier4
-센트로이드_분할(centroid_decomposition),센트로이드 분할,centroid_decomposition,tier4
-현_그래프(chordal_graph),현 그래프,chordal_graph,tier4
-볼록_껍질을_이용한_최적화(cht),볼록 껍질을 이용한 최적화,cht,tier3
-서큘레이션(circulation),서큘레이션,circulation,tier4
-조합론(combinatorics),조합론,combinatorics,tier2
-해_구성하기(constructive),해 구성하기,constructive,tier2
-볼록_껍질(convex_hull),볼록 껍질,convex_hull,tier3
-값_/_좌표_압축(coordinate_compression),값 / 좌표 압축,coordinate_compression,tier2
-중국인의_나머지_정리(crt),중국인의 나머지 정리,crt,tier3
-방향_비순환_그래프(dag),방향 비순환 그래프,dag,tier2
-춤추는_링크(dancing_links),춤추는 링크,dancing_links,tier4
-자료_구조(data_structures),자료 구조,data_structures,tier2
-차수열(degree_sequence),차수열,degree_sequence,tier2
-델로네_삼각분할(delaunay),델로네 삼각분할,delaunay,tier5
-덱(deque),덱,deque,tier2
-덱을_이용한_구간_최댓값_트릭(deque_trick),덱을 이용한 구간 최댓값 트릭,deque_trick,tier3
-깊이_우선_탐색(dfs),깊이 우선 탐색,dfs,tier2
-차분_공격(differential_cryptanalysis),차분 공격,differential_cryptanalysis,tier1
-데이크스트라(dijkstra),데이크스트라,dijkstra,tier2
-유향_최소_신장_트리(directed_mst),유향 최소 신장 트리,directed_mst,tier4
-이산_k제곱근(discrete_kth_root),이산 k제곱근,discrete_kth_root,tier3
-이산_로그(discrete_log),이산 로그,discrete_log,tier4
-이산_제곱근(discrete_sqrt),이산 제곱근,discrete_sqrt,tier4
-분리_집합(disjoint_set),분리 집합,disjoint_set,tier2
-분할_정복(divide_and_conquer),분할 정복,divide_and_conquer,tier3
-분할_정복을_사용한_최적화(divide_and_conquer_optimization),분할 정복을 사용한 최적화,divide_and_conquer_optimization,tier4
-도미네이터_트리(dominator_tree),도미네이터 트리,dominator_tree,tier4
-다이나믹_프로그래밍(dp),다이나믹 프로그래밍,dp,tier2
-비트필드를_이용한_다이나믹_프로그래밍(dp_bitfield),비트필드를 이용한 다이나믹 프로그래밍,dp_bitfield,tier3
-커넥션_프로파일을_이용한_다이나믹_프로그래밍(dp_connection_profile),커넥션 프로파일을 이용한 다이나믹 프로그래밍,dp_connection_profile,tier4
-덱을_이용한_다이나믹_프로그래밍(dp_deque),덱을 이용한 다이나믹 프로그래밍,dp_deque,tier3
-자릿수를_이용한_다이나믹_프로그래밍(dp_digit),자릿수를 이용한 다이나믹 프로그래밍,dp_digit,tier3
-부분집합의_합_다이나믹_프로그래밍(dp_sum_over_subsets),부분집합의 합 다이나믹 프로그래밍,dp_sum_over_subsets,tier4
-트리에서의_다이나믹_프로그래밍(dp_tree),트리에서의 다이나믹 프로그래밍,dp_tree,tier3
-쌍대_그래프(dual_graph),쌍대 그래프,dual_graph,tier4
-쌍대성(duality),쌍대성,duality,tier4
-유클리드_호제법(euclidean),유클리드 호제법,euclidean,tier1
-오일러_지표_(χ=V-E+F)(euler_characteristic),오일러 지표 (χ=V-E+F),euler_characteristic,tier3
-오일러_피_함수(euler_phi),오일러 피 함수,euler_phi,tier3
-오일러_경로_테크닉(euler_tour_technique),오일러 경로 테크닉,euler_tour_technique,tier3
-오일러_경로(eulerian_path),오일러 경로,eulerian_path,tier2
-분할_정복을_이용한_거듭제곱(exponentiation_by_squaring),분할 정복을 이용한 거듭제곱,exponentiation_by_squaring,tier2
-확장_유클리드_호제법(extended_euclidean),확장 유클리드 호제법,extended_euclidean,tier3
-고속_푸리에_변환(fft),고속 푸리에 변환,fft,tier4
-플러드_필(flood_fill),플러드 필,flood_fill,tier2
-최대_유량(flow),최대 유량,flow,tier3
-플로이드–워셜(floyd_warshall),플로이드–워셜,floyd_warshall,tier2
-페르마의_소정리(flt),페르마의 소정리,flt,tier2
-함수형_그래프(functional_graph),함수형 그래프,functional_graph,tier3
-게임_이론(game_theory),게임 이론,game_theory,tier2
-가우스_소거법(gaussian_elimination),가우스 소거법,gaussian_elimination,tier3
-일반적인_매칭(general_matching),일반적인 매칭,general_matching,tier5
-생성_함수(generating_function),생성 함수,generating_function,tier4
-도형에서의_불_연산(geometric_boolean_operations),도형에서의 불 연산,geometric_boolean_operations,tier5
-기하학(geometry),기하학,geometry,tier1
-3차원_기하학(geometry_3d),3차원 기하학,geometry_3d,tier1
-4차원_이상의_기하학(geometry_hyper),4차원 이상의 기하학,geometry_hyper,tier2
-경사_하강법(gradient_descent),경사 하강법,gradient_descent,tier3
-그래프_탐색(graph_traversal),그래프 탐색,graph_traversal,tier2
-그래프_이론(graphs),그래프 이론,graphs,tier2
-그리디_알고리즘(greedy),그리디 알고리즘,greedy,tier1
-그린_정리(green),그린 정리,green,tier4
-하켄부시_게임(hackenbush),하켄부시 게임,hackenbush,tier5
-반평면_교집합(half_plane_intersection),반평면 교집합,half_plane_intersection,tier4
-홀의_결혼_정리(hall),홀의 결혼 정리,hall,tier4
-해시를_사용한_집합과_맵(hash_set),해시를 사용한 집합과 맵,hash_set,tier1
-해싱(hashing),해싱,hashing,tier3
-휴리스틱(heuristics),휴리스틱,heuristics,tier2
-히르쉬버그(hirschberg),히르쉬버그,hirschberg,tier4
-Heavy-light_분할(hld),Heavy-light 분할,hld,tier4
-헝가리안(hungarian),헝가리안,hungarian,tier3
-구현(implementation),구현,implementation,tier0
-포함_배제의_원리(inclusion_and_exclusion),포함 배제의 원리,inclusion_and_exclusion,tier2
-키타마사(kitamasa),키타마사,kitamasa,tier4
-KMP(kmp),KMP,kmp,tier3
-배낭_문제(knapsack),배낭 문제,knapsack,tier2
-크누스_최적화(knuth),크누스 최적화,knuth,tier4
-크누스_X(knuth_x),크누스 X,knuth_x,tier4
-느리게_갱신되는_세그먼트_트리(lazyprop),느리게 갱신되는 세그먼트 트리,lazyprop,tier3
-최소_공통_조상(lca),최소 공통 조상,lca,tier3
-린드스트롬–게셀–비엔노_보조정리(lgv),린드스트롬–게셀–비엔노 보조정리,lgv,tier5
-선분_교차_판정(line_intersection),선분 교차 판정,line_intersection,tier2
-선형대수학(linear_algebra),선형대수학,linear_algebra,tier3
-선형_계획법(linear_programming),선형 계획법,linear_programming,tier4
-기댓값의_선형성(linearity_of_expectation),기댓값의 선형성,linearity_of_expectation,tier2
-링크/컷_트리(link_cut_tree),링크/컷 트리,link_cut_tree,tier4
-연결_리스트(linked_list),연결 리스트,linked_list,tier2
-가장_긴_증가하는_부분_수열:_O(n_log_n)(lis),가장 긴 증가하는 부분 수열: O(n log n),lis,tier2
-지수승강_보조정리(lte),지수승강 보조정리,lte,tier4
-뤼카_정리(lucas),뤼카 정리,lucas,tier3
-보이어–무어_다수결_투표(majority_vote),보이어–무어 다수결 투표,majority_vote,tier2
-매내처(manacher),매내처,manacher,tier3
-수학(math),수학,math,tier1
-매트로이드(matroid),매트로이드,matroid,tier5
-최소_비용_최대_유량(mcmf),최소 비용 최대 유량,mcmf,tier3
-머지_소트_트리(merge_sort_tree),머지 소트 트리,merge_sort_tree,tier3
-최대_유량_최소_컷_정리(mfmc),최대 유량 최소 컷 정리,mfmc,tier3
-밀러–라빈_소수_판별법(miller_rabin),밀러–라빈 소수 판별법,miller_rabin,tier3
-최소_외접원(min_enclosing_circle),최소 외접원,min_enclosing_circle,tier3
-중간에서_만나기(mitm),중간에서 만나기,mitm,tier2
-mo's(mo),mo's,mo,tier3
-뫼비우스_반전_공식(mobius_inversion),뫼비우스 반전 공식,mobius_inversion,tier4
-모듈로_곱셈_역원(modular_multiplicative_inverse),모듈로 곱셈 역원,modular_multiplicative_inverse,tier2
-단조_큐를_이용한_최적화(monotone_queue_optimization),단조 큐를 이용한 최적화,monotone_queue_optimization,tier4
-최소_스패닝_트리(mst),최소 스패닝 트리,mst,tier2
-다차원_세그먼트_트리(multi_segtree),다차원 세그먼트 트리,multi_segtree,tier3
-다중_대입값_계산(multipoint_evaluation),다중 대입값 계산,multipoint_evaluation,tier5
-정수론(number_theory),정수론,number_theory,tier1
-수치해석(numerical_analysis),수치해석,numerical_analysis,tier3
-오프라인_동적_연결성_판정(offline_dynamic_connectivity),오프라인 동적 연결성 판정,offline_dynamic_connectivity,tier4
-오프라인_쿼리(offline_queries),오프라인 쿼리,offline_queries,tier3
-회문_트리(palindrome_tree),회문 트리,palindrome_tree,tier4
-매개_변수_탐색(parametric_search),매개 변수 탐색,parametric_search,tier2
-파싱(parsing),파싱,parsing,tier1
-병렬_이분_탐색(pbs),병렬 이분 탐색,pbs,tier4
-순열_사이클_분할(permutation_cycle_decomposition),순열 사이클 분할,permutation_cycle_decomposition,tier2
-물리학(physics),물리학,physics,tier1
-픽의_정리(pick),픽의 정리,pick,tier2
-비둘기집_원리(pigeonhole_principle),비둘기집 원리,pigeonhole_principle,tier1
-평면_그래프(planar_graph),평면 그래프,planar_graph,tier3
-볼록_다각형_내부의_점_판정(point_in_convex_polygon),볼록 다각형 내부의 점 판정,point_in_convex_polygon,tier3
-오목_다각형_내부의_점_판정(point_in_non_convex_polygon),오목 다각형 내부의 점 판정,point_in_non_convex_polygon,tier3
-폴라드_로(pollard_rho),폴라드 로,pollard_rho,tier3
-다각형의_넓이(polygon_area),다각형의 넓이,polygon_area,tier2
-다항식_보간법(polynomial_interpolation),다항식 보간법,polynomial_interpolation,tier4
-런타임_전의_전처리(precomputation),런타임 전의 전처리,precomputation,tier1
-누적_합(prefix_sum),누적 합,prefix_sum,tier2
-소수_판정(primality_test),소수 판정,primality_test,tier1
-우선순위_큐(priority_queue),우선순위 큐,priority_queue,tier2
-확률론(probability),확률론,probability,tier2
-퍼시스턴트_세그먼트_트리(pst),퍼시스턴트 세그먼트 트리,pst,tier4
-피타고라스_정리(pythagoras),피타고라스 정리,pythagoras,tier0
-큐(queue),큐,queue,tier1
-라빈–카프(rabin_karp),라빈–카프,rabin_karp,tier3
-무작위화(randomization),무작위화,randomization,tier2
-레드-블랙_트리(rb_tree),레드-블랙 트리,rb_tree,tier5
-재귀(recursion),재귀,recursion,tier1
-정규_표현식(regex),정규 표현식,regex,tier1
-로프(rope),로프,rope,tier4
-회전하는_캘리퍼스(rotating_calipers),회전하는 캘리퍼스,rotating_calipers,tier3
-강한_연결_요소(scc),강한 연결 요소,scc,tier3
-세그먼트_트리(segtree),세그먼트 트리,segtree,tier3
-최단_경로(shortest_path),최단 경로,shortest_path,tier2
-에라토스테네스의_체(sieve),에라토스테네스의 체,sieve,tier1
-담금질_기법(simulated_annealing),담금질 기법,simulated_annealing,tier3
-시뮬레이션(simulation),시뮬레이션,simulation,tier0
-슬라이딩_윈도우(sliding_window),슬라이딩 윈도우,sliding_window,tier1
-함수_개형을_이용한_최적화(slope_trick),함수 개형을 이용한 최적화,slope_trick,tier4
-작은_집합에서_큰_집합으로_합치는_테크닉(smaller_to_larger),작은 집합에서 큰 집합으로 합치는 테크닉,smaller_to_larger,tier3
-정렬(sorting),정렬,sorting,tier1
-희소_배열(sparse_table),희소 배열,sparse_table,tier3
-스플레이_트리(splay_tree),스플레이 트리,splay_tree,tier4
-스프라그–그런디_정리(sprague_grundy),스프라그–그런디 정리,sprague_grundy,tier3
-제곱근_분할법(sqrt_decomposition),제곱근 분할법,sqrt_decomposition,tier3
-안정_결혼_문제(stable_marriage),안정 결혼 문제,stable_marriage,tier3
-스택(stack),스택,stack,tier1
-통계학(statistics),통계학,statistics,tier2
-스토어–바그너(stoer_wagner),스토어–바그너,stoer_wagner,tier4
-문자열(string),문자열,string,tier0
-접미사_배열과_LCP_배열(suffix_array),접미사 배열과 LCP 배열,suffix_array,tier3
-접미사_트리(suffix_tree),접미사 트리,suffix_tree,tier5
-스위핑(sweeping),스위핑,sweeping,tier2
-삼분_탐색(ternary_search),삼분 탐색,ternary_search,tier2
-탑_트리(top_tree),탑 트리,top_tree,tier5
-위상_정렬(topological_sorting),위상 정렬,topological_sorting,tier2
-트리_압축(tree_compression),트리 압축,tree_compression,tier3
-트리_분할(tree_decomposition),트리 분할,tree_decomposition,tier4
-트리_동형_사상(tree_isomorphism),트리 동형 사상,tree_isomorphism,tier3
-트리를_사용한_집합과_맵(tree_set),트리를 사용한 집합과 맵,tree_set,tier2
-트리(trees),트리,trees,tier2
-트라이(trie),트라이,trie,tier3
-외판원_순회_문제(tsp),외판원 순회 문제,tsp,tier2
-두_포인터(two_pointer),두 포인터,two_pointer,tier2
-utf-8_입력_처리(utf8),utf-8 입력 처리,utf8,tier0
-보로노이_다이어그램(voronoi),보로노이 다이어그램,voronoi,tier3
-z(z),z,z,tier3
+﻿index,exp,ko,en,tier
+0,0-1_너비_우선_탐색(0_1_bfs),0-1 너비 우선 탐색,0_1_bfs,tier2
+1,2-sat(2_sat),2-sat,2_sat,tier3
+2,a*(a_star),a*,a_star,tier5
+3,애드_혹(ad_hoc),애드 혹,ad_hoc,tier2
+4,아호-코라식(aho_corasick),아호-코라식,aho_corasick,tier3
+5,Aliens_트릭(alien),Aliens 트릭,alien,tier4
+6,임의_정밀도_/_큰_수_연산(arbitrary_precision),임의 정밀도 / 큰 수 연산,arbitrary_precision,tier1
+7,사칙연산(arithmetic),사칙연산,arithmetic,tier0
+8,단절점과_단절선(articulation),단절점과 단절선,articulation,tier3
+9,백트래킹(backtracking),백트래킹,backtracking,tier1
+10,베이즈_정리(bayes),베이즈 정리,bayes,tier3
+11,벨만–포드(bellman_ford),벨만–포드,bellman_ford,tier2
+12,벌리캠프–매시(berlekamp_massey),벌리캠프–매시,berlekamp_massey,tier3
+13,너비_우선_탐색(bfs),너비 우선 탐색,bfs,tier2
+14,이중_연결_요소(biconnected_component),이중 연결 요소,biconnected_component,tier3
+15,양방향_탐색(bidirectional_search),양방향 탐색,bidirectional_search,tier3
+16,이분_탐색(binary_search),이분 탐색,binary_search,tier2
+17,이분_그래프(bipartite_graph),이분 그래프,bipartite_graph,tier2
+18,이분_매칭(bipartite_matching),이분 매칭,bipartite_matching,tier3
+19,생일_문제(birthday),생일 문제,birthday,tier2
+20,비트마스킹(bitmask),비트마스킹,bitmask,tier2
+21,비트_집합(bitset),비트 집합,bitset,tier3
+22,브루트포스_알고리즘(bruteforcing),브루트포스 알고리즘,bruteforcing,tier1
+23,번사이드_보조정리(burnside),번사이드 보조정리,burnside,tier3
+24,선인장(cactus),선인장,cactus,tier3
+25,미적분학(calculus),미적분학,calculus,tier2
+26,데카르트_트리(cartesian_tree),데카르트 트리,cartesian_tree,tier4
+27,많은_조건_분기(case_work),많은 조건 분기,case_work,tier1
+28,센트로이드(centroid),센트로이드,centroid,tier4
+29,센트로이드_분할(centroid_decomposition),센트로이드 분할,centroid_decomposition,tier4
+30,현_그래프(chordal_graph),현 그래프,chordal_graph,tier4
+31,볼록_껍질을_이용한_최적화(cht),볼록 껍질을 이용한 최적화,cht,tier3
+32,서큘레이션(circulation),서큘레이션,circulation,tier4
+33,조합론(combinatorics),조합론,combinatorics,tier2
+34,해_구성하기(constructive),해 구성하기,constructive,tier2
+35,볼록_껍질(convex_hull),볼록 껍질,convex_hull,tier3
+36,값_/_좌표_압축(coordinate_compression),값 / 좌표 압축,coordinate_compression,tier2
+37,중국인의_나머지_정리(crt),중국인의 나머지 정리,crt,tier3
+38,방향_비순환_그래프(dag),방향 비순환 그래프,dag,tier2
+39,춤추는_링크(dancing_links),춤추는 링크,dancing_links,tier4
+40,자료_구조(data_structures),자료 구조,data_structures,tier2
+41,차수열(degree_sequence),차수열,degree_sequence,tier2
+42,델로네_삼각분할(delaunay),델로네 삼각분할,delaunay,tier5
+43,덱(deque),덱,deque,tier2
+44,덱을_이용한_구간_최댓값_트릭(deque_trick),덱을 이용한 구간 최댓값 트릭,deque_trick,tier3
+45,깊이_우선_탐색(dfs),깊이 우선 탐색,dfs,tier2
+46,차분_공격(differential_cryptanalysis),차분 공격,differential_cryptanalysis,tier1
+47,데이크스트라(dijkstra),데이크스트라,dijkstra,tier2
+48,유향_최소_신장_트리(directed_mst),유향 최소 신장 트리,directed_mst,tier4
+49,이산_k제곱근(discrete_kth_root),이산 k제곱근,discrete_kth_root,tier3
+50,이산_로그(discrete_log),이산 로그,discrete_log,tier4
+51,이산_제곱근(discrete_sqrt),이산 제곱근,discrete_sqrt,tier4
+52,분리_집합(disjoint_set),분리 집합,disjoint_set,tier2
+53,분할_정복(divide_and_conquer),분할 정복,divide_and_conquer,tier3
+54,분할_정복을_사용한_최적화(divide_and_conquer_optimization),분할 정복을 사용한 최적화,divide_and_conquer_optimization,tier4
+55,도미네이터_트리(dominator_tree),도미네이터 트리,dominator_tree,tier4
+56,다이나믹_프로그래밍(dp),다이나믹 프로그래밍,dp,tier2
+57,비트필드를_이용한_다이나믹_프로그래밍(dp_bitfield),비트필드를 이용한 다이나믹 프로그래밍,dp_bitfield,tier3
+58,커넥션_프로파일을_이용한_다이나믹_프로그래밍(dp_connection_profile),커넥션 프로파일을 이용한 다이나믹 프로그래밍,dp_connection_profile,tier4
+59,덱을_이용한_다이나믹_프로그래밍(dp_deque),덱을 이용한 다이나믹 프로그래밍,dp_deque,tier3
+60,자릿수를_이용한_다이나믹_프로그래밍(dp_digit),자릿수를 이용한 다이나믹 프로그래밍,dp_digit,tier3
+61,부분집합의_합_다이나믹_프로그래밍(dp_sum_over_subsets),부분집합의 합 다이나믹 프로그래밍,dp_sum_over_subsets,tier4
+62,트리에서의_다이나믹_프로그래밍(dp_tree),트리에서의 다이나믹 프로그래밍,dp_tree,tier3
+63,쌍대_그래프(dual_graph),쌍대 그래프,dual_graph,tier4
+64,쌍대성(duality),쌍대성,duality,tier4
+65,유클리드_호제법(euclidean),유클리드 호제법,euclidean,tier1
+66,오일러_지표_(χ=V-E+F)(euler_characteristic),오일러 지표 (χ=V-E+F),euler_characteristic,tier3
+67,오일러_피_함수(euler_phi),오일러 피 함수,euler_phi,tier3
+68,오일러_경로_테크닉(euler_tour_technique),오일러 경로 테크닉,euler_tour_technique,tier3
+69,오일러_경로(eulerian_path),오일러 경로,eulerian_path,tier2
+70,분할_정복을_이용한_거듭제곱(exponentiation_by_squaring),분할 정복을 이용한 거듭제곱,exponentiation_by_squaring,tier2
+71,확장_유클리드_호제법(extended_euclidean),확장 유클리드 호제법,extended_euclidean,tier3
+72,고속_푸리에_변환(fft),고속 푸리에 변환,fft,tier4
+73,플러드_필(flood_fill),플러드 필,flood_fill,tier2
+74,최대_유량(flow),최대 유량,flow,tier3
+75,플로이드–워셜(floyd_warshall),플로이드–워셜,floyd_warshall,tier2
+76,페르마의_소정리(flt),페르마의 소정리,flt,tier2
+77,함수형_그래프(functional_graph),함수형 그래프,functional_graph,tier3
+78,게임_이론(game_theory),게임 이론,game_theory,tier2
+79,가우스_소거법(gaussian_elimination),가우스 소거법,gaussian_elimination,tier3
+80,일반적인_매칭(general_matching),일반적인 매칭,general_matching,tier5
+81,생성_함수(generating_function),생성 함수,generating_function,tier4
+82,도형에서의_불_연산(geometric_boolean_operations),도형에서의 불 연산,geometric_boolean_operations,tier5
+83,기하학(geometry),기하학,geometry,tier1
+84,3차원_기하학(geometry_3d),3차원 기하학,geometry_3d,tier1
+85,4차원_이상의_기하학(geometry_hyper),4차원 이상의 기하학,geometry_hyper,tier2
+86,경사_하강법(gradient_descent),경사 하강법,gradient_descent,tier3
+87,그래프_탐색(graph_traversal),그래프 탐색,graph_traversal,tier2
+88,그래프_이론(graphs),그래프 이론,graphs,tier2
+89,그리디_알고리즘(greedy),그리디 알고리즘,greedy,tier1
+90,그린_정리(green),그린 정리,green,tier4
+91,하켄부시_게임(hackenbush),하켄부시 게임,hackenbush,tier5
+92,반평면_교집합(half_plane_intersection),반평면 교집합,half_plane_intersection,tier4
+93,홀의_결혼_정리(hall),홀의 결혼 정리,hall,tier4
+94,해시를_사용한_집합과_맵(hash_set),해시를 사용한 집합과 맵,hash_set,tier1
+95,해싱(hashing),해싱,hashing,tier3
+96,휴리스틱(heuristics),휴리스틱,heuristics,tier2
+97,히르쉬버그(hirschberg),히르쉬버그,hirschberg,tier4
+98,Heavy-light_분할(hld),Heavy-light 분할,hld,tier4
+99,헝가리안(hungarian),헝가리안,hungarian,tier3
+100,구현(implementation),구현,implementation,tier0
+101,포함_배제의_원리(inclusion_and_exclusion),포함 배제의 원리,inclusion_and_exclusion,tier2
+102,키타마사(kitamasa),키타마사,kitamasa,tier4
+103,KMP(kmp),KMP,kmp,tier3
+104,배낭_문제(knapsack),배낭 문제,knapsack,tier2
+105,크누스_최적화(knuth),크누스 최적화,knuth,tier4
+106,크누스_X(knuth_x),크누스 X,knuth_x,tier4
+107,느리게_갱신되는_세그먼트_트리(lazyprop),느리게 갱신되는 세그먼트 트리,lazyprop,tier3
+108,최소_공통_조상(lca),최소 공통 조상,lca,tier3
+109,린드스트롬–게셀–비엔노_보조정리(lgv),린드스트롬–게셀–비엔노 보조정리,lgv,tier5
+110,선분_교차_판정(line_intersection),선분 교차 판정,line_intersection,tier2
+111,선형대수학(linear_algebra),선형대수학,linear_algebra,tier3
+112,선형_계획법(linear_programming),선형 계획법,linear_programming,tier4
+113,기댓값의_선형성(linearity_of_expectation),기댓값의 선형성,linearity_of_expectation,tier2
+114,링크/컷_트리(link_cut_tree),링크/컷 트리,link_cut_tree,tier4
+115,연결_리스트(linked_list),연결 리스트,linked_list,tier2
+116,가장_긴_증가하는_부분_수열:_O(n_log_n)(lis),가장 긴 증가하는 부분 수열: O(n log n),lis,tier2
+117,지수승강_보조정리(lte),지수승강 보조정리,lte,tier4
+118,뤼카_정리(lucas),뤼카 정리,lucas,tier3
+119,보이어–무어_다수결_투표(majority_vote),보이어–무어 다수결 투표,majority_vote,tier2
+120,매내처(manacher),매내처,manacher,tier3
+121,수학(math),수학,math,tier1
+122,매트로이드(matroid),매트로이드,matroid,tier5
+123,최소_비용_최대_유량(mcmf),최소 비용 최대 유량,mcmf,tier3
+124,머지_소트_트리(merge_sort_tree),머지 소트 트리,merge_sort_tree,tier3
+125,최대_유량_최소_컷_정리(mfmc),최대 유량 최소 컷 정리,mfmc,tier3
+126,밀러–라빈_소수_판별법(miller_rabin),밀러–라빈 소수 판별법,miller_rabin,tier3
+127,최소_외접원(min_enclosing_circle),최소 외접원,min_enclosing_circle,tier3
+128,중간에서_만나기(mitm),중간에서 만나기,mitm,tier2
+129,mo's(mo),mo's,mo,tier3
+130,뫼비우스_반전_공식(mobius_inversion),뫼비우스 반전 공식,mobius_inversion,tier4
+131,모듈로_곱셈_역원(modular_multiplicative_inverse),모듈로 곱셈 역원,modular_multiplicative_inverse,tier2
+132,단조_큐를_이용한_최적화(monotone_queue_optimization),단조 큐를 이용한 최적화,monotone_queue_optimization,tier4
+133,최소_스패닝_트리(mst),최소 스패닝 트리,mst,tier2
+134,다차원_세그먼트_트리(multi_segtree),다차원 세그먼트 트리,multi_segtree,tier3
+135,다중_대입값_계산(multipoint_evaluation),다중 대입값 계산,multipoint_evaluation,tier5
+136,정수론(number_theory),정수론,number_theory,tier1
+137,수치해석(numerical_analysis),수치해석,numerical_analysis,tier3
+138,오프라인_동적_연결성_판정(offline_dynamic_connectivity),오프라인 동적 연결성 판정,offline_dynamic_connectivity,tier4
+139,오프라인_쿼리(offline_queries),오프라인 쿼리,offline_queries,tier3
+140,회문_트리(palindrome_tree),회문 트리,palindrome_tree,tier4
+141,매개_변수_탐색(parametric_search),매개 변수 탐색,parametric_search,tier2
+142,파싱(parsing),파싱,parsing,tier1
+143,병렬_이분_탐색(pbs),병렬 이분 탐색,pbs,tier4
+144,순열_사이클_분할(permutation_cycle_decomposition),순열 사이클 분할,permutation_cycle_decomposition,tier2
+145,물리학(physics),물리학,physics,tier1
+146,픽의_정리(pick),픽의 정리,pick,tier2
+147,비둘기집_원리(pigeonhole_principle),비둘기집 원리,pigeonhole_principle,tier1
+148,평면_그래프(planar_graph),평면 그래프,planar_graph,tier3
+149,볼록_다각형_내부의_점_판정(point_in_convex_polygon),볼록 다각형 내부의 점 판정,point_in_convex_polygon,tier3
+150,오목_다각형_내부의_점_판정(point_in_non_convex_polygon),오목 다각형 내부의 점 판정,point_in_non_convex_polygon,tier3
+151,폴라드_로(pollard_rho),폴라드 로,pollard_rho,tier3
+152,다각형의_넓이(polygon_area),다각형의 넓이,polygon_area,tier2
+153,다항식_보간법(polynomial_interpolation),다항식 보간법,polynomial_interpolation,tier4
+154,런타임_전의_전처리(precomputation),런타임 전의 전처리,precomputation,tier1
+155,누적_합(prefix_sum),누적 합,prefix_sum,tier2
+156,소수_판정(primality_test),소수 판정,primality_test,tier1
+157,우선순위_큐(priority_queue),우선순위 큐,priority_queue,tier2
+158,확률론(probability),확률론,probability,tier2
+159,퍼시스턴트_세그먼트_트리(pst),퍼시스턴트 세그먼트 트리,pst,tier4
+160,피타고라스_정리(pythagoras),피타고라스 정리,pythagoras,tier0
+161,큐(queue),큐,queue,tier1
+162,라빈–카프(rabin_karp),라빈–카프,rabin_karp,tier3
+163,무작위화(randomization),무작위화,randomization,tier2
+164,레드-블랙_트리(rb_tree),레드-블랙 트리,rb_tree,tier5
+165,재귀(recursion),재귀,recursion,tier1
+166,정규_표현식(regex),정규 표현식,regex,tier1
+167,로프(rope),로프,rope,tier4
+168,회전하는_캘리퍼스(rotating_calipers),회전하는 캘리퍼스,rotating_calipers,tier3
+169,강한_연결_요소(scc),강한 연결 요소,scc,tier3
+170,세그먼트_트리(segtree),세그먼트 트리,segtree,tier3
+171,최단_경로(shortest_path),최단 경로,shortest_path,tier2
+172,에라토스테네스의_체(sieve),에라토스테네스의 체,sieve,tier1
+173,담금질_기법(simulated_annealing),담금질 기법,simulated_annealing,tier3
+174,시뮬레이션(simulation),시뮬레이션,simulation,tier0
+175,슬라이딩_윈도우(sliding_window),슬라이딩 윈도우,sliding_window,tier1
+176,함수_개형을_이용한_최적화(slope_trick),함수 개형을 이용한 최적화,slope_trick,tier4
+177,작은_집합에서_큰_집합으로_합치는_테크닉(smaller_to_larger),작은 집합에서 큰 집합으로 합치는 테크닉,smaller_to_larger,tier3
+178,정렬(sorting),정렬,sorting,tier1
+179,희소_배열(sparse_table),희소 배열,sparse_table,tier3
+180,스플레이_트리(splay_tree),스플레이 트리,splay_tree,tier4
+181,스프라그–그런디_정리(sprague_grundy),스프라그–그런디 정리,sprague_grundy,tier3
+182,제곱근_분할법(sqrt_decomposition),제곱근 분할법,sqrt_decomposition,tier3
+183,안정_결혼_문제(stable_marriage),안정 결혼 문제,stable_marriage,tier3
+184,스택(stack),스택,stack,tier1
+185,통계학(statistics),통계학,statistics,tier2
+186,스토어–바그너(stoer_wagner),스토어–바그너,stoer_wagner,tier4
+187,문자열(string),문자열,string,tier0
+188,접미사_배열과_LCP_배열(suffix_array),접미사 배열과 LCP 배열,suffix_array,tier3
+189,접미사_트리(suffix_tree),접미사 트리,suffix_tree,tier5
+190,스위핑(sweeping),스위핑,sweeping,tier2
+191,삼분_탐색(ternary_search),삼분 탐색,ternary_search,tier2
+192,탑_트리(top_tree),탑 트리,top_tree,tier5
+193,위상_정렬(topological_sorting),위상 정렬,topological_sorting,tier2
+194,트리_압축(tree_compression),트리 압축,tree_compression,tier3
+195,트리_분할(tree_decomposition),트리 분할,tree_decomposition,tier4
+196,트리_동형_사상(tree_isomorphism),트리 동형 사상,tree_isomorphism,tier3
+197,트리를_사용한_집합과_맵(tree_set),트리를 사용한 집합과 맵,tree_set,tier2
+198,트리(trees),트리,trees,tier2
+199,트라이(trie),트라이,trie,tier3
+200,외판원_순회_문제(tsp),외판원 순회 문제,tsp,tier2
+201,두_포인터(two_pointer),두 포인터,two_pointer,tier2
+202,utf-8_입력_처리(utf8),utf-8 입력 처리,utf8,tier0
+203,보로노이_다이어그램(voronoi),보로노이 다이어그램,voronoi,tier3
+204,z(z),z,z,tier3

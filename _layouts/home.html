@@ -87,22 +87,27 @@ sidebar: article-menu
             event.preventDefault();
         return false;
     }
-
-    // 홈 화면의 태그 블록과 블로그 포스트를 연결합니다.
-    // 태그 블록 트리를 터치 스크롤 화면으로 표시합니다.
+    
     let tagData = {};
+
     {%- for tag in site.data.tags -%}
-    tagData["{{ tag.en }}"] = { post_exp: "{{ tag.post_exp }}", ko: "{{ tag.ko }}", tier: "{{ tag.tier }}"};
+    tagData["{{ tag.en }}"] = { exp: "{{ tag.exp }}", ko: "{{ tag.ko }}", tier: "{{ tag.tier }}"};
     {% endfor %}
 
-    const posts = {};
-    {%- assign posts = site.posts -%}
-    {%- for post in posts -%}
+    console.log("boj tags loaded below:");
+    console.log(tagData);
+
+    let posts = {};
+
+    {%- for post in site.posts -%}
     posts["{{ post.tags[-1] }}"] = "{{ post.url }}";
     {% endfor %}
-    console.log("post loaded below:");
-    console.log(Object.keys(posts));
 
+    console.log("post loaded below:");
+    console.log(posts);
+    
+    // 홈 화면의 태그 블록과 블로그 포스트를 연결합니다.
+    // 태그 블록 트리를 터치 스크롤 화면으로 표시합니다.
     document.querySelectorAll('pre.mermaid.tag-connection-define').forEach( pre => {
         let newText = "";
         newText += pre.innerHTML + "\n\n";
@@ -111,8 +116,8 @@ sidebar: article-menu
             if (!(tag in tagData))
                 return;
             let inner = "<span style=\"font-size: 1em;\">#" + tagData[tag].ko + "</span> <span style=\"opacity: 0.6; font-size: 0.8em;\">" + tag + "</span>";
-            if (tagData[tag].post_exp in posts)
-                inner = "<span style=\"background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px\">fa:fa-code</span> <a href=\"{{ site.baseurl }}" + posts[tagData[tag].post_exp] + "\">" + inner + "</a>";
+            if (tagData[tag].exp in posts)
+                inner = "<span style=\"background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px\">fa:fa-code</span> <a href=\"{{ site.baseurl }}" + posts[tagData[tag].exp] + "\">" + inner + "</a>";
             newText += "#" + tag + "([\"" + inner + "\"]):::" + tagData[tag].tier + "\n";
         });
         newText += "\n\n";
