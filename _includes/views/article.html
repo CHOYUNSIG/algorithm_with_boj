@@ -1,40 +1,40 @@
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <div class="post-content e-content" itemprop="articleBody">
+  <div class="post-content e-content" itemprop="articleBody">
 
-      {{ content }}
+    {{ content }}
 
-    </div>
+  </div>
 
-    <script>
-      // h2 태그를 제목으로 하고 있는 본문을 div로 묶음
-      var postContentDiv = document.querySelector('div.post-content');
-      var divContainer = [];
+  <script>
+    // h2 태그를 제목으로 하고 있는 본문을 div로 묶음
+    var postContentDiv = document.querySelector('div.post-content');
+    var divContainer = [];
 
-      while (postContentDiv.children.length > 0) {
-        var currentElement = postContentDiv.children[0];
-        if (currentElement.tagName.toLowerCase() === 'h2') {
-          var newDiv = document.createElement('div');
-          newDiv.classList.add('post-section');
-          divContainer.push(newDiv);
-        }
-        divContainer[divContainer.length - 1].appendChild(currentElement);
+    while (postContentDiv.children.length > 0) {
+      var currentElement = postContentDiv.children[0];
+      if (currentElement.tagName.toLowerCase() === 'h2') {
+        var newDiv = document.createElement('div');
+        newDiv.classList.add('post-section');
+        divContainer.push(newDiv);
       }
+      divContainer[divContainer.length - 1].appendChild(currentElement);
+    }
 
-      for (var i = 0; i < divContainer.length; i++) {
-        postContentDiv.appendChild(divContainer[i]);
-      }
-    </script>
+    for (var i = 0; i < divContainer.length; i++) {
+      postContentDiv.appendChild(divContainer[i]);
+    }
+  </script>
 
-    <script>
-      // 포스트 내 테이블의 overflow 방지 및 margin 추가
-      var postContentDiv = document.querySelector('div.post-content');
-      var tables = postContentDiv.querySelectorAll('table');
-      tables.forEach(function(table) {
-        var div = document.createElement('div');
-        div.classList.add('post-table');
-        table.parentNode.replaceChild(div, table);
-        div.appendChild(table);
-      });
-    </script>
+  <script>
+    // 포스트 내 테이블의 overflow 방지 및 margin 추가
+    var postContentDiv = document.querySelector('div.post-content');
+    var tables = postContentDiv.querySelectorAll('table');
+    tables.forEach(function(table) {
+      var div = document.createElement('div');
+      div.classList.add('post-table');
+      table.parentNode.replaceChild(div, table);
+      div.appendChild(table);
+    });
+  </script>
 </article>
