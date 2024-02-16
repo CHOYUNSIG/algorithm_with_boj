@@ -6,36 +6,31 @@
     });
     await mermaid.run();
     // Mermaid 노드에 그림자 추가
-    const filterDefinition = `
-        <defs>
-            <filter id="drop-shadow" x="-100%" y="-100%" width="300%" height="300%">
-                <feGaussianBlur stdDeviation="5"/>
-                <feComponentTransfer>
-                    <feFuncA type="linear" slope="0.7"/>
-                </feComponentTransfer>
-                <feOffset dx="1" dy="2"/>
-                <feMerge>
-                    <feMergeNode />
-                    <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-            </filter>
-        </defs>
-    `;
-    const mermaidPre = document.querySelectorAll('.mermaid');
-    for (var i = 0; i < mermaidPre.length; i++) {
-        const current = mermaidPre[i].children[0];
-        current.insertAdjacentHTML('afterbegin', filterDefinition);
+    document.querySelectorAll('.mermaid').forEach( (pre, i) => {
+        const current = pre.children[0];
+        current.insertAdjacentHTML('afterbegin', `
+            <defs>
+                <filter id="drop-shadow" x="-100%" y="-100%" width="300%" height="300%">
+                    <feGaussianBlur stdDeviation="5"/>
+                    <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.7"/>
+                    </feComponentTransfer>
+                    <feOffset dx="1" dy="2"/>
+                    <feMerge>
+                        <feMergeNode />
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+        `);
         ['rect', 'circle'].map( shape => {
-        const drawElement = current.querySelectorAll(shape);
-        if (drawElement) {
-            for (var j = 0; j < drawElement.length; j++) {
-            drawElement[j].setAttribute("filter", `url(#drop-shadow)`);
-            }
-        }
+            const drawElement = current.querySelectorAll(shape);
+            if (drawElement)
+                drawElement.forEach( e => { e.setAttribute("filter", `url(#drop-shadow)`); });
         });
         current.viewBox.baseVal.x -= 8;
         current.viewBox.baseVal.y -= 8;
         current.viewBox.baseVal.width += 10;
         current.viewBox.baseVal.height += 10;
-    }
+    });
 </script>
