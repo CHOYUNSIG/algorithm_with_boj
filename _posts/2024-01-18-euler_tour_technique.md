@@ -105,31 +105,42 @@ $$
 
     A((Parent))
     B(("Child 1
-    in = w ~ out = x"))
+    <span class="mathjax mj1">$\text{in} = w, \text{out} = x$</span>"))
     C(("Child 2
-    in = x ~ out = y"))
+    <span class="mathjax mj2">$\text{in} = x, \text{out} = y$</span>"))
     D(("Child 3
-    in = y ~ out = z"))
+    <span class="mathjax mj3">$\text{in} = y, \text{out} = z$</span>"))
 </pre>
+<ol class="mathjax">
+    <li class="mj1">$\text{in} = w, \text{out} = x$</li>
+    <li class="mj2">$\text{in} = x, \text{out} = y$</li>
+    <li class="mj3">$\text{in} = y, \text{out} = z$</li>
+</ol>
 
 전진할 자식 정점을 선택하려면 자식 정점들의 $\text{in}$ 번호와 $\text{out}$ 번호가 나타내는 범위를 보면 된다. 탐색하는 정점의 $\text{in}$ 번호를 $m$이라고 하면 자식 정점 중 $m$을 범위에 포함하고 있는 정점로 전진한다. 왜냐하면 $\text{in} \le m < \text{out}$는 곧 그 정점을 서브 트리의 정점로 가지고 있다는 뜻이기 때문이다.
 
 <pre class="mermaid">
     graph TD
         A --> B
-        A -- <p style="color: #888">if x <= m < y</p> --> C
+        A -- <span class="mathjax mj0">$\text{if }x < m \le y$</span> --> C
         A --> D
 
     A((Parent))
     B(("Child 1
-    in = w ~ out = x"))
+    <span class="mathjax mj1">$\text{in} = w, \text{out} = x$</span>"))
     C(("Child 2
-    in = x ~ out = y")):::red
+    <span class="mathjax mj2">$\text{in} = x, \text{out} = y$</span>")):::red
     D(("Child 3
-    in = y ~ out = z"))
+    <span class="mathjax mj3">$\text{in} = y, \text{out} = z$</span>"))
 
     classDef red stroke:#F00, fill:#FEE
 </pre>
+<ol class="mathjax">
+    <li class="mj0">$\text{if }x \le m < y$</li>
+    <li class="mj1">$\text{in} = w, \text{out} = x$</li>
+    <li class="mj2">$\text{in} = x, \text{out} = y$</li>
+    <li class="mj3">$\text{in} = y, \text{out} = z$</li>
+</ol>
 
 각 정점 안에서는 자식 정점들이 $\text{in}$ 번호 기준으로 정렬되어 있으므로 해당되는 자식 정점을 선택할 때 이분 탐색을 적용할 수 있다. 
 

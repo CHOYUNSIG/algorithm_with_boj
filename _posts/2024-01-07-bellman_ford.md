@@ -36,14 +36,19 @@ $$
 
 <pre class="mermaid">
     graph LR
-    A -- <p style="color: #888">W[I]</p> --> I
-    A -- <p style="color: #888">W[J]</p> --> J
-    I -- <p style="color: #888">c</p> --> J
+    A -- <span class="mathjax mj1">$W_{k}[\text I]$</span> --> I
+    A -- <span class="mathjax mj2">$W_{k}[\text J]$</span> --> J
+    I -- <span class="mathjax mj3">$c$</span> --> J
 
     A((A))
     I((I))
     J((J))
 </pre>
+<ol class="mathjax">
+    <li class="mj1">$W_{k}[\text I]$</li>
+    <li class="mj2">$W_{k}[\text J]$</li>
+    <li class="mj3">$c$</li>
+</ol>
 
 만약 정점 $\text I$에서 정점 $\text J$로 가는 간선의 가중치가 $c$이고 $W_{k}[\text I] + c < W_{k}[\text J]$라면 (즉 $W_{k}[\text I]$가 함유하는 방법으로 정점 $\text I$로 간 뒤 가중치가 $c$인 간선을 통해 정점 $\text J$로 가는 방법이 기존의 $W_{k}[\text J]$의 방법보다 거리가 짧다면) $W_{k+1}[\text J]$를 $W_{k}[\text I] + c$로 결정할 수 있을 것이다. 이러한 방식으로 $W_{0}$으로부터 $W_{1}$을 구하고, $W_{1}$로부터 $W_{2}$을 구하며, 재귀적으로 $W_{N-1}$을 구할 수 있다. $W_{N-1}$은 $N-1$개 이하의 간선을 거쳐 갈 때의 최단 거리이므로 우리가 구하고자 하는 궁극적인 최단 거리표가 될 것이다.
 
