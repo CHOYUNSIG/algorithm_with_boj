@@ -8,7 +8,7 @@
     // Mathjax 요소 추가
     document.querySelectorAll('.mermaid').forEach( pre => {
         const list = pre.nextElementSibling;
-        if (!list.classList.contains("mathjax"))
+        if (list === null || !list.classList.contains("mathjax"))
             return;
         pre.querySelectorAll('span.mathjax').forEach( span => {
             span.innerHTML = "";
