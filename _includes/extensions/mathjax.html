@@ -1,10 +1,19 @@
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-      inlineMath: [['$','$']]
-    }
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+  };
+
+  function typeset(code) {
+    MathJax.startup.promise = MathJax.startup.promise
+      .then(() => MathJax.typesetPromise(code()))
+      .catch((err) => console.log('Typeset failed: ' + err.message));
+    return MathJax.startup.promise;
+  }
+
+  typeset(() => {
+    const math = document.querySelector('#math');
+    return [math];
   });
 </script>
-<script
-src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript" async></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>

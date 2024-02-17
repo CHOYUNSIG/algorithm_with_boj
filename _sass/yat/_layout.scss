@@ -942,6 +942,14 @@ pre.mermaid {
     font-family: $base-font-family;
   }
 
+  .edgeLabel {
+    background-color: transparent !important;
+    
+    span {
+      color: #888 !important;
+    }
+  }
+
   a {
     color: white;
     font-weight: bold;
@@ -955,4 +963,9 @@ pre.mermaid {
     fill: #555 !important;
     stroke: #555 !important;
   }
+}
+
+mjx-container {
+  overflow: auto;
+  line-height: unset !important;
 }

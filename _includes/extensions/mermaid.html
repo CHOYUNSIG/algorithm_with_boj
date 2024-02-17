@@ -5,8 +5,19 @@
         startOnLoad: false,
     });
     await mermaid.run();
+    // Mathjax 요소 추가
+    document.querySelectorAll('.mermaid').forEach( pre => {
+        const list = pre.nextElementSibling;
+        if (!list.classList.contains("mathjax"))
+            return;
+        pre.querySelectorAll('span.mathjax').forEach( span => {
+            span.innerHTML = "";
+            span.appendChild(list.querySelector('.' + span.classList[1]).children[0]);
+        });
+        list.remove();
+    });
     // Mermaid 노드에 그림자 추가
-    document.querySelectorAll('.mermaid').forEach( (pre, i) => {
+    document.querySelectorAll('.mermaid').forEach( pre => {
         const current = pre.children[0];
         current.insertAdjacentHTML('afterbegin', `
             <defs>
