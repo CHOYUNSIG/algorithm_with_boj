@@ -36,9 +36,9 @@ $$
 
 <pre class="mermaid">
     graph LR
-    A -- <span class="mathjax mj1">$W_{k}[\text I]$</span> --> I
-    A -- <span class="mathjax mj2">$W_{k}[\text J]$</span> --> J
-    I -- <span class="mathjax mj3">$c$</span> --> J
+    A -- <span class="mathjax mj1" style="display:inline-block; width: 50px; height: 30px"></span> --> I
+    A -- <span class="mathjax mj2" style="display:inline-block; width: 50px; height: 30px"></span> --> J
+    I -- <span class="mathjax mj3" style="display:inline-block; width: 50px; height: 30px"></span> --> J
 
     A((A))
     I((I))
