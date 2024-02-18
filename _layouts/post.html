@@ -55,7 +55,7 @@ sidebar:
     {%- endif -%}
 
     {%- include views/article.html -%}
-
+    
     {%- assign result = hidden | where_exp: "item", "item == 'related_posts'" -%}
     {%- if result.size == 0 -%}
     <div class="post-related">

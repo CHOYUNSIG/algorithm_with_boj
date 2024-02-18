@@ -109,7 +109,7 @@ title: Home
 
 ## 2. 자료구조
 
-<pre class="mermaid tag-connection-define">
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -150px)">
     graph LR
 
     #data_structures --> #stack
@@ -159,7 +159,7 @@ title: Home
 
 ### 3-2. 트리
 
-<pre class="mermaid tag-connection-define">
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -600px)">
     graph LR
 
     #trees --> #tree_set
@@ -199,7 +199,7 @@ title: Home
 
 ### 3-3. 그래프
 
-<pre class="mermaid tag-connection-define">
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -1100px)">
     graph LR
 
     #graphs --> #shortest_path
@@ -245,7 +245,7 @@ title: Home
 
 ### 3-4. 문자열
 
-<pre class="mermaid tag-connection-define">
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -300px)">
     graph LR
 
     #string --> #utf8
@@ -279,7 +279,7 @@ title: Home
 
 ### 3-5. 수학
 
-<pre class="mermaid tag-connection-define">
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -1000px)">
     graph LR
 
     #math --> #number_theory
@@ -327,7 +327,7 @@ title: Home
 
 #### 3-5-1. 정수론
 
-<pre class="mermaid tag-connection-define">
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -100px)">
     graph LR
 
     #number_theory --> #crt
@@ -348,7 +348,7 @@ title: Home
 
 #### 3-5-2. 기하
 
-<pre class="mermaid tag-connection-define">
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -200px)">
     graph LR
 
     #geometry --> #pythagoras
@@ -374,7 +374,7 @@ title: Home
 
 ### 3-6. 동적계획법
 
-<pre class="mermaid tag-connection-define">
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -500px)">
     graph LR
 
     #dp --> #prefix_sum

@@ -1,0 +1,79 @@
+<script>
+    {%- assign container = include.container -%}
+
+    try {
+        let scrollBefore = { translateX: 0, translateY: 0 };
+        let scrollTarget = undefined;
+        let scrollStart = { x: 0, y: 0 };
+        let scrolling = false;
+        let scrolled = false;
+
+        function getPos(event) {
+            var x = event.clientX;
+            var y = event.clientY;
+            if (x === undefined || y === undefined) {
+                x = event.changedTouches[0].clientX;
+                y = event.changedTouches[0].clientY;
+            }
+            return { 'x': x, 'y': y };
+        }
+
+        function onScrollStart(event) {
+            event.preventDefault();
+            const target = event.target.closest('{{ container }}');
+            if (!target)
+                return false;
+            event.stopPropagation();
+            scrollStart = getPos(event);
+            var matrix = new DOMMatrix(window.getComputedStyle(target.children[0]).getPropertyValue('transform'));
+            if (matrix === "none")
+                matrix = new DOMMatrix('matrix(1, 0, 0, 1, 0, 0)');
+            scrollBefore.translateX = matrix.m41;
+            scrollBefore.translateY = matrix.m42;
+            scrollTarget = target.children[0];
+            scrolling = true;
+            scrolled = false;
+        }
+
+        function onScrollMove(event) {
+            if (!scrolling)
+                return false;
+            event.preventDefault();
+            event.stopPropagation();
+            const pos = getPos(event);
+            const translateX = scrollBefore.translateX - (scrollStart.x - pos.x);
+            const translateY = scrollBefore.translateY - (scrollStart.y - pos.y);
+            if ((translateX - scrollBefore.translateX) ** 2 + (translateY - scrollBefore.translateY) ** 2 > 25)
+                scrolled = true;
+            scrollTarget.style.transform = `translate(${translateX}px, ${translateY}px)`;
+        }
+
+        function onScrollEnd(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const a = event.target.closest('a');
+            if (!scrolled && a !== null)
+                a.click();
+            scrolling = false;
+        }
+
+        function onClick(event) {
+            if (scrolled)
+                event.preventDefault();
+            return false;
+        }
+    }
+    catch {
+        // 두 번 이상 include 할 경우 여기에 표시
+    }
+
+    document.querySelectorAll('{{ container }}').forEach( pre => {
+        pre.addEventListener("click", onClick);
+        pre.addEventListener("mousedown", onScrollStart);
+        pre.addEventListener("touchstart", onScrollStart);
+        pre.addEventListener("touchmove", onScrollMove);
+        pre.addEventListener("touchend", onScrollEnd);
+    });
+    window.addEventListener("mousemove", onScrollMove);
+    window.addEventListener("mouseup", onScrollEnd);
+</script>

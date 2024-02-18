@@ -26,68 +26,9 @@ sidebar: article-menu
     }
 </style>
 
+{%- include extensions/touch-scroller.html container="pre.mermaid.tag-connection-define" -%}
+
 <script>
-    let scrollBefore = { translateX: 0, translateY: 0 };
-    let scrollTarget = undefined;
-    let scrollStart = { x: 0, y: 0 };
-    let scrolling = false;
-    let scrolled = false;
-
-    function getPos(event) {
-        var x = event.clientX;
-        var y = event.clientY;
-        if (x === undefined || y === undefined) {
-            x = event.changedTouches[0].clientX;
-            y = event.changedTouches[0].clientY;
-        }
-        return { 'x': x, 'y': y };
-    }
-
-    function onScrollStart(event) {
-        event.preventDefault();
-        const target = event.target.closest('pre.mermaid.tag-connection-define');
-        if (!target)
-            return false;
-        event.stopPropagation();
-        scrollStart = getPos(event);
-        var matrix = new DOMMatrix(window.getComputedStyle(target.children[0]).getPropertyValue('transform'));
-        if (matrix === "none")
-            matrix = new DOMMatrix('matrix(1, 0, 0, 1, 0, 0)');
-        scrollBefore.translateX = matrix.m41;
-        scrollBefore.translateY = matrix.m42;
-        scrollTarget = target.children[0];
-        scrolling = true;
-        scrolled = false;
-    }
-
-    function onScrollMove(event) {
-        if (!scrolling)
-            return false;
-        event.preventDefault();
-        event.stopPropagation();
-        const pos = getPos(event);
-        const translateX = scrollBefore.translateX - (scrollStart.x - pos.x);
-        const translateY = scrollBefore.translateY - (scrollStart.y - pos.y);
-        if ((translateX - scrollBefore.translateX) ** 2 + (translateY - scrollBefore.translateY) ** 2 > 25)
-            scrolled = true;
-        scrollTarget.style.transform = `translate(${translateX}px, ${translateY}px)`;
-    }
-
-    function onScrollEnd(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        const a = event.target.closest('a');
-        if (!scrolled && a !== null)
-            a.click();
-        scrolling = false;
-    }
-
-    function onClick(event) {
-        if (scrolled)
-            event.preventDefault();
-        return false;
-    }
-    
     let tagData = {};
 
     {%- for tag in site.data.tags -%}
@@ -130,14 +71,5 @@ sidebar: article-menu
             classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
         `;
         pre.innerHTML = newText;
-        
-        pre.addEventListener("click", onClick);
-        pre.addEventListener("mousedown", onScrollStart);
-        pre.addEventListener("touchstart", onScrollStart);
-        pre.addEventListener("touchmove", onScrollMove);
-        pre.addEventListener("touchend", onScrollEnd);
     });
-    window.addEventListener("mousemove", onScrollMove);
-    window.addEventListener("mouseup", onScrollEnd);
-
 </script>

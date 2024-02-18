@@ -65,6 +65,27 @@ html {
 }
 
 /**
+ * Block design
+ */
+ div.post-section, div.post-menu, .post-item, .search, .page-segments-section, pre.highlight, .post-related, pre.mermaid.tag-connection-define {
+  padding: $spacing-unit * 2;
+  border-radius: $spacing-unit * 1.5;
+  background-color: $background-color;
+  box-shadow: 0 2px 15px $shadow-color;
+  transition: all $base-transition-duration;
+  margin-bottom: $spacing-unit * 2;
+
+  @include media-query($on-palm) {
+    padding: $spacing-unit;
+  }
+}
+
+.post-item:hover, .page-segments-section:hover {
+  box-shadow: 0px 0px 10px $brand-color;
+}
+
+
+/**
  * Site header
  */
 .site-header {
@@ -751,29 +772,25 @@ html {
 
 
 /**
- * Block design
+ * Code
  */
-div.post-section, div.post-menu, .post-item, .search, .page-segments-section, pre.highlight, .post-related, pre.mermaid.tag-connection-define {
-  padding: $spacing-unit * 2;
-  border-radius: $spacing-unit * 1.5;
-  background-color: $background-color;
-  box-shadow: 0 2px 15px $shadow-color;
-  transition: all $base-transition-duration;
-  margin-bottom: $spacing-unit * 2;
-
-  @include media-query($on-palm) {
-    padding: $spacing-unit;
-  }
-}
-
 pre.highlight {
   padding: 0;
+  max-height: 500px;
   border-radius: $spacing-unit * 1.5 0 $spacing-unit * 1.5 $spacing-unit * 1.5;
-  background-color: transparent;
-}
+  background-color: #202020;
+  overflow: hidden;
+  cursor: grab;
 
-.post-item:hover, .page-segments-section:hover {
-  box-shadow: 0px 0px 10px $brand-color;
+  &:before {
+    z-index: 2;
+  }
+
+  code {
+    width: max-content;
+    background-color: transparent;
+    overflow: hidden !important;
+  }
 }
 
 

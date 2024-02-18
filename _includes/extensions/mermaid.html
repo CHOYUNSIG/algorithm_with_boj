@@ -8,7 +8,7 @@
     // Mathjax 요소 추가
     document.querySelectorAll('.mermaid').forEach( pre => {
         const list = pre.nextElementSibling;
-        if (list === null || !list.classList.contains("mathjax"))
+        if (list === null || list.classList[0] !== "mathjax")
             return;
         pre.querySelectorAll('span.mathjax').forEach( span => {
             span.innerHTML = "";
@@ -43,5 +43,11 @@
         current.viewBox.baseVal.y -= 8;
         current.viewBox.baseVal.width += 10;
         current.viewBox.baseVal.height += 10;
+        // Mermaid 기본 정렬 (홈 화면에 적용)
+        if (pre.classList.contains("tag-connection-define")) {
+            let matrix = new DOMMatrix(window.getComputedStyle(pre).getPropertyValue('transform'));
+            current.style.transform = matrix;
+            pre.style.transform = 'unset';
+        }
     });
 </script>
