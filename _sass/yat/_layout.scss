@@ -983,6 +983,7 @@ pre.mermaid {
 }
 
 mjx-container {
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
   line-height: unset !important;
 }
