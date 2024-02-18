@@ -1,6 +1,19 @@
 <script>
     {%- assign container = include.container -%}
 
+    /*
+    터치 스크롤 적용
+
+    사용:
+    Liquid 용법으로 사용됨
+    include touch-scroller.html container="element.class"
+
+    주의사항:
+    터치 스크롤을 적용하려는 요소와 그것을 감싼 Container 요소가 반드시 직계 부모-자식 관계여야 함
+    부모의 padding 값은 px 단위로 지정되어야 함
+    자식의 overflow 값이 hidden으로 지정되어야 함
+    */
+
     try {
         let scrollBefore = { translateX: 0, translateY: 0 };
         let scrollTarget = undefined;
@@ -19,7 +32,6 @@
         }
 
         function onScrollStart(event) {
-            event.preventDefault();
             const target = event.target.closest('{{ container }}');
             if (!target)
                 return false;
@@ -38,23 +50,27 @@
         function onScrollMove(event) {
             if (!scrolling)
                 return false;
-            event.preventDefault();
-            event.stopPropagation();
             const pos = getPos(event);
-            const translateX = scrollBefore.translateX - (scrollStart.x - pos.x);
-            const translateY = scrollBefore.translateY - (scrollStart.y - pos.y);
-            if ((translateX - scrollBefore.translateX) ** 2 + (translateY - scrollBefore.translateY) ** 2 > 25)
-                scrolled = true;
+            const style = window.getComputedStyle(scrollTarget.parentElement);
+            let padX = parseFloat(style.getPropertyValue('padding-right')) + parseFloat(style.getPropertyValue('padding-right'));
+            let padY = parseFloat(style.getPropertyValue('padding-top')) + parseFloat(style.getPropertyValue('padding-bottom'));
+            const translateX = Math.max(-Math.max(0, scrollTarget.getBoundingClientRect().width - scrollTarget.parentElement.getBoundingClientRect().width + padX), Math.min(0, scrollBefore.translateX - (scrollStart.x - pos.x)));
+            const translateY = Math.max(-Math.max(0, scrollTarget.getBoundingClientRect().height - scrollTarget.parentElement.getBoundingClientRect().height + padY), Math.min(0, scrollBefore.translateY - (scrollStart.y - pos.y)));
+            if (!scrolled && (translateX - scrollBefore.translateX) ** 2 + (translateY - scrollBefore.translateY) ** 2 < 1) {
+                scrolling = false;
+                return;
+            }
+            if (event.cancelable)
+                event.preventDefault();
+            event.stopPropagation();
             scrollTarget.style.transform = `translate(${translateX}px, ${translateY}px)`;
+            scrolled = true;
         }
 
         function onScrollEnd(event) {
-            event.preventDefault();
             event.stopPropagation();
-            const a = event.target.closest('a');
-            if (!scrolled && a !== null)
-                a.click();
             scrolling = false;
+            scrolled = false;
         }
 
         function onClick(event) {
