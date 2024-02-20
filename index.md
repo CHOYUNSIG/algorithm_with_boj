@@ -35,18 +35,18 @@ title: Home
     home(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="">Home</a>"]):::tier1
     posts(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="archives.html">Posts</a>"]):::tier1
     tags(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="tags.html">Tags</a>"]):::tier1
-    paradigm(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-1-패러다임">패러다임</a>"]):::tier2
-    data_structure(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-2-자료구조">자료구조</a>"]):::tier2
-    algorithm(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-알고리즘">알고리즘</a>"]):::tier2
-    sorting_search(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-1-정렬과-탐색">정렬과 탐색</a>"]):::tier3
-    trees(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-2-트리">트리</a>"]):::tier3
-    graphs(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-3-그래프">그래프</a>"]):::tier3
-    strings(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-4-문자열">문자열</a>"]):::tier3
-    math(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-5-수학">수학</a>"]):::tier3
-    dp(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-6-동적계획법">동적계획법</a>"]):::tier3
-    others(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-7-기타">기타</a>"]):::tier3
-    number_theory(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-5-1-정수론">정수론</a>"]):::tier3
-    geometry(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-3-5-2-기하">기하</a>"]):::tier3
+    paradigm(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-패러다임">패러다임</a>"]):::tier2
+    data_structure(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-자료구조">자료구조</a>"]):::tier2
+    algorithm(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-알고리즘">알고리즘</a>"]):::tier2
+    sorting_search(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-정렬과-탐색">정렬과 탐색</a>"]):::tier3
+    trees(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-트리">트리</a>"]):::tier3
+    graphs(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-그래프">그래프</a>"]):::tier3
+    strings(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-문자열">문자열</a>"]):::tier3
+    math(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-수학">수학</a>"]):::tier3
+    dp(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-동적계획법">동적계획법</a>"]):::tier3
+    others(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-기타">기타</a>"]):::tier3
+    number_theory(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-정수론">정수론</a>"]):::tier3
+    geometry(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-기하">기하</a>"]):::tier3
 
     classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
     classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
@@ -95,7 +95,7 @@ title: Home
 
 블로그의 모든 글은 <b>조윤식</b>이 작성하였습니다. 오타 및 내용 상의 오류나 개선 사항이 있을 경우 의견을 보내주세요.
 
-## 1. 패러다임
+## 패러다임
 
 <pre class="mermaid tag-connection-define">
     graph LR
@@ -107,7 +107,7 @@ title: Home
     #heuristics
 </pre>
 
-## 2. 자료구조
+## 자료구조
 
 <pre class="mermaid tag-connection-define" style="transform: translate(0px, -150px)">
     graph LR
@@ -145,9 +145,9 @@ title: Home
     end
 </pre>
 
-## 3. 알고리즘
+## 알고리즘
 
-### 3-1. 정렬과 탐색
+### 정렬과 탐색
 
 <pre class="mermaid tag-connection-define">
     graph LR
@@ -157,7 +157,7 @@ title: Home
     #parametric_search --> #pbs
 </pre>
 
-### 3-2. 트리
+### 트리
 
 <pre class="mermaid tag-connection-define" style="transform: translate(0px, -600px)">
     graph LR
@@ -197,7 +197,7 @@ title: Home
     end
 </pre>
 
-### 3-3. 그래프
+### 그래프
 
 <pre class="mermaid tag-connection-define" style="transform: translate(0px, -1100px)">
     graph LR
@@ -243,7 +243,7 @@ title: Home
     #dag --> #lgv
 </pre>
 
-### 3-4. 문자열
+### 문자열
 
 <pre class="mermaid tag-connection-define" style="transform: translate(0px, -300px)">
     graph LR
@@ -277,7 +277,7 @@ title: Home
     end
 </pre>
 
-### 3-5. 수학
+### 수학
 
 <pre class="mermaid tag-connection-define" style="transform: translate(0px, -1000px)">
     graph LR
@@ -325,7 +325,7 @@ title: Home
     #pigeonhole_principle --> #birthday
 </pre>
 
-#### 3-5-1. 정수론
+#### 정수론
 
 <pre class="mermaid tag-connection-define" style="transform: translate(0px, -100px)">
     graph LR
@@ -346,7 +346,7 @@ title: Home
     #extended_euclidean --> #modular_multiplicative_inverse
 </pre>
 
-#### 3-5-2. 기하
+#### 기하
 
 <pre class="mermaid tag-connection-define" style="transform: translate(0px, -200px)">
     graph LR
@@ -372,7 +372,7 @@ title: Home
     #convex_hull --> #point_in_convex_polygon
 </pre>
 
-### 3-6. 동적계획법
+### 동적계획법
 
 <pre class="mermaid tag-connection-define" style="transform: translate(0px, -500px)">
     graph LR
@@ -412,7 +412,7 @@ title: Home
     end
 </pre>
 
-### 3-7. 기타
+### 기타
 
 <pre class="mermaid tag-connection-define">
     graph LR
