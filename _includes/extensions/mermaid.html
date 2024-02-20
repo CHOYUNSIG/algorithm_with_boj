@@ -22,9 +22,11 @@
         current.insertAdjacentHTML('afterbegin', `
             <defs>
                 <filter id="drop-shadow" x="-100%" y="-100%" width="300%" height="300%">
-                    <feGaussianBlur stdDeviation="5"/>
+                    <feFlood flood-color="black" result="color"/>
+                    <feComposite in2="SourceGraphic" in="color" operator="in"/>
+                    <feGaussianBlur stdDeviation="3"/>
                     <feComponentTransfer>
-                        <feFuncA type="linear" slope="0.7"/>
+                        <feFuncA type="linear" slope="0.5"/>
                     </feComponentTransfer>
                     <feOffset dx="1" dy="2"/>
                     <feMerge>

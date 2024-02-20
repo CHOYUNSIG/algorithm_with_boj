@@ -67,7 +67,7 @@ html {
 /**
  * Block design
  */
- div.post-section, div.post-menu, .post-item, .search, .page-segments-section, pre.highlight, .post-related, pre.mermaid.tag-connection-define {
+div.post-section, div.post-menu, .post-item, .search, .page-segments-section, pre.highlight, .post-related, pre.mermaid.tag-connection-define {
   padding: $spacing-unit * 2;
   border-radius: $spacing-unit * 1.5;
   background-color: $background-color;
@@ -936,6 +936,8 @@ a:visited .post-badges .post-badge.badge-new {
  * Mermaid
  */
 
+$mermaid-color: #888;
+
 pre.mermaid {
   background-color: #0000;
   text-align: center;
@@ -947,11 +949,17 @@ pre.mermaid {
   .cluster, .subgraph {
     rect {
       fill: #8881 !important;
-      stroke: #888 !important;
+      stroke: $mermaid-color !important;
     }
 
     span.mathjax {
-      color: #888 !important;
+      color: $mermaid-color !important;
+    }
+
+    g.cluster-label {
+      span.nodeLabel {
+        color: $mermaid-color !important;
+      }
     }
   }
 
@@ -963,7 +971,7 @@ pre.mermaid {
     background-color: transparent !important;
     
     span.mathjax {
-      color: #888 !important;
+      color: $mermaid-color !important;
     }
   }
 
@@ -973,12 +981,12 @@ pre.mermaid {
   }
 
   .flowchart-link {
-    stroke: #555 !important;
+    stroke: $mermaid-color !important;
   }
   
   .marker {
-    fill: #555 !important;
-    stroke: #555 !important;
+    fill: $mermaid-color !important;
+    stroke: $mermaid-color !important;
   }
 }
 
