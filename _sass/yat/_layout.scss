@@ -950,7 +950,7 @@ pre.mermaid {
       stroke: #888 !important;
     }
 
-    span {
+    span.mathjax {
       color: #888 !important;
     }
   }
@@ -962,7 +962,7 @@ pre.mermaid {
   .edgeLabel {
     background-color: transparent !important;
     
-    span {
+    span.mathjax {
       color: #888 !important;
     }
   }
