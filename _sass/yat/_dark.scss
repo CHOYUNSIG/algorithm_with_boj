@@ -32,10 +32,6 @@ html[data-theme="dark"]  {
 
   *:not(pre) > code {
     color: $dark-text-color;
-  }
-
-  code {
-    color: $dark-text-color;
     background-color: #202020;
   }
 
