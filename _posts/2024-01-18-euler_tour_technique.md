@@ -105,11 +105,11 @@ $$
 
     A((Parent))
     B(("Child 1
-    <span class="mathjax mj1">$\text{in} = w, \text{out} = x$</span>"))
+    <span class="mathjax mj1" style="display: inline-block; width: 150px; height: 30px"></span>"))
     C(("Child 2
-    <span class="mathjax mj2">$\text{in} = x, \text{out} = y$</span>"))
+    <span class="mathjax mj2" style="display: inline-block; width: 150px; height: 30px"></span>"))
     D(("Child 3
-    <span class="mathjax mj3">$\text{in} = y, \text{out} = z$</span>"))
+    <span class="mathjax mj3" style="display: inline-block; width: 150px; height: 30px"></span>"))
 </pre>
 <ol class="mathjax">
     <li class="mj1">$\text{in} = w, \text{out} = x$</li>
@@ -127,11 +127,11 @@ $$
 
     A((Parent))
     B(("Child 1
-    <span class="mathjax mj1">$\text{in} = w, \text{out} = x$</span>"))
+    <span class="mathjax mj1" style="display: inline-block; width: 150px; height: 30px"></span>"))
     C(("Child 2
-    <span class="mathjax mj2">$\text{in} = x, \text{out} = y$</span>")):::red
+    <span class="mathjax mj2" style="display: inline-block; width: 150px; height: 30px"></span>")):::red
     D(("Child 3
-    <span class="mathjax mj3">$\text{in} = y, \text{out} = z$</span>"))
+    <span class="mathjax mj3" style="display: inline-block; width: 150px; height: 30px"></span>"))
 
     classDef red stroke:#F00, fill:#FEE
 </pre>
