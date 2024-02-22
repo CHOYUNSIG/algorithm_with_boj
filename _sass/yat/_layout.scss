@@ -552,11 +552,6 @@ pre.highlight, pre.mermaid.tag-connection-define {
 
     .post-link {
       @include relative-font-size(1.075);
-      color: $grey-color;
-
-      &:hover {
-        color: darken($grey-color, 50%);
-      }
     }
   }
 }
@@ -985,12 +980,12 @@ pre.mermaid {
   }
 
   .flowchart-link {
-    stroke: $mermaid-color !important;
+    stroke: #555 !important;
   }
   
   .marker {
-    fill: $mermaid-color !important;
-    stroke: $mermaid-color !important;
+    fill: #555 !important;
+    stroke: #555 !important;
   }
 }
 
