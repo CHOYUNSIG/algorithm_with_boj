@@ -14,10 +14,10 @@
 
   .post-menu-content {
     ul {
-      border-left: 1px solid #e9ecef;
+      border-left: 1px solid #BBBBBB;
       transition: 0.2s;
       $indent: calc($base-font-size / 4);
-      $active-bgcolor: #ecebec;
+      $active-bgcolor: #FFFFFF80;
 
       @for $i from 2 to 7 {
         .h-h#{$i} {

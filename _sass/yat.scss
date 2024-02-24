@@ -12,7 +12,7 @@ $base-transition-duration: 0.5s !default;
 $spacing-unit:     1em !default;
 
 $text-color:       #1d1d1f !default;
-$background-color: #fff !default;
+$background-color: #FFF !default;
 
 $grey-color:       #777 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
@@ -36,6 +36,8 @@ $banner-text-color: lighten($white-color, 0%) !default;
 $banner-background: rgba(0,0,0,0.8) !default;
 
 $shadow-color: rgba(0, 0, 0, 0.35);
+
+$mermaid-color: #888;
 
 // Width of the content area
 $content-width:    1000px !default;

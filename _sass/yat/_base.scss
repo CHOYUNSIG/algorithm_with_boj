@@ -25,7 +25,7 @@ body {
   font-display: swap;
   line-height: #{$base-line-height};
   color: $text-color;
-  background-color: $background-color;
+  background-color: color-mix(in srgb, $background-color 80%, #888);
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
      -moz-font-feature-settings: "kern" 1;
@@ -173,13 +173,6 @@ code {
   font-family: 'JetBrains Mono', monospace;
 }
 
-*:not(pre) > code {
-  padding: 3px 6px;
-  border-radius: 3px;
-  background-color: #eee;
-  margin: 0 5px;
-}
-
 pre {
   overflow-x: auto;
   position: relative;
@@ -236,27 +229,23 @@ table {
   width: 100%;
   text-align: $table-text-align;
   color: lighten($text-color, 5%);
+  border-color: $text-color;
   border-collapse: collapse;
   overflow: auto;
 
   tr {
     &:nth-child(even) {
-      background-color: lighten($grey-color-light, 6%);
+      background-color: rgba(lighten($grey-color-light, 3%), 30%);
     }
   }
 
   th, td {
     padding: calc($spacing-unit / 3) calc($spacing-unit / 2);
+    border: 1px solid $text-color;
   }
 
   th {
-    background-color: lighten($grey-color-light, 3%);
-    border: 1px solid darken($grey-color-light, 4%);
-    border-bottom-color: darken($grey-color-light, 12%);
-  }
-
-  td {
-    border: 1px solid $grey-color-light;
+    background-color: rgba(lighten($grey-color-light, 6%), 30%);
   }
 }
 

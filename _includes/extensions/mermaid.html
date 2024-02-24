@@ -19,6 +19,8 @@
     // Mermaid 노드에 그림자 추가
     document.querySelectorAll('.mermaid').forEach( pre => {
         const current = pre.children[0];
+        if (current.ariaRoleDescription !== "flowchart-v2")
+            return;
         current.insertAdjacentHTML('afterbegin', `
             <defs>
                 <filter id="drop-shadow" x="-100%" y="-100%" width="300%" height="300%">

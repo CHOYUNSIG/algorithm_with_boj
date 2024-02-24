@@ -12,6 +12,8 @@ html {
 
   &[data-scroll-status='top'] {
     header {
+      height: max-content;
+
       .wrapper {
         margin-top: 12px;
         transition: margin-top $base-transition-duration;
@@ -24,10 +26,6 @@ html {
       background-color: transparent;
 
       &.site-header {
-        .site-brand-inner, .page-link {
-          color: #fff;
-        }
-
         @include media-query($on-palm) {
           .page-link {
             color: $header-text-color;
@@ -35,7 +33,7 @@ html {
 
           .menu-icon {
             > svg {
-              fill: $white-color;
+              fill: $header-text-color;
             }
           }
         }
@@ -56,6 +54,10 @@ html {
     header.site-header {
       top: -$header-height;
       box-shadow: none;
+
+      .trigger {
+        transform: translateY(-200px);
+      }
     }
 
     .framework .sidebar {
@@ -65,12 +67,13 @@ html {
 }
 
 /**
- * Block design
+ * Glass Morphysm Block Design
  */
-div.post-section, div.post-menu, .post-item, .search, .page-segments-section, pre.highlight, .post-related, pre.mermaid.tag-connection-define {
+div.post-section, div.post-menu, .post-item, .search, .page-segments-section, pre.highlight, .post-related, pre.mermaid, img.post-image, code:not(.hljs) {
   padding: $spacing-unit * 2;
   border-radius: $spacing-unit * 1.5;
-  background-color: $background-color;
+  background-color: rgba($background-color, 0.4);
+  backdrop-filter: blur(24px);
   box-shadow: 0 2px 15px $shadow-color;
   transition: all $base-transition-duration;
   margin-bottom: $spacing-unit * 2;
@@ -79,15 +82,6 @@ div.post-section, div.post-menu, .post-item, .search, .page-segments-section, pr
     padding: $spacing-unit;
   }
 }
-
-pre.highlight, pre.mermaid.tag-connection-define {
-  box-shadow: inset 0 2px 15px $shadow-color;
-}
-
-.post-item:hover, .page-segments-section:hover {
-  box-shadow: 0px 0px 10px $brand-color;
-}
-
 
 /**
  * Site header
@@ -205,8 +199,8 @@ pre.highlight, pre.mermaid.tag-connection-define {
     input ~ .trigger {
       clear: both;
       display: none;
-      border-radius: 3px;
-      box-shadow: 1px 1px 1px 1px $shadow-color;
+      border-radius: 10px;
+      box-shadow: 2px 2px 5px $shadow-color;
     }
 
     input:checked ~ .trigger {
@@ -349,6 +343,10 @@ pre.highlight, pre.mermaid.tag-connection-define {
   }
 
   .post-list {
+    .post-item:hover{
+      box-shadow: 0px 0px 10px $brand-color;
+    }
+
     &.none-image-style .post-item .post-excerpt .post-image {
       display: none;
     }
@@ -499,6 +497,7 @@ pre.highlight, pre.mermaid.tag-connection-define {
     img, svg, iframe {
       margin-left: auto;
       margin-right: auto;
+      box-sizing: border-box;
     }
 
     img:not(.emoji), iframe {
@@ -639,7 +638,6 @@ pre.highlight, pre.mermaid.tag-connection-define {
     height: 120%;
     overflow: hidden;
     background-attachment: fixed;
-    filter: brightness(60%);
 
     & > *:first-child {
       @include center-image;
@@ -773,11 +771,20 @@ pre.highlight, pre.mermaid.tag-connection-define {
 /**
  * Code
  */
+
+code:not(.hljs) {
+  padding: 3px 6px;
+  border-radius: 3px;
+  background-color: #eee;
+  margin: 0 2px;
+}
+
 pre.highlight {
   padding: 0;
   max-height: 500px;
   border-radius: $spacing-unit * 1.5 0 $spacing-unit * 1.5 $spacing-unit * 1.5;
   background-color: #242424;
+  box-shadow: inset 0 2px 15px $shadow-color;
   overflow: hidden;
   cursor: grab;
 
@@ -832,6 +839,10 @@ pre.highlight {
       box-sizing: border-box;
       max-width: 300px;
       width: max-content;
+
+      &:hover {
+        box-shadow: 0px 0px 10px $brand-color;
+      }
 
       @include media-query($on-palm) {
         max-width: calc(100vw - 50px);
@@ -934,9 +945,6 @@ a:visited .post-badges .post-badge.badge-new {
 /**
  * Mermaid
  */
-
-$mermaid-color: #888;
-
 pre.mermaid {
   background-color: #0000;
   text-align: center;
