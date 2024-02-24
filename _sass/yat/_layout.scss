@@ -25,19 +25,7 @@ html {
       box-shadow: none;
       background-color: transparent;
 
-      &.site-header {
-        @include media-query($on-palm) {
-          .page-link {
-            color: $header-text-color;
-          }
-
-          .menu-icon {
-            > svg {
-              fill: $header-text-color;
-            }
-          }
-        }
-      }
+      
     }
 
     footer.site-footer {
@@ -106,6 +94,18 @@ div.post-section, div.post-menu, .post-item, .search, .page-segments-section, pr
     @include media-query($on-palm) {
       margin: 0 20px;
       max-width: unset;
+    }
+  }
+
+  @include media-query($on-palm) {
+    .page-link {
+      color: $header-text-color;
+    }
+
+    .menu-icon {
+      > svg {
+        fill: $header-text-color;
+      }
     }
   }
 

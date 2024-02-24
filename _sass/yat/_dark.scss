@@ -80,9 +80,9 @@ html[data-theme="dark"]  {
       background-color: #222 !important;
     }
 
-    @include media-query($on-laptop) {
+    @include media-query($on-palm) {
       .menu-icon > svg {
-          fill: rgba($dark-text-color, 80%);
+          fill: $dark-text-color;
       }
 
       .site-nav input:checked ~ .trigger {
