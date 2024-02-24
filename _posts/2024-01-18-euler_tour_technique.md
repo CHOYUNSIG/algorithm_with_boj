@@ -47,7 +47,7 @@ sidebar: null
         G((G))
     </pre>
 
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Stirling_permutation_Euler_tour.svg/306px-Stirling_permutation_Euler_tour.svg.png" style="background-color: white">
+    <img class="post-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Stirling_permutation_Euler_tour.svg/306px-Stirling_permutation_Euler_tour.svg.png" style="background-color: white">
 </div>
 
 위 트리를 옆의 그림과 같이 DFS 방식으로 순회하면서 각 정점에 총 두 개의 번호 $\text{in}$, $\text{out}$을 부여한다. $\text{in}$은 DFS를 하면서 정점에 방문한 순서이고, $\text{out}$은 해당 정점을 탈출하는 시점에서 다음으로 방문할 정점에 부여할 $\text{in}$ 번호이다. 번호를 전부 매기면 다음과 같이 될 것이다.
