@@ -105,11 +105,11 @@ $$
 
     A((Parent))
     B(("Child 1
-    <span class="mathjax mj1" style="display: inline-block; width: 150px; height: 30px"></span>"))
+    <span class="mathjax mj1"></span>"))
     C(("Child 2
-    <span class="mathjax mj2" style="display: inline-block; width: 150px; height: 30px"></span>"))
+    <span class="mathjax mj2"></span>"))
     D(("Child 3
-    <span class="mathjax mj3" style="display: inline-block; width: 150px; height: 30px"></span>"))
+    <span class="mathjax mj3"></span>"))
 </pre>
 <ol class="mathjax">
     <li class="mj1">$\text{in} = w, \text{out} = x$</li>
@@ -122,16 +122,16 @@ $$
 <pre class="mermaid">
     graph TD
         A --> B
-        A -- <span class="mathjax mj0">$\text{if }x < m \le y$</span> --> C
+        A -- <span class="mathjax mj0"></span> --> C
         A --> D
 
     A((Parent))
     B(("Child 1
-    <span class="mathjax mj1" style="display: inline-block; width: 150px; height: 30px"></span>"))
+    <span class="mathjax mj1"></span>"))
     C(("Child 2
-    <span class="mathjax mj2" style="display: inline-block; width: 150px; height: 30px"></span>")):::red
+    <span class="mathjax mj2"></span>")):::red
     D(("Child 3
-    <span class="mathjax mj3" style="display: inline-block; width: 150px; height: 30px"></span>"))
+    <span class="mathjax mj3"></span>"))
 
     classDef red stroke:#F00, fill:#FEE
 </pre>
