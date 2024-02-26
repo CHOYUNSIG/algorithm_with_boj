@@ -1,21 +1,21 @@
 <script type="module">
+    // Mathjax 연동
+    document.querySelectorAll('.mermaid').forEach( pre => {
+        const list = pre.nextElementSibling;
+        if (list === null || list.classList[0] !== "mathjax")
+            return;
+        MathJax.typeset([list]);
+        pre.querySelectorAll('span.mathjax').forEach( span => {
+            span.outerHTML = "\"<span style=\"color: #888\">" + list.querySelector('.' + span.classList[1]).innerHTML + "</span>\"";
+        });
+        list.remove();
+    });
     // Mermaid 그리기
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'
     mermaid.initialize({
         startOnLoad: false,
     });
     await mermaid.run();
-    // Mathjax 요소 추가
-    document.querySelectorAll('.mermaid').forEach( pre => {
-        const list = pre.nextElementSibling;
-        if (list === null || list.classList[0] !== "mathjax")
-            return;
-        pre.querySelectorAll('span.mathjax').forEach( span => {
-            span.innerHTML = "";
-            span.appendChild(list.querySelector('.' + span.classList[1]).children[0]);
-        });
-        list.remove();
-    });
     // Mermaid 노드에 그림자 추가
     document.querySelectorAll('.mermaid').forEach( pre => {
         const current = pre.children[0];

@@ -36,6 +36,7 @@ html[data-theme="dark"]  {
   }
 
   blockquote {
+    color: darken($dark-text-color, 10%);
     border-left: 4px solid #484848;
   }
 
@@ -121,7 +122,7 @@ html[data-theme="dark"]  {
     }
   }
 
-  div.post-section, div.post-menu, .post-item, .search, .page-segments-section, pre.highlight, .post-related, pre.mermaid, img.post-image, code:not(.hljs) {
+  div.post-section, div.post-menu, .post-item, .search, .page-segments-section, .post-related, pre.mermaid, img.post-image, code:not(.hljs) {
     background-color: rgba($dark-background-color, 0.6);
   }
 
