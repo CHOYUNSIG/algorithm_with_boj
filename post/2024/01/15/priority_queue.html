@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>우선순위 큐, 힙 | APSwBT</title>
+<meta name="generator" content="Jekyll v4.3.3">
+<meta property="og:title" content="우선순위 큐, 힙">
+<meta name="author" content="CHOYUNSIG">
+<meta property="og:locale" content="ko">
+<meta name="description" content="소개">
+<meta property="og:description" content="소개">
+<link rel="canonical" href="https://choyunsig.github.io/algorithm_with_boj/post/2024/01/15/priority_queue.html">
+<meta property="og:url" content="https://choyunsig.github.io/algorithm_with_boj/post/2024/01/15/priority_queue.html">
+<meta property="og:site_name" content="APSwBT">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2024-01-15T00:00:00+00:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="우선순위 큐, 힙">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"CHOYUNSIG"},"dateModified":"2024-01-15T00:00:00+00:00","datePublished":"2024-01-15T00:00:00+00:00","description":"소개","headline":"우선순위 큐, 힙","mainEntityOfPage":{"@type":"WebPage","@id":"https://choyunsig.github.io/algorithm_with_boj/post/2024/01/15/priority_queue.html"},"url":"https://choyunsig.github.io/algorithm_with_boj/post/2024/01/15/priority_queue.html"}</script>
+<!-- End Jekyll SEO tag -->
+<meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/algorithm_with_boj/assets/css/main.css">
+  <script src="/algorithm_with_boj/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://choyunsig.github.io/algorithm_with_boj/feed.xml" title="APSwBT">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightElement(block);
+  }
+
+  hljs.configure({ignoreUnescapedHTML: true});
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+<script type="module">
+    // Mathjax 연동
+    document.querySelectorAll('.mermaid').forEach( pre => {
+        const list = pre.nextElementSibling;
+        if (list === null || list.classList[0] !== "mathjax")
+            return;
+        MathJax.typeset([list]);
+        pre.querySelectorAll('span.mathjax').forEach( span => {
+            span.outerHTML = "\"<span style=\"color: #888\">" + list.querySelector('.' + span.classList[1]).innerHTML + "</span>\"";
+        });
+        list.remove();
+    });
+    // Mermaid 그리기
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'
+    mermaid.initialize({
+        startOnLoad: false,
+    });
+    await mermaid.run();
+    // Mermaid 노드에 그림자 추가
+    document.querySelectorAll('.mermaid').forEach( pre => {
+        const current = pre.children[0];
+        if (current.ariaRoleDescription !== "flowchart-v2")
+            return;
+        current.insertAdjacentHTML('afterbegin', `
+            <defs>
+                <filter id="drop-shadow" x="-100%" y="-100%" width="300%" height="300%">
+                    <feFlood flood-color="black" result="color"/>
+                    <feComposite in2="SourceGraphic" in="color" operator="in"/>
+                    <feGaussianBlur stdDeviation="3"/>
+                    <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.5"/>
+                    </feComponentTransfer>
+                    <feOffset dx="1" dy="2"/>
+                    <feMerge>
+                        <feMergeNode />
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+        `);
+        ['rect', 'circle'].map( shape => {
+            const drawElement = current.querySelectorAll(shape);
+            if (drawElement)
+                drawElement.forEach( e => { e.setAttribute("filter", `url(#drop-shadow)`); });
+        });
+        current.viewBox.baseVal.x -= 8;
+        current.viewBox.baseVal.y -= 8;
+        current.viewBox.baseVal.width += 10;
+        current.viewBox.baseVal.height += 10;
+        // Mermaid 기본 정렬 (홈 화면에 적용)
+        if (pre.classList.contains("tag-connection-define")) {
+            let matrix = new DOMMatrix(window.getComputedStyle(pre).getPropertyValue('transform'));
+            current.style.transform = matrix;
+            pre.style.transform = 'unset';
+        }
+    });
+</script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/algorithm_with_boj/assets/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/algorithm_with_boj/assets/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/algorithm_with_boj/assets/images/icons/favicon-16x16.png">
+<link rel="manifest" href="/algorithm_with_boj/assets/images/icons/site.webmanifest">
+<link rel="mask-icon" href="/algorithm_with_boj/assets/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Noto+Sans+KR:wght@100..900&amp;display=swap" rel="stylesheet">
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header site-header-transparent" role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/algorithm_with_boj/">
+  <img class="site-favicon" title="APSwBT" src="https://choyunsig.github.io/algorithm_with_boj/assets/images/icons/favicon.ico" onerror="this.style.display='none'">
+  APSwBT
+</a>
+</span><div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('manual' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/algorithm_with_boj/">HOME</a><a class="page-link" href="/algorithm_with_boj/archives.html">POSTS</a><a class="page-link" href="/algorithm_with_boj/tags.html">TAGS</a>
+          </div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;documentElement.setAttribute("data-header-transparent", "");var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="page-banner">
+    <div class="page-banner-img">
+<div style="background-image: url(https://images.unsplash.com/photo-1516730670158-8c52cb740fcf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);"></div>
+        <img class="img-placeholder" src="https://images.unsplash.com/photo-1516730670158-8c52cb740fcf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+</div>
+    <div class="wrapper">
+      <div class="page-banner-inner">
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">우선순위 큐, 힙</h1>
+  <h2 class="post-subtitle">Priority Queue, Heap</h2>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2024-01-15T00:00:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Jan 15, 2024
+    </time><span class="post-author left-vsplit"><i class="fa fa-pencil"></i> CHOYUNSIG</span>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 19 mins</span>
+  </div>
+<div class="post-tags">
+<a class="post-tag" href="/algorithm_with_boj/tags.html#%EC%9E%90%EB%A3%8C_%EA%B5%AC%EC%A1%B0(data_structures)">#자료_구조(data_structures)</a><a class="post-tag" href="/algorithm_with_boj/tags.html#%ED%8A%B8%EB%A6%AC(trees)">#트리(trees)</a><a class="post-tag" href="/algorithm_with_boj/tags.html#%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84_%ED%81%90(priority_queue)">#우선순위_큐(priority_queue)</a>
+</div></header>
+</div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var pageBannerInner = document.querySelector('.page-banner-inner');
+
+          window.addEventListener('scroll', function () {
+            pageBannerInner.style.opacity = Math.max((0.26 * window.innerHeight - window.scrollY) / (0.25 * window.innerHeight), 0);
+          });
+        });
+      </script>
+    </div>
+  </section><script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = window.scrollY + element.getBoundingClientRect().top - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div id="click-to-top" class="click-to-top">
+  <i class="fa fa-arrow-up"></i>
+</div>
+<script>
+  (function () {
+    const clickToTop = document.getElementById('click-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        clickToTop.classList.add('show')
+      }else {
+        clickToTop.classList.remove('show')
+      }
+    });
+    clickToTop.addEventListener('click', () => {
+      window.smoothScrollTo(0);
+    });
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<div class="post-related">
+      <div>이전 포스트</div>
+      <ul>
+        
+        
+        <div>없음</div>
+        
+      </ul>
+    </div>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <div class="post-content e-content" itemprop="articleBody">
+
+    <h2 id="소개">소개</h2>
+
+<p>큐는 삽입과 추출 연산을 지원하는 자료구조이며 추출의 순서는 먼저 삽입된 순서이다. 우선순위 큐란 추출의 순서가 우선순위가 높은 순서인 큐이다. 우선순위 큐는 힙이라는 특수한 트리를 사용하여 삽입과 삭제 연산을 빠르게 수행하도록 구현한다.</p>
+
+<h2 id="원리">원리</h2>
+
+<p>우선 힙을 구성한다. 힙은 부모와 자식 사이의 대소 관계가 일정하게 정해진 완전 이진 트리로 정의한다. 부모와 자식 중 부모 정점이 더 크다면 최대 힙, 부모 정점이 더 작다면 최소 힙이라고 한다. 트리의 대소 관계는 우선순위 큐에서 정의하고 싶은 우선순위대로 설정하면 된다. 아래는 최소 힙의 한 예시이며, 이를 통해서 작은 수부터 추출되는 우선순위 큐의 원리를 살펴보려고 한다.</p>
+
+<pre class="mermaid">
+    graph TD
+
+    A --&gt; B1
+    A --&gt; B2
+    B1 --&gt; C1
+    B1 --&gt; C2
+    B2 --&gt; C3
+    B2 --&gt; C4
+    C1 --&gt; D1
+    C1 --&gt; D2
+    C2 --&gt; D3
+
+    A((11))
+    B1((13))
+    B2((19))
+    C1((17))
+    C2((16))
+    C3((23))
+    C4((25))
+    D1((20))
+    D2((23))
+    D3((17))
+</pre>
+
+<p>위에서 알 수 있듯이 트리의 어떤 정점도 부모 정점보다 작지 않은 것을 볼 수 있다. 이러한 힙은 우선순위 큐에서 지원하는 삽입과 추출 연산에 최적화되어있다. 두 연산의 원리는 이 트리에 새로운 정점을 추가하거나 트리의 루트를 다른 값으로 대체한 후에 힙의 정의를 다시 만족하도록 조작하는 것이다.</p>
+
+<h3 id="삽입">삽입</h3>
+
+<p>힙에 12를 삽입해보자. 우선 힙의 정의와 상관없이 12를 바로 끝 정점 자리에 삽입한다.</p>
+
+<pre class="mermaid">
+    graph TD
+
+    A --&gt; B1
+    A --&gt; B2
+    B1 --&gt; C1
+    B1 --&gt; C2
+    B2 --&gt; C3
+    B2 --&gt; C4
+    C1 --&gt; D1
+    C1 --&gt; D2
+    C2 --&gt; D3
+    C2 --&gt; D4
+
+    A((11))
+    B1((13))
+    B2((19))
+    C1((17))
+    C2((16))
+    C3((23))
+    C4((25))
+    D1((20))
+    D2((23))
+    D3((17))
+    D4((12)):::red
+
+    classDef red stroke:#F00, fill:#FEE
+</pre>
+
+<p>이제 이 트리를 다시 힙의 정의를 만족하도록 수정한다. 우선 정점 12를 부모 정점와 비교하여 힙의 성질을 만족하는 지 검사한다. 만약 힙의 성질을 만족하지 않는다면 해당 정점와 자리를 바꾼다. 현재 이 상황에서는 힙의 성질을 만족하지 않으므로 다음과 같이 자리를 바꾼다.</p>
+
+<pre class="mermaid">
+    graph TD
+
+    A --&gt; B1
+    A --&gt; B2
+    B1 --&gt; C1
+    B1 --&gt; C2
+    B2 --&gt; C3
+    B2 --&gt; C4
+    C1 --&gt; D1
+    C1 --&gt; D2
+    C2 --&gt; D3
+    C2 --&gt; D4
+
+    A((11))
+    B1((13))
+    B2((19))
+    C1((17))
+    C2((12)):::red
+    C3((23))
+    C4((25))
+    D1((20))
+    D2((23))
+    D3((17))
+    D4((16))
+
+    classDef red stroke:#F00, fill:#FEE
+</pre>
+
+<p>이를 트리가 힙의 성질을 만족할때까지 반복한다.</p>
+
+<pre class="mermaid">
+    graph TD
+
+    A --&gt; B1
+    A --&gt; B2
+    B1 --&gt; C1
+    B1 --&gt; C2
+    B2 --&gt; C3
+    B2 --&gt; C4
+    C1 --&gt; D1
+    C1 --&gt; D2
+    C2 --&gt; D3
+    C2 --&gt; D4
+
+    A((11))
+    B1((12)):::red
+    B2((19))
+    C1((17))
+    C2((13))
+    C3((23))
+    C4((25))
+    D1((20))
+    D2((23))
+    D3((17))
+    D4((16))
+
+    classDef red stroke:#F00, fill:#FEE
+</pre>
+
+<p>위와 같이 트리가 힙의 성질을 만족하게 되면 연산이 끝난다. 결국에는 이 연산은 새로 삽입한 정점이 루트까지 가거나 그 이전에 끝이 날 것이다. 따라서 전체 정점의 개수를 $N$개라고 한다면 이 연산의 시간복잡도는 $O(\log N)$이다.</p>
+
+<h3 id="추출">추출</h3>
+
+<p>이번에는 힙에서 가장 작은 원소를 제거해보자 (삽입 연산이 완료된 후의 예시를 그대로 인용한다). 가장 작은 원소가 루트에 있다는 사실은 자명하다. 따라서 우선 루트 정점을 제거하고 맨 끝에 있던 정점을 루트의 위치로 옮긴다.</p>
+
+<pre class="mermaid">
+    graph TD
+
+    A --&gt; B1
+    A --&gt; B2
+    B1 --&gt; C1
+    B1 --&gt; C2
+    B2 --&gt; C3
+    B2 --&gt; C4
+    C1 --&gt; D1
+    C1 --&gt; D2
+    C2 --&gt; D3
+
+    A((16)):::green
+    B1((12))
+    B2((19))
+    C1((17))
+    C2((13))
+    C3((23))
+    C4((25))
+    D1((20))
+    D2((23))
+    D3((17))
+
+    classDef green stroke:#0F0, fill:#EFE
+</pre>
+
+<p>이후 트리가 힙의 성질을 만족하도록 수정한다. 해당 정점와 그의 자식 정점을 비교하고 힙의 성질을 만족하지 않을 경우 자식 정점 중 더 작은 정점와 자리를 바꾼다.</p>
+
+<pre class="mermaid">
+    graph TD
+
+    A --&gt; B1
+    A --&gt; B2
+    B1 --&gt; C1
+    B1 --&gt; C2
+    B2 --&gt; C3
+    B2 --&gt; C4
+    C1 --&gt; D1
+    C1 --&gt; D2
+    C2 --&gt; D3
+
+    A((12))
+    B1((16)):::green
+    B2((19))
+    C1((17))
+    C2((13))
+    C3((23))
+    C4((25))
+    D1((20))
+    D2((23))
+    D3((17))
+
+    classDef green stroke:#0F0, fill:#EFE
+</pre>
+
+<p>이를 힙의 성질을 만족할때까지 반복한다.</p>
+
+<pre class="mermaid">
+    graph TD
+
+    A --&gt; B1
+    A --&gt; B2
+    B1 --&gt; C1
+    B1 --&gt; C2
+    B2 --&gt; C3
+    B2 --&gt; C4
+    C1 --&gt; D1
+    C1 --&gt; D2
+    C2 --&gt; D3
+
+    A((12))
+    B1((13))
+    B2((19))
+    C1((17))
+    C2((16)):::green
+    C3((23))
+    C4((25))
+    D1((20))
+    D2((23))
+    D3((17))
+
+    classDef green stroke:#0F0, fill:#EFE
+</pre>
+
+<p>위와 같이 힙의 성질을 만족하게 되면 연산이 끝난다. 결국에는 이 연산도 삽입과 마찬가지로 루트에 삽입한 정점이 리프까지 가거나 그 이전에 끝이 날 것이다. 따라서 추출 연산의 시간복잡도도 $O(\log N)$이다. 이와 같이 힙의 성질을 만족하지 않는 트리를 힙의 성질을 만족하도록 해 주는 것을 힙 정렬이라고 한다.</p>
+
+<h2 id="구현">구현</h2>
+
+<p>이 글에서는 최소 힙을 바탕으로 작은 수부터 추출되는 우선순위 큐를 구현할 것이다. 힙은 배열로 구현하는 것이 효율적이다. 배열로 구현할 때는 인덱스를 1부터 시작하도록 하는 것이 더 편리하다. 아래 설명 역시 배열의 인덱스가 1부터 시작한다고 가정한다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>위와 같은 배열은 다음과 같은 트리와 대응된다.</p>
+
+<pre class="mermaid">
+    graph TD
+
+    A --&gt; B1
+    A --&gt; B2
+    B1 --&gt; C1
+    B1 --&gt; C2
+    B2 --&gt; C3
+    B2 --&gt; C4
+
+    A((1))
+    B1((2))
+    B2((3))
+    C1((4))
+    C2((5))
+    C3((6))
+    C4((7))
+</pre>
+
+<p>신기하게도 $i$번 정점의 자식은 $2i$, $2i + 1$번이다. 이러한 특성은 힙이 완전 이진 트리이기에 가능한 것이다. 따라서 인덱스가 $i$인 정점의 왼쪽 자식의 인덱스는 $2i$, 오른쪽 자식의 인덱스는 $2i + 1$, 부모의 인덱스는 $i/2$임을 이용해 삽입과 추출을 구현할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">PriorityQueue</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">array</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+    <span class="c1"># 삽입
+</span>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">now</span> <span class="o">!=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="n">now</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="n">now</span><span class="p">]:</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="n">now</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">],</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="n">now</span><span class="p">],</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="n">now</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">now</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span>
+
+    <span class="c1"># 추출
+</span>    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">.</span><span class="nf">pop</span><span class="p">()</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">now</span> <span class="o">&lt;</span> <span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">):</span>
+            <span class="n">min_child</span> <span class="o">=</span> <span class="n">now</span>
+            <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="p">[</span><span class="n">now</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">now</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">child</span> <span class="o">&lt;</span> <span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">)</span> <span class="ow">and</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="n">min_child</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="n">child</span><span class="p">]:</span>
+                    <span class="n">min_child</span> <span class="o">=</span> <span class="n">child</span>
+            <span class="k">if</span> <span class="n">min_child</span> <span class="o">==</span> <span class="n">now</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="n">min_child</span><span class="p">],</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="n">now</span><span class="p">],</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="n">min_child</span><span class="p">]</span>
+            <span class="n">now</span> <span class="o">=</span> <span class="n">min_child</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="c1"># 최솟값 확인
+</span>    <span class="k">def</span> <span class="nf">peak</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># 비었는지 확인
+</span>    <span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>두 연산 모두 현재의 정점을 가리키는 변수 <code class="language-plaintext highlighter-rouge">now</code>를 두고 각각 자식 또는 부모 정점와 값을 비교하며 위아래로 움직이는 모양새를 하고 있다.</p>
+
+<h2 id="이용">이용</h2>
+
+<p>우선순위 큐를 이용할 때 번거롭게 매번 구현하는 행위를 없애기 위해 많은 언어에서 기본으로 제공하는 라이브러리를 통해 우선순위 큐를 제공하고 있다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>언어</th>
+      <th>라이브러리 포함 구문</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>C++</td>
+      <td><code class="language-plaintext highlighter-rouge">#include &lt;queue&gt;</code></td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td><code class="language-plaintext highlighter-rouge">import java.util.PriorityQueue</code></td>
+    </tr>
+    <tr>
+      <td>Python</td>
+      <td><code class="language-plaintext highlighter-rouge">import heapq</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>이들을 사용하기 위해서는 우선순위 큐에 들어가는 원소의 대소 비교가 가능해야 한다. 따라서 해당 언어에서 지원하는 방법으로 원소롤 사용할 자료형의 비교 연산을 오버라이드하거나 우선순위 큐를 선언할 때 비교 정책을 같이 선언해 주는 것이 필요하다.</p>
+
+
+  </div>
+
+  <script>
+    // h2 태그를 제목으로 하고 있는 본문을 div로 묶음
+    var postContentDiv = document.querySelector('div.post-content');
+    var divContainer = [];
+
+    while (postContentDiv.children.length > 0) {
+      var currentElement = postContentDiv.children[0];
+      if (currentElement.tagName.toLowerCase() === 'h2') {
+        var newDiv = document.createElement('div');
+        newDiv.classList.add('post-section');
+        divContainer.push(newDiv);
+      }
+      divContainer[divContainer.length - 1].appendChild(currentElement);
+    }
+
+    for (var i = 0; i < divContainer.length; i++) {
+      postContentDiv.appendChild(divContainer[i]);
+    }
+  </script>
+
+  <script>
+    // 포스트 내 테이블의 overflow 방지 및 margin 추가
+    var postContentDiv = document.querySelector('div.post-content');
+    var tables = postContentDiv.querySelectorAll('table');
+    tables.forEach(function(table) {
+      var div = document.createElement('div');
+      div.classList.add('post-table');
+      table.parentNode.replaceChild(div, table);
+      div.appendChild(table);
+    });
+  </script><script>/*
+    터치 스크롤 적용
+
+    사용:
+    Liquid 용법으로 사용됨
+    include touch-scroller.html container="element.class"
+
+    주의사항:
+    터치 스크롤을 적용하려는 요소와 그것을 감싼 Container 요소가 반드시 직계 부모-자식 관계여야 함
+    부모의 padding 값은 px 단위로 지정되어야 함
+    자식의 overflow 값이 hidden으로 지정되어야 함
+    */
+
+    try {
+        let scrollBefore = { translateX: 0, translateY: 0 };
+        let scrollTarget = undefined;
+        let scrollStart = { x: 0, y: 0 };
+        let scrolling = false;
+        let scrolled = false;
+
+        function getPos(event) {
+            var x = event.clientX;
+            var y = event.clientY;
+            if (x === undefined || y === undefined) {
+                x = event.changedTouches[0].clientX;
+                y = event.changedTouches[0].clientY;
+            }
+            return { 'x': x, 'y': y };
+        }
+
+        function onScrollStart(event) {
+            const target = event.target.closest('pre.highlight');
+            if (!target)
+                return false;
+            event.stopPropagation();
+            scrollStart = getPos(event);
+            var matrix = new DOMMatrix(window.getComputedStyle(target.children[0]).getPropertyValue('transform'));
+            if (matrix === "none")
+                matrix = new DOMMatrix('matrix(1, 0, 0, 1, 0, 0)');
+            scrollBefore.translateX = matrix.m41;
+            scrollBefore.translateY = matrix.m42;
+            scrollTarget = target.children[0];
+            scrolling = true;
+            scrolled = false;
+        }
+
+        function onScrollMove(event) {
+            if (!scrolling)
+                return false;
+            const pos = getPos(event);
+            const style = window.getComputedStyle(scrollTarget.parentElement);
+            let padX = parseFloat(style.getPropertyValue('padding-right')) + parseFloat(style.getPropertyValue('padding-right'));
+            let padY = parseFloat(style.getPropertyValue('padding-top')) + parseFloat(style.getPropertyValue('padding-bottom'));
+            const translateX = Math.max(-Math.max(0, scrollTarget.getBoundingClientRect().width - scrollTarget.parentElement.getBoundingClientRect().width + padX), Math.min(0, scrollBefore.translateX - (scrollStart.x - pos.x)));
+            const translateY = Math.max(-Math.max(0, scrollTarget.getBoundingClientRect().height - scrollTarget.parentElement.getBoundingClientRect().height + padY), Math.min(0, scrollBefore.translateY - (scrollStart.y - pos.y)));
+            if (!scrolled && (translateX - scrollBefore.translateX) ** 2 + (translateY - scrollBefore.translateY) ** 2 < 1) {
+                scrolling = false;
+                return;
+            }
+            if (event.cancelable)
+                event.preventDefault();
+            event.stopPropagation();
+            scrollTarget.style.transform = `translate(${translateX}px, ${translateY}px)`;
+            scrolled = true;
+        }
+
+        function onScrollEnd(event) {
+            event.stopPropagation();
+            scrolling = false;
+            scrolled = false;
+        }
+
+        function onClick(event) {
+            if (scrolled)
+                event.preventDefault();
+            return false;
+        }
+    }
+    catch {
+        // 두 번 이상 include 할 경우 여기에 표시
+    }
+
+    document.querySelectorAll('pre.highlight').forEach( pre => {
+        pre.addEventListener("click", onClick);
+        pre.addEventListener("mousedown", onScrollStart);
+        pre.addEventListener("touchstart", onScrollStart);
+        pre.addEventListener("touchmove", onScrollMove);
+        pre.addEventListener("touchend", onScrollEnd);
+    });
+    window.addEventListener("mousemove", onScrollMove);
+    window.addEventListener("mouseup", onScrollEnd);
+</script></article>
+<div class="post-related">
+      <div>다음 포스트</div>
+      <ul>
+        
+        
+        <div>없음</div>
+        
+      </ul>
+    </div>
+  </section>
+</div>
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">Index</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 50;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/algorithm_with_boj/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>Made by <a href="https://github.com/CHOYUNSIG">CHOYUNSIG</a>
+</div>
+      <div></div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>
+</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/algorithm_with_boj/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

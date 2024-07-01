@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>플로이드-워셜 | APSwBT</title>
+<meta name="generator" content="Jekyll v4.3.3">
+<meta property="og:title" content="플로이드-워셜">
+<meta name="author" content="CHOYUNSIG">
+<meta property="og:locale" content="ko">
+<meta name="description" content="소개">
+<meta property="og:description" content="소개">
+<link rel="canonical" href="https://choyunsig.github.io/algorithm_with_boj/post/2024/01/07/floyd_warshall.html">
+<meta property="og:url" content="https://choyunsig.github.io/algorithm_with_boj/post/2024/01/07/floyd_warshall.html">
+<meta property="og:site_name" content="APSwBT">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2024-01-07T00:00:00+00:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="플로이드-워셜">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"CHOYUNSIG"},"dateModified":"2024-01-07T00:00:00+00:00","datePublished":"2024-01-07T00:00:00+00:00","description":"소개","headline":"플로이드-워셜","mainEntityOfPage":{"@type":"WebPage","@id":"https://choyunsig.github.io/algorithm_with_boj/post/2024/01/07/floyd_warshall.html"},"url":"https://choyunsig.github.io/algorithm_with_boj/post/2024/01/07/floyd_warshall.html"}</script>
+<!-- End Jekyll SEO tag -->
+<meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/algorithm_with_boj/assets/css/main.css">
+  <script src="/algorithm_with_boj/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://choyunsig.github.io/algorithm_with_boj/feed.xml" title="APSwBT">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightElement(block);
+  }
+
+  hljs.configure({ignoreUnescapedHTML: true});
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+<script type="module">
+    // Mathjax 연동
+    document.querySelectorAll('.mermaid').forEach( pre => {
+        const list = pre.nextElementSibling;
+        if (list === null || list.classList[0] !== "mathjax")
+            return;
+        MathJax.typeset([list]);
+        pre.querySelectorAll('span.mathjax').forEach( span => {
+            span.outerHTML = "\"<span style=\"color: #888\">" + list.querySelector('.' + span.classList[1]).innerHTML + "</span>\"";
+        });
+        list.remove();
+    });
+    // Mermaid 그리기
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'
+    mermaid.initialize({
+        startOnLoad: false,
+    });
+    await mermaid.run();
+    // Mermaid 노드에 그림자 추가
+    document.querySelectorAll('.mermaid').forEach( pre => {
+        const current = pre.children[0];
+        if (current.ariaRoleDescription !== "flowchart-v2")
+            return;
+        current.insertAdjacentHTML('afterbegin', `
+            <defs>
+                <filter id="drop-shadow" x="-100%" y="-100%" width="300%" height="300%">
+                    <feFlood flood-color="black" result="color"/>
+                    <feComposite in2="SourceGraphic" in="color" operator="in"/>
+                    <feGaussianBlur stdDeviation="3"/>
+                    <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.5"/>
+                    </feComponentTransfer>
+                    <feOffset dx="1" dy="2"/>
+                    <feMerge>
+                        <feMergeNode />
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+        `);
+        ['rect', 'circle'].map( shape => {
+            const drawElement = current.querySelectorAll(shape);
+            if (drawElement)
+                drawElement.forEach( e => { e.setAttribute("filter", `url(#drop-shadow)`); });
+        });
+        current.viewBox.baseVal.x -= 8;
+        current.viewBox.baseVal.y -= 8;
+        current.viewBox.baseVal.width += 10;
+        current.viewBox.baseVal.height += 10;
+        // Mermaid 기본 정렬 (홈 화면에 적용)
+        if (pre.classList.contains("tag-connection-define")) {
+            let matrix = new DOMMatrix(window.getComputedStyle(pre).getPropertyValue('transform'));
+            current.style.transform = matrix;
+            pre.style.transform = 'unset';
+        }
+    });
+</script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/algorithm_with_boj/assets/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/algorithm_with_boj/assets/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/algorithm_with_boj/assets/images/icons/favicon-16x16.png">
+<link rel="manifest" href="/algorithm_with_boj/assets/images/icons/site.webmanifest">
+<link rel="mask-icon" href="/algorithm_with_boj/assets/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Noto+Sans+KR:wght@100..900&amp;display=swap" rel="stylesheet">
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header site-header-transparent" role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/algorithm_with_boj/">
+  <img class="site-favicon" title="APSwBT" src="https://choyunsig.github.io/algorithm_with_boj/assets/images/icons/favicon.ico" onerror="this.style.display='none'">
+  APSwBT
+</a>
+</span><div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('manual' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/algorithm_with_boj/">HOME</a><a class="page-link" href="/algorithm_with_boj/archives.html">POSTS</a><a class="page-link" href="/algorithm_with_boj/tags.html">TAGS</a>
+          </div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;documentElement.setAttribute("data-header-transparent", "");var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="page-banner">
+    <div class="page-banner-img">
+<div style="background-image: url(https://images.unsplash.com/photo-1564081727837-1ab9d67c41f9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);"></div>
+        <img class="img-placeholder" src="https://images.unsplash.com/photo-1564081727837-1ab9d67c41f9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+</div>
+    <div class="wrapper">
+      <div class="page-banner-inner">
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">플로이드-워셜</h1>
+  <h2 class="post-subtitle">Floyd-Warshall</h2>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2024-01-07T00:00:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Jan 07, 2024
+    </time><span class="post-author left-vsplit"><i class="fa fa-pencil"></i> CHOYUNSIG</span>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 15 mins</span>
+  </div>
+<div class="post-tags">
+<a class="post-tag" href="/algorithm_with_boj/tags.html#%EA%B7%B8%EB%9E%98%ED%94%84_%EC%9D%B4%EB%A1%A0(graphs)">#그래프_이론(graphs)</a><a class="post-tag" href="/algorithm_with_boj/tags.html#%EC%B5%9C%EB%8B%A8_%EA%B2%BD%EB%A1%9C(shortest_path)">#최단_경로(shortest_path)</a><a class="post-tag" href="/algorithm_with_boj/tags.html#%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C%E2%80%93%EC%9B%8C%EC%85%9C(floyd_warshall)">#플로이드–워셜(floyd_warshall)</a>
+</div></header>
+</div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var pageBannerInner = document.querySelector('.page-banner-inner');
+
+          window.addEventListener('scroll', function () {
+            pageBannerInner.style.opacity = Math.max((0.26 * window.innerHeight - window.scrollY) / (0.25 * window.innerHeight), 0);
+          });
+        });
+      </script>
+    </div>
+  </section><script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = window.scrollY + element.getBoundingClientRect().top - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div id="click-to-top" class="click-to-top">
+  <i class="fa fa-arrow-up"></i>
+</div>
+<script>
+  (function () {
+    const clickToTop = document.getElementById('click-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        clickToTop.classList.add('show')
+      }else {
+        clickToTop.classList.remove('show')
+      }
+    });
+    clickToTop.addEventListener('click', () => {
+      window.smoothScrollTo(0);
+    });
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<div class="post-related">
+      <div>이전 포스트</div>
+      <ul>
+        
+        
+        <div>없음</div>
+        
+      </ul>
+    </div>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <div class="post-content e-content" itemprop="articleBody">
+
+    <h2 id="소개">소개</h2>
+
+<p>플로이드-워셜 알고리즘은 그래프의 모든 정점 간의 최단 거리를 찾는 알고리즘이다. 주로 그래프를 인접행렬로 표현한 상태에서 많이 쓰이는 방법이다. 양방향 그래프와 방향 그래프 모두 적용할 수 있으며 음수 가중치를 허용한다. 플로이드-워셜 알고리즘은 어떠한 두 정점 간의 최단 경로를 그 경로의 속한 두 최단 경로의 합으로 생각하는 데서 출발한다.</p>
+
+<h2 id="원리">원리</h2>
+<p>어떠한 두 정점 $\text A$와 $\text B$ 사이의 최단 경로가 다음과 같이 정점 $\text C$를 경유한다고 가정하자.</p>
+
+<pre class="mermaid">
+    graph LR
+    A --- other1 --- C --- other2 --- B
+
+    A((A))
+    B((B))
+    C((C))
+    other1((other nodes))
+    other2((other nodes))
+</pre>
+
+<p>위 그림에서 정점 $\text A$와 $\text B$ 사이의 최단 경로는 정점 $\text A$와 $\text C$, 정점 $\text C$와 $\text B$의 최단 경로의 합이라고 생각할 수 있다. 또한 정점 $\text A$와 $\text C$ 사이의 최단 경로는 방금처럼 그사이의 어떤 정점에 접하는 두 최단 경로의 합으로 생각할 수 있고, 이러한 재귀적인 생각은 두 정점 사이의 경로에 경유하는 정점이 없어질 때까지(즉 두 정점이 직접 연결될 때까지) 반복할 수 있을 것이다. 이를 반대로 생각하면 모든 정점의 직접 연결 정보, 즉 인접행렬을 가지고 모든 정점 사이의 최단 경로를 구하는 알고리즘을 생각해 볼 수 있다. 먼저 다음과 같은 그래프가 있고 이를 인접행렬 $W_{\varnothing}$로 표현했다고 가정하자.</p>
+
+<pre class="mermaid">
+    graph LR
+    A &lt;-- <p style="color: #888">2</p> --&gt; B
+    B &lt;-- <p style="color: #888">3</p> --&gt; C
+    B &lt;-- <p style="color: #888">7</p> --&gt; D
+    A &lt;-- <p style="color: #888">3</p> --&gt; D
+
+    A((A))
+    B((B))
+    C((C))
+    D((D))
+</pre>
+
+<table>
+  <thead>
+    <tr>
+      <th>$W_{\varnothing}$</th>
+      <th>$\text A$</th>
+      <th>$\text B$</th>
+      <th>$\text C$</th>
+      <th>$\text D$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$\text A$</td>
+      <td>0</td>
+      <td>2</td>
+      <td>∞</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>$\text B$</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>$\text C$</td>
+      <td>∞</td>
+      <td>3</td>
+      <td>0</td>
+      <td>∞</td>
+    </tr>
+    <tr>
+      <td>$\text D$</td>
+      <td>3</td>
+      <td>7</td>
+      <td>∞</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>연결되어 있지 않은 정점들 간의 거리는 무한으로 초기화한다. 우선 정점 $\text A$를 중간 정점로서 경유하는 것부터 생각해보자. 정점 $\text B$와 $\text D$는 직접 가는 것보다 정점 $\text A$를 경유하는 것이 더 거리가 짧다. 즉, 다음을 만족한다.</p>
+
+<p>$$
+\displaylines{W_{\varnothing}[\text B][\text D] &gt; W_{\varnothing}[\text B][\text A] + W_{\varnothing}[\text A][\text D] \\ W_{\varnothing}[\text D][\text B] &gt; W_{\varnothing}[\text D][\text A] + W_{\varnothing}[\text A][\text B]}
+$$</p>
+
+<p>따라서 $W_{\varnothing}[\text B][\text D]$와 $W_{\varnothing}[\text D][\text B]$을 수정해 다음과 같이 $\text A$를 중간 정점로 사용했을 때의 최단 거리 표인 $W_{\lbrace \text A \rbrace}$을 얻는다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>$W_{\lbrace \text A \rbrace}$</th>
+      <th>$\text A$</th>
+      <th>$\text B$</th>
+      <th>$\text C$</th>
+      <th>$\text D$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$\text A$</td>
+      <td>0</td>
+      <td>2</td>
+      <td>∞</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>$\text B$</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>$\text C$</td>
+      <td>∞</td>
+      <td>3</td>
+      <td>0</td>
+      <td>∞</td>
+    </tr>
+    <tr>
+      <td>$\text D$</td>
+      <td>3</td>
+      <td>5</td>
+      <td>∞</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>$W_{\lbrace \text A \rbrace}$는 다른 말로 하면 이 그래프 상에서 $\text A$를 중간 정점로 사용할 수 있을 때의 최단 거리표이다. 여기서 추가로 정점 $\text B$를 중간 정점로 사용하겠다고 선언하자. 우리의 목표는 $\text A$와 $\text B$를 중간 정점로 사용할 수 있을 때의 최단 거리표 $W_{\lbrace \text A, \text B \rbrace}$를 구하는 것이다. 정점 $\text C$는 정점 $\text B$를 통해서 $\text A$와 $\text D$에 닿을 수 있다. 우리는 앞서 $W_{\lbrace \text A \rbrace}$를 구해놓았으며 $W_{\lbrace \text A \rbrace}$는 $\text B$와 $\text D$의 경로가 $\text A$를 경유하면 더 빨라진다는 사실을 담고 있다. 따라서 정점 $\text C$에서 $\text D$를 갈 때 $W_{\lbrace \text A \rbrace}$를 참고하여 $\text{C - B - D}$ 경로 대신 $\text A$를 거쳐 가는 더 빠른 경로를 얻을 수 있다. 즉, $W_{\lbrace \text A, \text B \rbrace}$를 구할 때는 이전에 구해놓았던 $W_{\lbrace \text A \rbrace}$을 사용하면 된다는 것을 직관적으로 알 수 있다.</p>
+
+<p>$$
+\displaylines{W_{\lbrace \text A \rbrace}[\text C][\text A] &gt; W_{\lbrace \text A \rbrace}[\text C][\text B] + W_{\lbrace \text A \rbrace}[\text B][\text A] \\ W_{\lbrace \text A \rbrace}[\text A][\text C] &gt; W_{\lbrace \text A \rbrace}[\text A][\text B] + W_{\lbrace \text A \rbrace}[\text B][\text C] \\ W_{\lbrace \text A \rbrace}[\text C][\text D] &gt; W_{\lbrace \text A \rbrace}[\text C][\text B] + W_{\lbrace \text A \rbrace}[\text B][\text D] \\ W_{\lbrace \text A \rbrace}[\text D][\text C] &gt; W_{\lbrace \text A \rbrace}[\text D][\text B] + W_{\lbrace \text A \rbrace}[\text B][\text C]}
+$$</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>$W_{\lbrace \text A, \text B \rbrace}$</th>
+      <th>$\text A$</th>
+      <th>$\text B$</th>
+      <th>$\text C$</th>
+      <th>$\text D$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$\text A$</td>
+      <td>0</td>
+      <td>2</td>
+      <td>5</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>$\text B$</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>$\text C$</td>
+      <td>5</td>
+      <td>3</td>
+      <td>0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>$\text D$</td>
+      <td>3</td>
+      <td>5</td>
+      <td>8</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>위의 논리를 계속해서 반복해 $W_{\lbrace \text A, \text B \rbrace}$로부터 $W_{\lbrace \text A, \text B, \text C \rbrace}$를 얻을 수 있고, $W_{\lbrace \text A, \text B, \text C \rbrace}$로부터 $W_{\lbrace \text A, \text B, \text C, \text D \rbrace}$를 얻을 수 있다. (실제로 구해보면 갱신될 것이 없으므로 위의 표와 동일하게 나올 것이다.) $W_{\lbrace \text A, \text B, \text C, \text D \rbrace}$는 그래프 상의 모든 정점을 중간 정점로 사용할 수 있다는 뜻이므로 결국 이 그래프 상의 궁극적인 최단 거리표가 될 것이다.</p>
+
+<h2 id="구현">구현</h2>
+
+<p>플로이드-워셜의 구현은 굉장히 아름답다. 단순한 3중 반복문이면 되기 때문이다. $W$에서 시작해 중간 정점 $m$을 하나씩 추가하면서 모든 시작점과 종점 쌍 $(s, e)$에 대해서 $m$을 거쳐가는 경로($W[s][m] + W[m][e]$)와 기존 경로($W[s][e]$) 중 어떤 것이 짧은지를 검사해 갱신해주면 된다. 다음은 그것을 간단히 수식으로 나타낸 것이다.</p>
+
+<p>$$
+W[s][e] := \min{(W[s][e], W[s][m] + W[m][e])}
+$$</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+
+
+<span class="c1"># weight는 간선의 가중치를 나타내는 2차원 배열이다. 즉, 인접행렬이다.
+# weight[A][B]는 정점 a에서 b로 가는 간선의 가중치이다.
+# 정점 a에서 b로 가는 간선이 없다면 weight[A][B]는 INF이다.
+# a == b라면 weight[A][B]는 0이다.
+</span><span class="k">def</span> <span class="nf">floyd_warshall</span><span class="p">(</span><span class="n">weight</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nf">deepcopy</span><span class="p">(</span><span class="n">weight</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">weight</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">weight</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">weight</span><span class="p">)):</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="nf">min</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="n">e</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="n">m</span><span class="p">]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">e</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+</code></pre></div></div>
+
+<p>플로이드-워셜 알고리즘은 단순 3중 반복문이므로 시간복잡도는 $O(N^3)$이다.</p>
+
+
+  </div>
+
+  <script>
+    // h2 태그를 제목으로 하고 있는 본문을 div로 묶음
+    var postContentDiv = document.querySelector('div.post-content');
+    var divContainer = [];
+
+    while (postContentDiv.children.length > 0) {
+      var currentElement = postContentDiv.children[0];
+      if (currentElement.tagName.toLowerCase() === 'h2') {
+        var newDiv = document.createElement('div');
+        newDiv.classList.add('post-section');
+        divContainer.push(newDiv);
+      }
+      divContainer[divContainer.length - 1].appendChild(currentElement);
+    }
+
+    for (var i = 0; i < divContainer.length; i++) {
+      postContentDiv.appendChild(divContainer[i]);
+    }
+  </script>
+
+  <script>
+    // 포스트 내 테이블의 overflow 방지 및 margin 추가
+    var postContentDiv = document.querySelector('div.post-content');
+    var tables = postContentDiv.querySelectorAll('table');
+    tables.forEach(function(table) {
+      var div = document.createElement('div');
+      div.classList.add('post-table');
+      table.parentNode.replaceChild(div, table);
+      div.appendChild(table);
+    });
+  </script><script>/*
+    터치 스크롤 적용
+
+    사용:
+    Liquid 용법으로 사용됨
+    include touch-scroller.html container="element.class"
+
+    주의사항:
+    터치 스크롤을 적용하려는 요소와 그것을 감싼 Container 요소가 반드시 직계 부모-자식 관계여야 함
+    부모의 padding 값은 px 단위로 지정되어야 함
+    자식의 overflow 값이 hidden으로 지정되어야 함
+    */
+
+    try {
+        let scrollBefore = { translateX: 0, translateY: 0 };
+        let scrollTarget = undefined;
+        let scrollStart = { x: 0, y: 0 };
+        let scrolling = false;
+        let scrolled = false;
+
+        function getPos(event) {
+            var x = event.clientX;
+            var y = event.clientY;
+            if (x === undefined || y === undefined) {
+                x = event.changedTouches[0].clientX;
+                y = event.changedTouches[0].clientY;
+            }
+            return { 'x': x, 'y': y };
+        }
+
+        function onScrollStart(event) {
+            const target = event.target.closest('pre.highlight');
+            if (!target)
+                return false;
+            event.stopPropagation();
+            scrollStart = getPos(event);
+            var matrix = new DOMMatrix(window.getComputedStyle(target.children[0]).getPropertyValue('transform'));
+            if (matrix === "none")
+                matrix = new DOMMatrix('matrix(1, 0, 0, 1, 0, 0)');
+            scrollBefore.translateX = matrix.m41;
+            scrollBefore.translateY = matrix.m42;
+            scrollTarget = target.children[0];
+            scrolling = true;
+            scrolled = false;
+        }
+
+        function onScrollMove(event) {
+            if (!scrolling)
+                return false;
+            const pos = getPos(event);
+            const style = window.getComputedStyle(scrollTarget.parentElement);
+            let padX = parseFloat(style.getPropertyValue('padding-right')) + parseFloat(style.getPropertyValue('padding-right'));
+            let padY = parseFloat(style.getPropertyValue('padding-top')) + parseFloat(style.getPropertyValue('padding-bottom'));
+            const translateX = Math.max(-Math.max(0, scrollTarget.getBoundingClientRect().width - scrollTarget.parentElement.getBoundingClientRect().width + padX), Math.min(0, scrollBefore.translateX - (scrollStart.x - pos.x)));
+            const translateY = Math.max(-Math.max(0, scrollTarget.getBoundingClientRect().height - scrollTarget.parentElement.getBoundingClientRect().height + padY), Math.min(0, scrollBefore.translateY - (scrollStart.y - pos.y)));
+            if (!scrolled && (translateX - scrollBefore.translateX) ** 2 + (translateY - scrollBefore.translateY) ** 2 < 1) {
+                scrolling = false;
+                return;
+            }
+            if (event.cancelable)
+                event.preventDefault();
+            event.stopPropagation();
+            scrollTarget.style.transform = `translate(${translateX}px, ${translateY}px)`;
+            scrolled = true;
+        }
+
+        function onScrollEnd(event) {
+            event.stopPropagation();
+            scrolling = false;
+            scrolled = false;
+        }
+
+        function onClick(event) {
+            if (scrolled)
+                event.preventDefault();
+            return false;
+        }
+    }
+    catch {
+        // 두 번 이상 include 할 경우 여기에 표시
+    }
+
+    document.querySelectorAll('pre.highlight').forEach( pre => {
+        pre.addEventListener("click", onClick);
+        pre.addEventListener("mousedown", onScrollStart);
+        pre.addEventListener("touchstart", onScrollStart);
+        pre.addEventListener("touchmove", onScrollMove);
+        pre.addEventListener("touchend", onScrollEnd);
+    });
+    window.addEventListener("mousemove", onScrollMove);
+    window.addEventListener("mouseup", onScrollEnd);
+</script></article>
+<div class="post-related">
+      <div>다음 포스트</div>
+      <ul>
+        
+        
+        <div>없음</div>
+        
+      </ul>
+    </div>
+  </section>
+</div>
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">Index</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 50;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/algorithm_with_boj/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>Made by <a href="https://github.com/CHOYUNSIG">CHOYUNSIG</a>
+</div>
+      <div></div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>
+</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/algorithm_with_boj/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

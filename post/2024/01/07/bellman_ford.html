@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>벨만-포드 | APSwBT</title>
+<meta name="generator" content="Jekyll v4.3.3">
+<meta property="og:title" content="벨만-포드">
+<meta name="author" content="CHOYUNSIG">
+<meta property="og:locale" content="ko">
+<meta name="description" content="소개">
+<meta property="og:description" content="소개">
+<link rel="canonical" href="https://choyunsig.github.io/algorithm_with_boj/post/2024/01/07/bellman_ford.html">
+<meta property="og:url" content="https://choyunsig.github.io/algorithm_with_boj/post/2024/01/07/bellman_ford.html">
+<meta property="og:site_name" content="APSwBT">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2024-01-07T00:00:00+00:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="벨만-포드">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"CHOYUNSIG"},"dateModified":"2024-01-07T00:00:00+00:00","datePublished":"2024-01-07T00:00:00+00:00","description":"소개","headline":"벨만-포드","mainEntityOfPage":{"@type":"WebPage","@id":"https://choyunsig.github.io/algorithm_with_boj/post/2024/01/07/bellman_ford.html"},"url":"https://choyunsig.github.io/algorithm_with_boj/post/2024/01/07/bellman_ford.html"}</script>
+<!-- End Jekyll SEO tag -->
+<meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/algorithm_with_boj/assets/css/main.css">
+  <script src="/algorithm_with_boj/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://choyunsig.github.io/algorithm_with_boj/feed.xml" title="APSwBT">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightElement(block);
+  }
+
+  hljs.configure({ignoreUnescapedHTML: true});
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+<script type="module">
+    // Mathjax 연동
+    document.querySelectorAll('.mermaid').forEach( pre => {
+        const list = pre.nextElementSibling;
+        if (list === null || list.classList[0] !== "mathjax")
+            return;
+        MathJax.typeset([list]);
+        pre.querySelectorAll('span.mathjax').forEach( span => {
+            span.outerHTML = "\"<span style=\"color: #888\">" + list.querySelector('.' + span.classList[1]).innerHTML + "</span>\"";
+        });
+        list.remove();
+    });
+    // Mermaid 그리기
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'
+    mermaid.initialize({
+        startOnLoad: false,
+    });
+    await mermaid.run();
+    // Mermaid 노드에 그림자 추가
+    document.querySelectorAll('.mermaid').forEach( pre => {
+        const current = pre.children[0];
+        if (current.ariaRoleDescription !== "flowchart-v2")
+            return;
+        current.insertAdjacentHTML('afterbegin', `
+            <defs>
+                <filter id="drop-shadow" x="-100%" y="-100%" width="300%" height="300%">
+                    <feFlood flood-color="black" result="color"/>
+                    <feComposite in2="SourceGraphic" in="color" operator="in"/>
+                    <feGaussianBlur stdDeviation="3"/>
+                    <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.5"/>
+                    </feComponentTransfer>
+                    <feOffset dx="1" dy="2"/>
+                    <feMerge>
+                        <feMergeNode />
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+        `);
+        ['rect', 'circle'].map( shape => {
+            const drawElement = current.querySelectorAll(shape);
+            if (drawElement)
+                drawElement.forEach( e => { e.setAttribute("filter", `url(#drop-shadow)`); });
+        });
+        current.viewBox.baseVal.x -= 8;
+        current.viewBox.baseVal.y -= 8;
+        current.viewBox.baseVal.width += 10;
+        current.viewBox.baseVal.height += 10;
+        // Mermaid 기본 정렬 (홈 화면에 적용)
+        if (pre.classList.contains("tag-connection-define")) {
+            let matrix = new DOMMatrix(window.getComputedStyle(pre).getPropertyValue('transform'));
+            current.style.transform = matrix;
+            pre.style.transform = 'unset';
+        }
+    });
+</script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/algorithm_with_boj/assets/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/algorithm_with_boj/assets/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/algorithm_with_boj/assets/images/icons/favicon-16x16.png">
+<link rel="manifest" href="/algorithm_with_boj/assets/images/icons/site.webmanifest">
+<link rel="mask-icon" href="/algorithm_with_boj/assets/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Noto+Sans+KR:wght@100..900&amp;display=swap" rel="stylesheet">
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header site-header-transparent" role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/algorithm_with_boj/">
+  <img class="site-favicon" title="APSwBT" src="https://choyunsig.github.io/algorithm_with_boj/assets/images/icons/favicon.ico" onerror="this.style.display='none'">
+  APSwBT
+</a>
+</span><div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('manual' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/algorithm_with_boj/">HOME</a><a class="page-link" href="/algorithm_with_boj/archives.html">POSTS</a><a class="page-link" href="/algorithm_with_boj/tags.html">TAGS</a>
+          </div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;documentElement.setAttribute("data-header-transparent", "");var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="page-banner">
+    <div class="page-banner-img">
+<div style="background-image: url(https://images.unsplash.com/photo-1468649437954-f86751c119b6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);"></div>
+        <img class="img-placeholder" src="https://images.unsplash.com/photo-1468649437954-f86751c119b6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+</div>
+    <div class="wrapper">
+      <div class="page-banner-inner">
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">벨만-포드</h1>
+  <h2 class="post-subtitle">Bellman-Ford</h2>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2024-01-07T00:00:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Jan 07, 2024
+    </time><span class="post-author left-vsplit"><i class="fa fa-pencil"></i> CHOYUNSIG</span>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 14 mins</span>
+  </div>
+<div class="post-tags">
+<a class="post-tag" href="/algorithm_with_boj/tags.html#%EB%8B%A4%EC%9D%B4%EB%82%98%EB%AF%B9_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D(dp)">#다이나믹_프로그래밍(dp)</a><a class="post-tag" href="/algorithm_with_boj/tags.html#%EA%B7%B8%EB%9E%98%ED%94%84_%EC%9D%B4%EB%A1%A0(graphs)">#그래프_이론(graphs)</a><a class="post-tag" href="/algorithm_with_boj/tags.html#%EC%B5%9C%EB%8B%A8_%EA%B2%BD%EB%A1%9C(shortest_path)">#최단_경로(shortest_path)</a><a class="post-tag" href="/algorithm_with_boj/tags.html#%EB%B2%A8%EB%A7%8C%E2%80%93%ED%8F%AC%EB%93%9C(bellman_ford)">#벨만–포드(bellman_ford)</a>
+</div></header>
+</div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var pageBannerInner = document.querySelector('.page-banner-inner');
+
+          window.addEventListener('scroll', function () {
+            pageBannerInner.style.opacity = Math.max((0.26 * window.innerHeight - window.scrollY) / (0.25 * window.innerHeight), 0);
+          });
+        });
+      </script>
+    </div>
+  </section><script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = window.scrollY + element.getBoundingClientRect().top - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div id="click-to-top" class="click-to-top">
+  <i class="fa fa-arrow-up"></i>
+</div>
+<script>
+  (function () {
+    const clickToTop = document.getElementById('click-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        clickToTop.classList.add('show')
+      }else {
+        clickToTop.classList.remove('show')
+      }
+    });
+    clickToTop.addEventListener('click', () => {
+      window.smoothScrollTo(0);
+    });
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<div class="post-related">
+      <div>이전 포스트</div>
+      <ul>
+        
+        
+        <div>없음</div>
+        
+      </ul>
+    </div>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <div class="post-content e-content" itemprop="articleBody">
+
+    <h2 id="소개">소개</h2>
+
+<p>벨만-포드 알고리즘은 그래프상의 한 정점에서 출발점으로 하여 다른 모든 정점에 대해서 최단 경로를 찾는 알고리즘이다. 최단 경로를 찾는 또 다른 알고리즘인 다익스트라와 달리 벨만-포드 알고리즘은 음수 간선을 지닌 그래프에서도 동작한다. 벨만-포드 알고리즘은 그래프의 정점이 $N$개이면 출발점에서 다른 정점들로 가는 모든 단순 경로(한 번 방문한 정점을 다시 방문하지 않는 경로) 중 어느 것도 $N-1$개보다 더 많은 간선을 거칠 수 없음을 이용한다.</p>
+
+<h2 id="원리">원리</h2>
+
+<p>정점의 개수가 $N$인 그래프에서 시작점 $\text A$에 대하여 최단 거리표 $W_{k}$을 다음과 같이 정의하자.</p>
+
+<p>$$
+W_{k}[n] \overset{\underset{\mathrm{def}}{}}{=} \left( \displaylines{\text{시작점에서 출발해} \\ \text{간선을 }k\text{개 이하로 거쳐} \\ \text{정점 }n\text{로 가는} \\ \text{최소 경로의 길이}} \right)
+$$</p>
+
+<p>만약 그러한 경로가 없을 경우에는 무한대로 간주한다. $W_{0}$은 $W_{0}[A]$만 0으로 초기화하고 나머지 셀은 전부 무한으로 초기화한다. $W_{k}$를 안다고 가정하자. 이를 바탕으로 $W_{k+1}$를 구할 수 있을까? $W_{k+1}$는 $W_{k}$의 경로에서 간선을 한 번 더 지날 수 있게 된 것으로 해석할 수 있다.</p>
+
+<pre class="mermaid">
+    graph LR
+    A -- <span class="mathjax mj1"></span> --&gt; I
+    A -- <span class="mathjax mj2"></span> --&gt; J
+    I -- <span class="mathjax mj3"></span> --&gt; J
+
+    A((A))
+    I((I))
+    J((J))
+</pre>
+<ol class="mathjax">
+    <li class="mj1">$W_{k}[\text I]$</li>
+    <li class="mj2">$W_{k}[\text J]$</li>
+    <li class="mj3">$c$</li>
+</ol>
+
+<p>만약 정점 $\text I$에서 정점 $\text J$로 가는 간선의 가중치가 $c$이고 $W_{k}[\text I] + c &lt; W_{k}[\text J]$라면 (즉 $W_{k}[\text I]$가 함유하는 방법으로 정점 $\text I$로 간 뒤 가중치가 $c$인 간선을 통해 정점 $\text J$로 가는 방법이 기존의 $W_{k}[\text J]$의 방법보다 거리가 짧다면) $W_{k+1}[\text J]$를 $W_{k}[\text I] + c$로 결정할 수 있을 것이다. 이러한 방식으로 $W_{0}$으로부터 $W_{1}$을 구하고, $W_{1}$로부터 $W_{2}$을 구하며, 재귀적으로 $W_{N-1}$을 구할 수 있다. $W_{N-1}$은 $N-1$개 이하의 간선을 거쳐 갈 때의 최단 거리이므로 우리가 구하고자 하는 궁극적인 최단 거리표가 될 것이다.</p>
+
+<p>예시로 이해해보자. 다음과 같은 그래프에 시작점 정점 $\text A$가 있다고 가정하자.</p>
+
+<pre class="mermaid">
+    graph LR
+    A -- <p style="color: #888">3</p> --&gt; B
+    B -- <p style="color: #888">1</p> --&gt; D
+    A -- <p style="color: #888">5</p> --&gt; C
+    C -- <p style="color: #888">-3</p> --&gt; B
+
+    A((A))
+    B((B))
+    C((C))
+    D((D))
+</pre>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>$\text A$</th>
+      <th>$\text B$</th>
+      <th>$\text C$</th>
+      <th>$\text D$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$W_{0}$</td>
+      <td>0</td>
+      <td>∞</td>
+      <td>∞</td>
+      <td>∞</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>$W_{0}$을 바탕으로 $W_{1}$을 구해보자. 정점 $\text A$에서부터 간선을 딱 한 개 거쳐 이동할 수 있는 정점는 $\text B$와 $\text C$가 있으므로 이를 갱신해 줄 수 있다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>$\text A$</th>
+      <th>$\text B$</th>
+      <th>$\text C$</th>
+      <th>$\text D$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$W_{1}$</td>
+      <td>0</td>
+      <td>3</td>
+      <td>5</td>
+      <td>∞</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>$W_{1}$을 바탕으로 $W_{2}$을 구해보자. $W_{1}$의 방법으로 정점 $\text B$로 간 뒤 간선을 하나 더 거치면 정점 $\text D$로 갈 수 있으므로 이를 갱신해준다. $W_{1}$의 방법으로 정점 $\text C$로 간 뒤 간선을 하나 더 거쳐 정점 $\text B$로 가는 방법은 $W_{1}$의 방법으로 정점 $\text B$로 가는 방법보다 짧다. 따라서 $W_{2}[B] = W_{1}[C] + (-3) = 2$이다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>$\text A$</th>
+      <th>$\text B$</th>
+      <th>$\text C$</th>
+      <th>$\text D$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$W_{2}$</td>
+      <td>0</td>
+      <td>2</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>$W_{2}$을 바탕으로 $W_{3}$을 구해보자. 앞서 계산한 $W_{2}[D]$보다 $W_{2}[B] + 1$이 더 짧으므로 $W_{3}[D] = W_{2}[B] + 1 = 3$이다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>$\text A$</th>
+      <th>$\text B$</th>
+      <th>$\text C$</th>
+      <th>$\text D$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$W_{3}$</td>
+      <td>0</td>
+      <td>2</td>
+      <td>5</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>이렇게 해서 완성한 $W_{3}$은 이 그래프의 궁극적인 최단 거리표이다.</p>
+
+<h3 id="음수-사이클">음수 사이클</h3>
+
+<p>음수 가중치 그래프에서 최단 경로를 계산할 때의 주의할 점은 해당 그래프가 음수 사이클을 가지고 있을 수 있다는 것이다. 음수 사이클이란 어떠한 한 정점에서 다른 정점을 거쳐 다시 돌아왔을 때 비용이 더 적어지는 경로를 말한다. 다음은 음수 사이클의 한 예이다.</p>
+
+<pre class="mermaid">
+    graph LR
+    A -- <p style="color: #888">1</p> --&gt; B
+    B -- <p style="color: #888">-2</p> --&gt; A
+    B -- <p style="color: #888">100</p> --&gt; C
+
+    A((A))
+    B((B))
+    C((C))
+</pre>
+
+<p>정점 $\text A$에서 $\text B$를 거친 후 다시 $\text A$로 오면 총 비용이 1만큼 줄어있다. 이 행위를 무한히 반복하면 총 비용을 음의 무한대로 발산시킬 수 있다. 이 상황에서 정점 $\text A$에서 $\text C$로 가는 최단 경로를 계산해 볼 수 있는가? 결국 이 그래프에서 최단 거리를 재는 것은 무의미하다. 우리가 벨만-포드 알고리즘을 사용하여 계산한 최단 거리도 음수 사이클을 감지하지 못하면 사실은 유효하지 않을 수 있다. (위 그래프를 상대로 벨만-포드 알고리즘을 수행해보라. 적어도 음의 무한대를 표현해 주지는 못한다.) 그러므로 벨만-포드를 사용할 때는 음수 사이클을 감지해 주는 과정이 필수이다.</p>
+
+<p>음수 사이클의 감지는 의외로 간단하다. $W_{N}$을 구한 뒤 $W_{N-1}$과 비교해 갱신이 일어났는지를 검사하면 된다. 만약 그래프가 음수 사이클을 가지고 있지 않다면 $W_{N-1}$은 최단 거리 문제에 대한 이 그래프에서의 최적해이므로 최단 거리를 아무리 갱신해도 변화가 일어나지 않을 것이다. 그래프가 음수 사이클을 가지고 있다면 $W_{N-1}$은 이 그래프에서의 최적해가 아니며 최단 거리가 무한히 갱신될 것이다.</p>
+
+<h2 id="구현">구현</h2>
+
+<p>벨만-포드 알고리즘을 위해서는 그래프를 인접 리스트로 표현하는 것이 좋다. 왜냐하면 그래프의 간선을 기준으로 반복문을 설계할 것이기 때문이다. 먼저 $W_{0}$를 만들고, $W_{N-1}$을 만들기까지의 $N-1$번의 단계와 음수 사이클을 판정하기 위한 1번의 단계를 합하여 총 $N$번의 단계동안 모든 간선을 검사해 최단 거리표를 갱신해주면 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">INF</span> <span class="o">=</span> <span class="mi">1_000_000_000</span>
+
+
+<span class="c1"># edge는 인접 리스트이다.
+# edge[n]은 정점 n에서 뻗어나온 모든 간선의 정보를 담은 리스트이다.
+# 각 간선은 (다음 정점 번호, 간선의 가중치)의 형태로 표현한다.
+</span><span class="k">def</span> <span class="nf">bellman_ford</span><span class="p">(</span><span class="n">edge</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]],</span> <span class="n">start_node</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">INF</span><span class="p">]</span> <span class="o">*</span> <span class="nf">len</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">[</span><span class="n">start_node</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">edge</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">edge</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">next_node</span><span class="p">,</span> <span class="n">cost</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">[</span><span class="n">node</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="n">next_node</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">result</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">+</span> <span class="n">cost</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="n">next_node</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">+</span> <span class="n">cost</span>
+                    <span class="c1"># 음수 사이클 판정
+</span>                    <span class="k">if</span> <span class="n">step</span> <span class="o">==</span> <span class="nf">len</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="nc">Exception</span><span class="p">(</span><span class="sh">"</span><span class="s">음수 사이클 감지됨</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></div>
+
+<p>정점이 $V$개라고 하면 $V$번의 단계마다 $E$개의 모든 간선을 확인하므로 총 시간복잡도는 $O(VE)$이다.</p>
+
+
+  </div>
+
+  <script>
+    // h2 태그를 제목으로 하고 있는 본문을 div로 묶음
+    var postContentDiv = document.querySelector('div.post-content');
+    var divContainer = [];
+
+    while (postContentDiv.children.length > 0) {
+      var currentElement = postContentDiv.children[0];
+      if (currentElement.tagName.toLowerCase() === 'h2') {
+        var newDiv = document.createElement('div');
+        newDiv.classList.add('post-section');
+        divContainer.push(newDiv);
+      }
+      divContainer[divContainer.length - 1].appendChild(currentElement);
+    }
+
+    for (var i = 0; i < divContainer.length; i++) {
+      postContentDiv.appendChild(divContainer[i]);
+    }
+  </script>
+
+  <script>
+    // 포스트 내 테이블의 overflow 방지 및 margin 추가
+    var postContentDiv = document.querySelector('div.post-content');
+    var tables = postContentDiv.querySelectorAll('table');
+    tables.forEach(function(table) {
+      var div = document.createElement('div');
+      div.classList.add('post-table');
+      table.parentNode.replaceChild(div, table);
+      div.appendChild(table);
+    });
+  </script><script>/*
+    터치 스크롤 적용
+
+    사용:
+    Liquid 용법으로 사용됨
+    include touch-scroller.html container="element.class"
+
+    주의사항:
+    터치 스크롤을 적용하려는 요소와 그것을 감싼 Container 요소가 반드시 직계 부모-자식 관계여야 함
+    부모의 padding 값은 px 단위로 지정되어야 함
+    자식의 overflow 값이 hidden으로 지정되어야 함
+    */
+
+    try {
+        let scrollBefore = { translateX: 0, translateY: 0 };
+        let scrollTarget = undefined;
+        let scrollStart = { x: 0, y: 0 };
+        let scrolling = false;
+        let scrolled = false;
+
+        function getPos(event) {
+            var x = event.clientX;
+            var y = event.clientY;
+            if (x === undefined || y === undefined) {
+                x = event.changedTouches[0].clientX;
+                y = event.changedTouches[0].clientY;
+            }
+            return { 'x': x, 'y': y };
+        }
+
+        function onScrollStart(event) {
+            const target = event.target.closest('pre.highlight');
+            if (!target)
+                return false;
+            event.stopPropagation();
+            scrollStart = getPos(event);
+            var matrix = new DOMMatrix(window.getComputedStyle(target.children[0]).getPropertyValue('transform'));
+            if (matrix === "none")
+                matrix = new DOMMatrix('matrix(1, 0, 0, 1, 0, 0)');
+            scrollBefore.translateX = matrix.m41;
+            scrollBefore.translateY = matrix.m42;
+            scrollTarget = target.children[0];
+            scrolling = true;
+            scrolled = false;
+        }
+
+        function onScrollMove(event) {
+            if (!scrolling)
+                return false;
+            const pos = getPos(event);
+            const style = window.getComputedStyle(scrollTarget.parentElement);
+            let padX = parseFloat(style.getPropertyValue('padding-right')) + parseFloat(style.getPropertyValue('padding-right'));
+            let padY = parseFloat(style.getPropertyValue('padding-top')) + parseFloat(style.getPropertyValue('padding-bottom'));
+            const translateX = Math.max(-Math.max(0, scrollTarget.getBoundingClientRect().width - scrollTarget.parentElement.getBoundingClientRect().width + padX), Math.min(0, scrollBefore.translateX - (scrollStart.x - pos.x)));
+            const translateY = Math.max(-Math.max(0, scrollTarget.getBoundingClientRect().height - scrollTarget.parentElement.getBoundingClientRect().height + padY), Math.min(0, scrollBefore.translateY - (scrollStart.y - pos.y)));
+            if (!scrolled && (translateX - scrollBefore.translateX) ** 2 + (translateY - scrollBefore.translateY) ** 2 < 1) {
+                scrolling = false;
+                return;
+            }
+            if (event.cancelable)
+                event.preventDefault();
+            event.stopPropagation();
+            scrollTarget.style.transform = `translate(${translateX}px, ${translateY}px)`;
+            scrolled = true;
+        }
+
+        function onScrollEnd(event) {
+            event.stopPropagation();
+            scrolling = false;
+            scrolled = false;
+        }
+
+        function onClick(event) {
+            if (scrolled)
+                event.preventDefault();
+            return false;
+        }
+    }
+    catch {
+        // 두 번 이상 include 할 경우 여기에 표시
+    }
+
+    document.querySelectorAll('pre.highlight').forEach( pre => {
+        pre.addEventListener("click", onClick);
+        pre.addEventListener("mousedown", onScrollStart);
+        pre.addEventListener("touchstart", onScrollStart);
+        pre.addEventListener("touchmove", onScrollMove);
+        pre.addEventListener("touchend", onScrollEnd);
+    });
+    window.addEventListener("mousemove", onScrollMove);
+    window.addEventListener("mouseup", onScrollEnd);
+</script></article>
+<div class="post-related">
+      <div>다음 포스트</div>
+      <ul>
+        
+        
+        <div>없음</div>
+        
+      </ul>
+    </div>
+  </section>
+</div>
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">Index</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 50;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/algorithm_with_boj/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>Made by <a href="https://github.com/CHOYUNSIG">CHOYUNSIG</a>
+</div>
+      <div></div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>
+</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/algorithm_with_boj/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

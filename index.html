@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Home | APSwBT</title>
+<meta name="generator" content="Jekyll v4.3.3">
+<meta property="og:title" content="Home">
+<meta name="author" content="CHOYUNSIG">
+<meta property="og:locale" content="ko">
+<meta name="description" content="Algorithm blog written by CHOYUNSIG">
+<meta property="og:description" content="Algorithm blog written by CHOYUNSIG">
+<link rel="canonical" href="https://choyunsig.github.io/algorithm_with_boj/">
+<meta property="og:url" content="https://choyunsig.github.io/algorithm_with_boj/">
+<meta property="og:site_name" content="APSwBT">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Home">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"CHOYUNSIG"},"description":"Algorithm blog written by CHOYUNSIG","headline":"Home","name":"APSwBT","url":"https://choyunsig.github.io/algorithm_with_boj/"}</script>
+<!-- End Jekyll SEO tag -->
+<meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/algorithm_with_boj/assets/css/main.css">
+  <script src="/algorithm_with_boj/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://choyunsig.github.io/algorithm_with_boj/feed.xml" title="APSwBT">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightElement(block);
+  }
+
+  hljs.configure({ignoreUnescapedHTML: true});
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+<script type="module">
+    // Mathjax 연동
+    document.querySelectorAll('.mermaid').forEach( pre => {
+        const list = pre.nextElementSibling;
+        if (list === null || list.classList[0] !== "mathjax")
+            return;
+        MathJax.typeset([list]);
+        pre.querySelectorAll('span.mathjax').forEach( span => {
+            span.outerHTML = "\"<span style=\"color: #888\">" + list.querySelector('.' + span.classList[1]).innerHTML + "</span>\"";
+        });
+        list.remove();
+    });
+    // Mermaid 그리기
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'
+    mermaid.initialize({
+        startOnLoad: false,
+    });
+    await mermaid.run();
+    // Mermaid 노드에 그림자 추가
+    document.querySelectorAll('.mermaid').forEach( pre => {
+        const current = pre.children[0];
+        if (current.ariaRoleDescription !== "flowchart-v2")
+            return;
+        current.insertAdjacentHTML('afterbegin', `
+            <defs>
+                <filter id="drop-shadow" x="-100%" y="-100%" width="300%" height="300%">
+                    <feFlood flood-color="black" result="color"/>
+                    <feComposite in2="SourceGraphic" in="color" operator="in"/>
+                    <feGaussianBlur stdDeviation="3"/>
+                    <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.5"/>
+                    </feComponentTransfer>
+                    <feOffset dx="1" dy="2"/>
+                    <feMerge>
+                        <feMergeNode />
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+        `);
+        ['rect', 'circle'].map( shape => {
+            const drawElement = current.querySelectorAll(shape);
+            if (drawElement)
+                drawElement.forEach( e => { e.setAttribute("filter", `url(#drop-shadow)`); });
+        });
+        current.viewBox.baseVal.x -= 8;
+        current.viewBox.baseVal.y -= 8;
+        current.viewBox.baseVal.width += 10;
+        current.viewBox.baseVal.height += 10;
+        // Mermaid 기본 정렬 (홈 화면에 적용)
+        if (pre.classList.contains("tag-connection-define")) {
+            let matrix = new DOMMatrix(window.getComputedStyle(pre).getPropertyValue('transform'));
+            current.style.transform = matrix;
+            pre.style.transform = 'unset';
+        }
+    });
+</script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/algorithm_with_boj/assets/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/algorithm_with_boj/assets/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/algorithm_with_boj/assets/images/icons/favicon-16x16.png">
+<link rel="manifest" href="/algorithm_with_boj/assets/images/icons/site.webmanifest">
+<link rel="mask-icon" href="/algorithm_with_boj/assets/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Noto+Sans+KR:wght@100..900&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header site-header-transparent" role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/algorithm_with_boj/">
+  <img class="site-favicon" title="APSwBT" src="https://choyunsig.github.io/algorithm_with_boj/assets/images/icons/favicon.ico" onerror="this.style.display='none'">
+  APSwBT
+</a>
+</span><div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('manual' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/algorithm_with_boj/">HOME</a><a class="page-link" href="/algorithm_with_boj/archives.html">POSTS</a><a class="page-link" href="/algorithm_with_boj/tags.html">TAGS</a>
+          </div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;documentElement.setAttribute("data-header-transparent", "");var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="page-banner">
+    <div class="page-banner-img">
+<div style="background-image: url(https://static.solved.ac/site_main_graphic_1.png);"></div>
+        <img class="img-placeholder" src="https://static.solved.ac/site_main_graphic_1.png">
+</div>
+    <div class="wrapper">
+      <div class="page-banner-inner"><div class="page-banner-default">
+            <h1 class="page-banner-heading">
+              알고리즘 문제해결 with 백준 태그
+            </h1>
+            <h2 class="page-banner-subheading">
+              Algorithm Problem Solving with BOJ Tag
+            </h2>
+          </div></div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var pageBannerInner = document.querySelector('.page-banner-inner');
+
+          window.addEventListener('scroll', function () {
+            pageBannerInner.style.opacity = Math.max((0.26 * window.innerHeight - window.scrollY) / (0.25 * window.innerHeight), 0);
+          });
+        });
+      </script>
+    </div>
+  </section><script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = window.scrollY + element.getBoundingClientRect().top - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div id="click-to-top" class="click-to-top">
+  <i class="fa fa-arrow-up"></i>
+</div>
+<script>
+  (function () {
+    const clickToTop = document.getElementById('click-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        clickToTop.classList.add('show')
+      }else {
+        clickToTop.classList.remove('show')
+      }
+    });
+    clickToTop.addEventListener('click', () => {
+      window.smoothScrollTo(0);
+    });
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <div class="post-content e-content" itemprop="articleBody">
+
+    <h2 id="소개">소개</h2>
+
+<p><a href="">APSwBT</a>(<u>A</u>lgorithm <u>P</u>roblem <u>S</u>olving <u>w</u>ith <u>B</u>eakjoon <u>T</u>ag)는 <a href="https://www.acmicpc.net/" target="_blank">백준</a>과 <a href="https://solved.ac/" target="_blank">솔브드</a>의 모든 태그의 카테고리를 분류하고 난이도 별로 정리한 블로그입니다.</p>
+
+<pre class="mermaid">
+    graph LR
+
+    home --&gt; paradigm
+    home --&gt; data_structure
+    home --&gt; algorithm
+    algorithm --&gt; sorting_search
+    algorithm --&gt; trees
+    algorithm --&gt; graphs
+    algorithm --&gt; strings
+    algorithm --&gt; math
+    algorithm --&gt; dp
+    algorithm --&gt; others
+    math --&gt; number_theory
+    math --&gt; geometry
+
+    subgraph Navigation
+        home
+        posts
+        tags
+    end
+
+    home(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="">Home</a>"]):::tier1
+    posts(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="archives.html">Posts</a>"]):::tier1
+    tags(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="tags.html">Tags</a>"]):::tier1
+    paradigm(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-%ED%8C%A8%EB%9F%AC%EB%8B%A4%EC%9E%84">패러다임</a>"]):::tier2
+    data_structure(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0">자료구조</a>"]):::tier2
+    algorithm(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">알고리즘</a>"]):::tier2
+    sorting_search(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-%EC%A0%95%EB%A0%AC%EA%B3%BC-%ED%83%90%EC%83%89">정렬과 탐색</a>"]):::tier3
+    trees(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-%ED%8A%B8%EB%A6%AC">트리</a>"]):::tier3
+    graphs(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-%EA%B7%B8%EB%9E%98%ED%94%84">그래프</a>"]):::tier3
+    strings(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-%EB%AC%B8%EC%9E%90%EC%97%B4">문자열</a>"]):::tier3
+    math(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-%EC%88%98%ED%95%99">수학</a>"]):::tier3
+    dp(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-%EB%8F%99%EC%A0%81%EA%B3%84%ED%9A%8D%EB%B2%95">동적계획법</a>"]):::tier3
+    others(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-%EA%B8%B0%ED%83%80">기타</a>"]):::tier3
+    number_theory(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-%EC%A0%95%EC%88%98%EB%A1%A0">정수론</a>"]):::tier3
+    geometry(["<span style="background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px">fa:fa-code</span> <a href="#h-%EA%B8%B0%ED%95%98">기하</a>"]):::tier3
+
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+</pre>
+
+<p>빨간색 배지가 있는 태그를 클릭하시면 관련 포스트로 이동하실 수 있습니다.</p>
+
+<pre class="mermaid">
+    graph LR
+
+    bronze --&gt; silver --&gt; gold --&gt; platinum --&gt; diamond --&gt; ruby
+
+    subgraph 쉬움
+        bronze
+        silver
+    end
+
+    subgraph 어려움
+        diamond
+        ruby
+    end
+
+    bronze([Bronze]):::tier0
+    silver([Silver]):::tier1
+    gold([Gold]):::tier2
+    platinum([Platinum]):::tier3
+    diamond([Diamond]):::tier4
+    ruby([Ruby]):::tier5
+
+    classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+    classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+    classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+    classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+    classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+    classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
+</pre>
+
+<p>각 태그의 색깔은 해당 태그가 사용된 백준 문제의 평균 솔브드 티어입니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>플랫폼</th>
+      <th>아이디</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+<img src="https://github.githubassets.com/favicons/favicon-dark.svg" style="height: 20px; box-sizing: border-box; padding: 2px; background: black; border-radius: 50%; display: inline-block"> GitHub</td>
+      <td><a href="https://github.com/CHOYUNSIG" target="_blank">CHOYUNSIG</a></td>
+    </tr>
+    <tr>
+      <td>
+<img src="https://www.acmicpc.net/favicon-32x32.png/" style="height: 20px; display: inline-block"> Baekjoon Online Judge</td>
+      <td><a href="https://www.acmicpc.net/user/asdfghjkl46" target="_blank">asdfghjkl46</a></td>
+    </tr>
+    <tr>
+      <td>
+<img src="https://static.solved.ac/logo.svg" style="height: 20px; display: inline-block">solved.ac</td>
+      <td><a href="https://solved.ac/profile/asdfghjkl46" target="_blank">asdfghjkl46</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>블로그의 모든 글은 <b>조윤식</b>이 작성하였습니다. 오타 및 내용 상의 오류나 개선 사항이 있을 경우 의견을 보내주세요.</p>
+
+<h2 id="패러다임">패러다임</h2>
+
+<pre class="mermaid tag-connection-define">
+    graph LR
+    
+    #divide_and_conquer
+    #dp
+    #bruteforcing --&gt; #backtracking
+    #greedy
+    #heuristics
+</pre>
+
+<h2 id="자료구조">자료구조</h2>
+
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -150px)">
+    graph LR
+
+    #data_structures --&gt; #stack
+    #data_structures --&gt; #queue
+    #data_structures --&gt; #string
+    #queue --&gt; #deque
+    #data_structures --&gt; #linked_list
+    #data_structures --&gt; #graphs
+    #data_structures --&gt; #trees
+    #trees --&gt; #priority_queue
+    #trees --&gt; #tree_set
+    #trees --&gt; #segtree
+    #data_structures --&gt; #hash_set
+    #graphs --&gt; #graph_traversal
+    #graph_traversal --&gt; #dfs
+    #graph_traversal --&gt; #bfs
+    #recursion --&gt; #dfs
+    #hashing --&gt; #hash_set
+
+    subgraph 선형
+        #stack
+        #queue
+        #string
+        #deque
+    end
+
+    subgraph 비선형
+        #graphs
+        #segtree
+        #priority_queue
+        #trees
+        #tree_set
+    end
+</pre>
+
+<h2 id="알고리즘">알고리즘</h2>
+
+<h3 id="정렬과-탐색">정렬과 탐색</h3>
+
+<pre class="mermaid tag-connection-define">
+    graph LR
+
+    #sorting --&gt; #binary_search
+    #binary_search --&gt; #parametric_search
+    #parametric_search --&gt; #pbs
+</pre>
+
+<h3 id="트리">트리</h3>
+
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -600px)">
+    graph LR
+
+    #trees --&gt; #tree_set
+    #trees --&gt; #priority_queue
+    #trees --&gt; #segtree
+    #trees --&gt; #disjoint_set
+    #trees --&gt; #euler_tour_technique
+    #trees --&gt; #centroid
+    #trees --&gt; #tree_compression
+    #trees --&gt; #tree_decomposition
+    #trees --&gt; #smaller_to_larger
+    #tree_set --&gt; #splay_tree
+    #tree_set --&gt; #rb_tree
+    #priority_queue --&gt; #cartesian_tree
+    #lca --&gt; #link_cut_tree
+    #lca --&gt; #hld
+    #centroid --&gt; #centroid_decomposition
+    #centroid --&gt; #tree_isomorphism
+    #splay_tree --&gt; #link_cut_tree
+    #link_cut_tree --&gt; #top_tree
+    #segtree --&gt; #merge_sort_tree
+    #segtree --&gt; #lazyprop
+    #segtree --&gt; #pst
+    #segtree --&gt; #multi_segtree
+    #segtree --&gt; #offline_dynamic_connectivity
+    #segtree --&gt; #hld
+    #euler_tour_technique --&gt; #lca
+    #lazyprop --&gt; #link_cut_tree
+    #disjoint_set --&gt; #offline_dynamic_connectivity
+
+    subgraph 기법
+        #tree_compression
+        #tree_decomposition
+        #smaller_to_larger
+    end
+</pre>
+
+<h3 id="그래프">그래프</h3>
+
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -1100px)">
+    graph LR
+
+    #graphs --&gt; #shortest_path
+    #graphs --&gt; #flow
+    #graphs --&gt; #bipartite_graph
+    #graphs --&gt; #general_matching
+    #graphs --&gt; #scc
+    #graphs --&gt; #functional_graph
+    #graphs --&gt; #articulation
+    #graphs --&gt; #mst
+    #graphs --&gt; #tsp
+    #graphs --&gt; #dag
+    #graphs --&gt; #chordal_graph
+    #graphs --&gt; #degree_sequence
+    #graphs --&gt; #dual_graph
+    #graphs --&gt; #flood_fill
+    #graphs --&gt; #eulerian_path
+    #general_matching --&gt; #bipartite_matching
+    #articulation --&gt; #biconnected_component
+    #articulation --&gt; #cactus
+    #articulation --&gt; #dominator_tree
+    #shortest_path --&gt; #dijkstra
+    #shortest_path --&gt; #bellman_ford
+    #shortest_path --&gt; #floyd_warshall
+    #flow --&gt; #circulation
+    #flow --&gt; #stoer_wagner
+    #flow --&gt; #mcmf
+    #flow --&gt; #mfmc
+    #flow --&gt; #bipartite_matching
+    #bipartite_graph --&gt; #bipartite_matching
+    #bipartite_matching --&gt; #hall
+    #bipartite_matching --&gt; #hungarian
+    #bipartite_matching --&gt; #stable_marriage
+    #mst --&gt; #directed_mst
+    #scc --&gt; #2_sat
+    #scc --&gt; #permutation_cycle_decomposition
+    #functional_graph --&gt; #permutation_cycle_decomposition
+    #dijkstra --&gt; #0_1_bfs
+    #dijkstra --&gt; #a_star
+    #dag --&gt; #topological_sorting
+    #dag --&gt; #lgv
+</pre>
+
+<h3 id="문자열">문자열</h3>
+
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -300px)">
+    graph LR
+
+    #string --&gt; #utf8
+    #string --&gt; #manacher
+    #string --&gt; #palindrome_tree
+    #string --&gt; #rope
+    #string --&gt; #parsing
+    #string --&gt; #trie
+    #string --&gt; #kmp
+    #string --&gt; #rabin_karp
+    #string --&gt; #suffix_array
+    #string --&gt; #z
+    #parsing --&gt; #regex
+    #trie --&gt; #aho_corasick
+    #trie --&gt; #suffix_tree
+
+    subgraph 회문
+        #manacher
+        #palindrome_tree
+    end
+
+    subgraph 패턴 매칭
+        #aho_corasick
+        #kmp
+        #rabin_karp
+        #suffix_array
+        #suffix_tree
+        #z
+    end
+</pre>
+
+<h3 id="수학">수학</h3>
+
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -1000px)">
+    graph LR
+
+    #math --&gt; #number_theory
+    #math --&gt; #geometry
+    #math --&gt; #linear_algebra
+    #math --&gt; #combinatorics
+    #math --&gt; #game_theory
+    #math --&gt; #calculus
+    #math --&gt; #probability
+    #math --&gt; #pigeonhole_principle
+    #math --&gt; #statistics
+    #math --&gt; #physics
+    #math --&gt; #arithmetic
+    #math --&gt; #duality
+    #linear_algebra --&gt; #gaussian_elimination
+    #linear_algebra --&gt; #sparse_table
+    #linear_algebra --&gt; #matroid
+    #game_theory --&gt; #sprague_grundy
+    #sprague_grundy --&gt; #hackenbush
+    #calculus --&gt; #fft
+    #calculus --&gt; #gradient_descent
+    #calculus --&gt; #ternary_search
+    #calculus --&gt; #green
+    #calculus --&gt; #numerical_analysis
+    #fft --&gt; #multipoint_evaluation
+    #combinatorics --&gt; #matroid
+    #combinatorics --&gt; #inclusion_and_exclusion
+    #combinatorics --&gt; #lucas
+    #combinatorics --&gt; #burnside
+    #combinatorics --&gt; #generating_function
+    #probability --&gt; #bayes
+    #probability --&gt; #linearity_of_expectation
+    #probability --&gt; #randomization
+    #probability --&gt; #differential_cryptanalysis
+    #probability --&gt; #birthday
+    #numerical_analysis --&gt; #linear_programming
+    #numerical_analysis --&gt; #polynomial_interpolation
+    #arithmetic --&gt; #arbitrary_precision
+    #arithmetic --&gt; #discrete_kth_root
+    #arithmetic --&gt; #discrete_log
+    #arithmetic --&gt; #discrete_sqrt
+    #arithmetic --&gt; #exponentiation_by_squaring
+    #pigeonhole_principle --&gt; #birthday
+</pre>
+
+<h4 id="정수론">정수론</h4>
+
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -100px)">
+    graph LR
+
+    #number_theory --&gt; #crt
+    #number_theory --&gt; #euler_phi
+    #number_theory --&gt; #euclidean
+    #number_theory --&gt; #flt
+    #number_theory --&gt; #primality_test
+    #number_theory --&gt; #mobius_inversion
+    #number_theory --&gt; #lte
+    #primality_test --&gt; #miller_rabin
+    #primality_test --&gt; #sieve
+    #flt --&gt; #miller_rabin
+    #euclidean --&gt; #extended_euclidean
+    #euclidean --&gt; #pollard_rho
+    #miller_rabin --&gt; #pollard_rho
+    #extended_euclidean --&gt; #modular_multiplicative_inverse
+</pre>
+
+<h4 id="기하">기하</h4>
+
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -200px)">
+    graph LR
+
+    #geometry --&gt; #pythagoras
+    #geometry --&gt; #line_intersection
+    #geometry --&gt; #sweeping
+    #geometry --&gt; #coordinate_compression
+    #geometry --&gt; #delaunay
+    #geometry --&gt; #geometry_3d
+    #geometry --&gt; #euler_characteristic
+    #geometry --&gt; #polygon_area
+    #geometry --&gt; #min_enclosing_circle
+    #geometry --&gt; #geometric_boolean_operations
+    #euler_characteristic --&gt; #pick
+    #euler_characteristic --&gt; #planar_graph
+    #delaunay &lt;--&gt; #voronoi
+    #geometry_3d --&gt; #geometry_hyper
+    #line_intersection --&gt; #convex_hull
+    #line_intersection --&gt; #point_in_non_convex_polygon
+    #line_intersection --&gt; #half_plane_intersection
+    #convex_hull --&gt; #rotating_calipers
+    #convex_hull --&gt; #point_in_convex_polygon
+</pre>
+
+<h3 id="동적계획법">동적계획법</h3>
+
+<pre class="mermaid tag-connection-define" style="transform: translate(0px, -500px)">
+    graph LR
+
+    #dp --&gt; #prefix_sum
+    #dp --&gt; #knapsack
+    #dp --&gt; #dp_deque
+    #dp --&gt; #dp_digit
+    #dp --&gt; #dp_tree
+    #dp --&gt; #dp_connection_profile
+    #dp --&gt; #dp_bitfield
+    #dp --&gt; #dp_sum_over_subsets
+    #dp --&gt; #slope_trick
+    #dp --&gt; #cht
+    #dp --&gt; #divide_and_conquer_optimization
+    #dp --&gt; #monotone_queue_optimization
+    #dp --&gt; #knuth
+    #dp --&gt; #kitamasa
+    #dp --&gt; #alien
+    #dp --&gt; #hirschberg
+    #kitamasa --&gt; #berlekamp_massey
+    #dp_deque --&gt; #deque_trick
+    #bitmask --&gt; #bitset
+    #bitmask --&gt; #dp_connection_profile
+    #bitmask --&gt; #dp_bitfield
+    #bitmask --&gt; #dp_sum_over_subsets
+
+    subgraph 점화식
+        #alien
+        #monotone_queue_optimization
+        #berlekamp_massey
+        #cht
+        #divide_and_conquer_optimization
+        #knuth
+        #kitamasa
+        #hirschberg
+    end
+</pre>
+
+<h3 id="기타">기타</h3>
+
+<pre class="mermaid tag-connection-define">
+    graph LR
+
+    #two_pointer --&gt; #sliding_window
+    #two_pointer --&gt; #mitm
+    #two_pointer --&gt; #sqrt_decomposition
+    #two_pointer --&gt; #mo
+    #offline_queries --&gt; #mo
+    #mitm --&gt; #bidirectional_search
+</pre>
+
+<pre class="mermaid tag-connection-define">
+    graph LR
+
+    #dancing_links --&gt; #knuth_x
+</pre>
+
+<pre class="mermaid tag-connection-define">
+    graph LR
+
+    #implementation --&gt; #case_work
+    #implementation --&gt; #simulation
+</pre>
+
+<pre class="mermaid tag-connection-define">
+    graph LR
+
+    #majority_vote
+    #lis
+    #simulated_annealing
+    #constructive
+    #ad_hoc
+    #precomputation
+</pre>
+
+
+  </div>
+
+  <script>
+    // h2 태그를 제목으로 하고 있는 본문을 div로 묶음
+    var postContentDiv = document.querySelector('div.post-content');
+    var divContainer = [];
+
+    while (postContentDiv.children.length > 0) {
+      var currentElement = postContentDiv.children[0];
+      if (currentElement.tagName.toLowerCase() === 'h2') {
+        var newDiv = document.createElement('div');
+        newDiv.classList.add('post-section');
+        divContainer.push(newDiv);
+      }
+      divContainer[divContainer.length - 1].appendChild(currentElement);
+    }
+
+    for (var i = 0; i < divContainer.length; i++) {
+      postContentDiv.appendChild(divContainer[i]);
+    }
+  </script>
+
+  <script>
+    // 포스트 내 테이블의 overflow 방지 및 margin 추가
+    var postContentDiv = document.querySelector('div.post-content');
+    var tables = postContentDiv.querySelectorAll('table');
+    tables.forEach(function(table) {
+      var div = document.createElement('div');
+      div.classList.add('post-table');
+      table.parentNode.replaceChild(div, table);
+      div.appendChild(table);
+    });
+  </script><script>/*
+    터치 스크롤 적용
+
+    사용:
+    Liquid 용법으로 사용됨
+    include touch-scroller.html container="element.class"
+
+    주의사항:
+    터치 스크롤을 적용하려는 요소와 그것을 감싼 Container 요소가 반드시 직계 부모-자식 관계여야 함
+    부모의 padding 값은 px 단위로 지정되어야 함
+    자식의 overflow 값이 hidden으로 지정되어야 함
+    */
+
+    try {
+        let scrollBefore = { translateX: 0, translateY: 0 };
+        let scrollTarget = undefined;
+        let scrollStart = { x: 0, y: 0 };
+        let scrolling = false;
+        let scrolled = false;
+
+        function getPos(event) {
+            var x = event.clientX;
+            var y = event.clientY;
+            if (x === undefined || y === undefined) {
+                x = event.changedTouches[0].clientX;
+                y = event.changedTouches[0].clientY;
+            }
+            return { 'x': x, 'y': y };
+        }
+
+        function onScrollStart(event) {
+            const target = event.target.closest('pre.highlight');
+            if (!target)
+                return false;
+            event.stopPropagation();
+            scrollStart = getPos(event);
+            var matrix = new DOMMatrix(window.getComputedStyle(target.children[0]).getPropertyValue('transform'));
+            if (matrix === "none")
+                matrix = new DOMMatrix('matrix(1, 0, 0, 1, 0, 0)');
+            scrollBefore.translateX = matrix.m41;
+            scrollBefore.translateY = matrix.m42;
+            scrollTarget = target.children[0];
+            scrolling = true;
+            scrolled = false;
+        }
+
+        function onScrollMove(event) {
+            if (!scrolling)
+                return false;
+            const pos = getPos(event);
+            const style = window.getComputedStyle(scrollTarget.parentElement);
+            let padX = parseFloat(style.getPropertyValue('padding-right')) + parseFloat(style.getPropertyValue('padding-right'));
+            let padY = parseFloat(style.getPropertyValue('padding-top')) + parseFloat(style.getPropertyValue('padding-bottom'));
+            const translateX = Math.max(-Math.max(0, scrollTarget.getBoundingClientRect().width - scrollTarget.parentElement.getBoundingClientRect().width + padX), Math.min(0, scrollBefore.translateX - (scrollStart.x - pos.x)));
+            const translateY = Math.max(-Math.max(0, scrollTarget.getBoundingClientRect().height - scrollTarget.parentElement.getBoundingClientRect().height + padY), Math.min(0, scrollBefore.translateY - (scrollStart.y - pos.y)));
+            if (!scrolled && (translateX - scrollBefore.translateX) ** 2 + (translateY - scrollBefore.translateY) ** 2 < 1) {
+                scrolling = false;
+                return;
+            }
+            if (event.cancelable)
+                event.preventDefault();
+            event.stopPropagation();
+            scrollTarget.style.transform = `translate(${translateX}px, ${translateY}px)`;
+            scrolled = true;
+        }
+
+        function onScrollEnd(event) {
+            event.stopPropagation();
+            scrolling = false;
+            scrolled = false;
+        }
+
+        function onClick(event) {
+            if (scrolled)
+                event.preventDefault();
+            return false;
+        }
+    }
+    catch {
+        // 두 번 이상 include 할 경우 여기에 표시
+    }
+
+    document.querySelectorAll('pre.highlight').forEach( pre => {
+        pre.addEventListener("click", onClick);
+        pre.addEventListener("mousedown", onScrollStart);
+        pre.addEventListener("touchstart", onScrollStart);
+        pre.addEventListener("touchmove", onScrollMove);
+        pre.addEventListener("touchend", onScrollEnd);
+    });
+    window.addEventListener("mousemove", onScrollMove);
+    window.addEventListener("mouseup", onScrollEnd);
+</script></article>
+<style>
+    pre.mermaid.tag-connection-define {
+        max-height: 500px;
+        overflow: hidden;
+        cursor: grab;
+        box-shadow: inset 0 2px 15px rgba(0, 0, 0, 0.3);
+
+        svg {
+            width: 1000%;
+        }
+    }
+</style>
+<script>/*
+    터치 스크롤 적용
+
+    사용:
+    Liquid 용법으로 사용됨
+    include touch-scroller.html container="element.class"
+
+    주의사항:
+    터치 스크롤을 적용하려는 요소와 그것을 감싼 Container 요소가 반드시 직계 부모-자식 관계여야 함
+    부모의 padding 값은 px 단위로 지정되어야 함
+    자식의 overflow 값이 hidden으로 지정되어야 함
+    */
+
+    try {
+        let scrollBefore = { translateX: 0, translateY: 0 };
+        let scrollTarget = undefined;
+        let scrollStart = { x: 0, y: 0 };
+        let scrolling = false;
+        let scrolled = false;
+
+        function getPos(event) {
+            var x = event.clientX;
+            var y = event.clientY;
+            if (x === undefined || y === undefined) {
+                x = event.changedTouches[0].clientX;
+                y = event.changedTouches[0].clientY;
+            }
+            return { 'x': x, 'y': y };
+        }
+
+        function onScrollStart(event) {
+            const target = event.target.closest('pre.mermaid.tag-connection-define');
+            if (!target)
+                return false;
+            event.stopPropagation();
+            scrollStart = getPos(event);
+            var matrix = new DOMMatrix(window.getComputedStyle(target.children[0]).getPropertyValue('transform'));
+            if (matrix === "none")
+                matrix = new DOMMatrix('matrix(1, 0, 0, 1, 0, 0)');
+            scrollBefore.translateX = matrix.m41;
+            scrollBefore.translateY = matrix.m42;
+            scrollTarget = target.children[0];
+            scrolling = true;
+            scrolled = false;
+        }
+
+        function onScrollMove(event) {
+            if (!scrolling)
+                return false;
+            const pos = getPos(event);
+            const style = window.getComputedStyle(scrollTarget.parentElement);
+            let padX = parseFloat(style.getPropertyValue('padding-right')) + parseFloat(style.getPropertyValue('padding-right'));
+            let padY = parseFloat(style.getPropertyValue('padding-top')) + parseFloat(style.getPropertyValue('padding-bottom'));
+            const translateX = Math.max(-Math.max(0, scrollTarget.getBoundingClientRect().width - scrollTarget.parentElement.getBoundingClientRect().width + padX), Math.min(0, scrollBefore.translateX - (scrollStart.x - pos.x)));
+            const translateY = Math.max(-Math.max(0, scrollTarget.getBoundingClientRect().height - scrollTarget.parentElement.getBoundingClientRect().height + padY), Math.min(0, scrollBefore.translateY - (scrollStart.y - pos.y)));
+            if (!scrolled && (translateX - scrollBefore.translateX) ** 2 + (translateY - scrollBefore.translateY) ** 2 < 1) {
+                scrolling = false;
+                return;
+            }
+            if (event.cancelable)
+                event.preventDefault();
+            event.stopPropagation();
+            scrollTarget.style.transform = `translate(${translateX}px, ${translateY}px)`;
+            scrolled = true;
+        }
+
+        function onScrollEnd(event) {
+            event.stopPropagation();
+            scrolling = false;
+            scrolled = false;
+        }
+
+        function onClick(event) {
+            if (scrolled)
+                event.preventDefault();
+            return false;
+        }
+    }
+    catch {
+        // 두 번 이상 include 할 경우 여기에 표시
+    }
+
+    document.querySelectorAll('pre.mermaid.tag-connection-define').forEach( pre => {
+        pre.addEventListener("click", onClick);
+        pre.addEventListener("mousedown", onScrollStart);
+        pre.addEventListener("touchstart", onScrollStart);
+        pre.addEventListener("touchmove", onScrollMove);
+        pre.addEventListener("touchend", onScrollEnd);
+    });
+    window.addEventListener("mousemove", onScrollMove);
+    window.addEventListener("mouseup", onScrollEnd);
+</script><script>
+    let tagData = {};tagData["0_1_bfs"] = { exp: "0-1_너비_우선_탐색(0_1_bfs)", ko: "0-1 너비 우선 탐색", tier: "tier2"};
+    tagData["2_sat"] = { exp: "2-sat(2_sat)", ko: "2-sat", tier: "tier3"};
+    tagData["a_star"] = { exp: "a*(a_star)", ko: "a*", tier: "tier5"};
+    tagData["ad_hoc"] = { exp: "애드_혹(ad_hoc)", ko: "애드 혹", tier: "tier2"};
+    tagData["aho_corasick"] = { exp: "아호-코라식(aho_corasick)", ko: "아호-코라식", tier: "tier3"};
+    tagData["alien"] = { exp: "Aliens_트릭(alien)", ko: "Aliens 트릭", tier: "tier4"};
+    tagData["arbitrary_precision"] = { exp: "임의_정밀도_/_큰_수_연산(arbitrary_precision)", ko: "임의 정밀도 / 큰 수 연산", tier: "tier1"};
+    tagData["arithmetic"] = { exp: "사칙연산(arithmetic)", ko: "사칙연산", tier: "tier0"};
+    tagData["articulation"] = { exp: "단절점과_단절선(articulation)", ko: "단절점과 단절선", tier: "tier3"};
+    tagData["backtracking"] = { exp: "백트래킹(backtracking)", ko: "백트래킹", tier: "tier1"};
+    tagData["bayes"] = { exp: "베이즈_정리(bayes)", ko: "베이즈 정리", tier: "tier3"};
+    tagData["bellman_ford"] = { exp: "벨만–포드(bellman_ford)", ko: "벨만–포드", tier: "tier2"};
+    tagData["berlekamp_massey"] = { exp: "벌리캠프–매시(berlekamp_massey)", ko: "벌리캠프–매시", tier: "tier3"};
+    tagData["bfs"] = { exp: "너비_우선_탐색(bfs)", ko: "너비 우선 탐색", tier: "tier2"};
+    tagData["biconnected_component"] = { exp: "이중_연결_요소(biconnected_component)", ko: "이중 연결 요소", tier: "tier3"};
+    tagData["bidirectional_search"] = { exp: "양방향_탐색(bidirectional_search)", ko: "양방향 탐색", tier: "tier3"};
+    tagData["binary_search"] = { exp: "이분_탐색(binary_search)", ko: "이분 탐색", tier: "tier2"};
+    tagData["bipartite_graph"] = { exp: "이분_그래프(bipartite_graph)", ko: "이분 그래프", tier: "tier2"};
+    tagData["bipartite_matching"] = { exp: "이분_매칭(bipartite_matching)", ko: "이분 매칭", tier: "tier3"};
+    tagData["birthday"] = { exp: "생일_문제(birthday)", ko: "생일 문제", tier: "tier2"};
+    tagData["bitmask"] = { exp: "비트마스킹(bitmask)", ko: "비트마스킹", tier: "tier2"};
+    tagData["bitset"] = { exp: "비트_집합(bitset)", ko: "비트 집합", tier: "tier3"};
+    tagData["bruteforcing"] = { exp: "브루트포스_알고리즘(bruteforcing)", ko: "브루트포스 알고리즘", tier: "tier1"};
+    tagData["burnside"] = { exp: "번사이드_보조정리(burnside)", ko: "번사이드 보조정리", tier: "tier3"};
+    tagData["cactus"] = { exp: "선인장(cactus)", ko: "선인장", tier: "tier3"};
+    tagData["calculus"] = { exp: "미적분학(calculus)", ko: "미적분학", tier: "tier2"};
+    tagData["cartesian_tree"] = { exp: "데카르트_트리(cartesian_tree)", ko: "데카르트 트리", tier: "tier4"};
+    tagData["case_work"] = { exp: "많은_조건_분기(case_work)", ko: "많은 조건 분기", tier: "tier1"};
+    tagData["centroid"] = { exp: "센트로이드(centroid)", ko: "센트로이드", tier: "tier4"};
+    tagData["centroid_decomposition"] = { exp: "센트로이드_분할(centroid_decomposition)", ko: "센트로이드 분할", tier: "tier4"};
+    tagData["chordal_graph"] = { exp: "현_그래프(chordal_graph)", ko: "현 그래프", tier: "tier4"};
+    tagData["cht"] = { exp: "볼록_껍질을_이용한_최적화(cht)", ko: "볼록 껍질을 이용한 최적화", tier: "tier3"};
+    tagData["circulation"] = { exp: "서큘레이션(circulation)", ko: "서큘레이션", tier: "tier4"};
+    tagData["combinatorics"] = { exp: "조합론(combinatorics)", ko: "조합론", tier: "tier2"};
+    tagData["constructive"] = { exp: "해_구성하기(constructive)", ko: "해 구성하기", tier: "tier2"};
+    tagData["convex_hull"] = { exp: "볼록_껍질(convex_hull)", ko: "볼록 껍질", tier: "tier3"};
+    tagData["coordinate_compression"] = { exp: "값_/_좌표_압축(coordinate_compression)", ko: "값 / 좌표 압축", tier: "tier2"};
+    tagData["crt"] = { exp: "중국인의_나머지_정리(crt)", ko: "중국인의 나머지 정리", tier: "tier3"};
+    tagData["dag"] = { exp: "방향_비순환_그래프(dag)", ko: "방향 비순환 그래프", tier: "tier2"};
+    tagData["dancing_links"] = { exp: "춤추는_링크(dancing_links)", ko: "춤추는 링크", tier: "tier4"};
+    tagData["data_structures"] = { exp: "자료_구조(data_structures)", ko: "자료 구조", tier: "tier2"};
+    tagData["degree_sequence"] = { exp: "차수열(degree_sequence)", ko: "차수열", tier: "tier2"};
+    tagData["delaunay"] = { exp: "델로네_삼각분할(delaunay)", ko: "델로네 삼각분할", tier: "tier5"};
+    tagData["deque"] = { exp: "덱(deque)", ko: "덱", tier: "tier2"};
+    tagData["deque_trick"] = { exp: "덱을_이용한_구간_최댓값_트릭(deque_trick)", ko: "덱을 이용한 구간 최댓값 트릭", tier: "tier3"};
+    tagData["dfs"] = { exp: "깊이_우선_탐색(dfs)", ko: "깊이 우선 탐색", tier: "tier2"};
+    tagData["differential_cryptanalysis"] = { exp: "차분_공격(differential_cryptanalysis)", ko: "차분 공격", tier: "tier1"};
+    tagData["dijkstra"] = { exp: "데이크스트라(dijkstra)", ko: "데이크스트라", tier: "tier2"};
+    tagData["directed_mst"] = { exp: "유향_최소_신장_트리(directed_mst)", ko: "유향 최소 신장 트리", tier: "tier4"};
+    tagData["discrete_kth_root"] = { exp: "이산_k제곱근(discrete_kth_root)", ko: "이산 k제곱근", tier: "tier3"};
+    tagData["discrete_log"] = { exp: "이산_로그(discrete_log)", ko: "이산 로그", tier: "tier4"};
+    tagData["discrete_sqrt"] = { exp: "이산_제곱근(discrete_sqrt)", ko: "이산 제곱근", tier: "tier4"};
+    tagData["disjoint_set"] = { exp: "분리_집합(disjoint_set)", ko: "분리 집합", tier: "tier2"};
+    tagData["divide_and_conquer"] = { exp: "분할_정복(divide_and_conquer)", ko: "분할 정복", tier: "tier3"};
+    tagData["divide_and_conquer_optimization"] = { exp: "분할_정복을_사용한_최적화(divide_and_conquer_optimization)", ko: "분할 정복을 사용한 최적화", tier: "tier4"};
+    tagData["dominator_tree"] = { exp: "도미네이터_트리(dominator_tree)", ko: "도미네이터 트리", tier: "tier4"};
+    tagData["dp"] = { exp: "다이나믹_프로그래밍(dp)", ko: "다이나믹 프로그래밍", tier: "tier2"};
+    tagData["dp_bitfield"] = { exp: "비트필드를_이용한_다이나믹_프로그래밍(dp_bitfield)", ko: "비트필드를 이용한 다이나믹 프로그래밍", tier: "tier3"};
+    tagData["dp_connection_profile"] = { exp: "커넥션_프로파일을_이용한_다이나믹_프로그래밍(dp_connection_profile)", ko: "커넥션 프로파일을 이용한 다이나믹 프로그래밍", tier: "tier4"};
+    tagData["dp_deque"] = { exp: "덱을_이용한_다이나믹_프로그래밍(dp_deque)", ko: "덱을 이용한 다이나믹 프로그래밍", tier: "tier3"};
+    tagData["dp_digit"] = { exp: "자릿수를_이용한_다이나믹_프로그래밍(dp_digit)", ko: "자릿수를 이용한 다이나믹 프로그래밍", tier: "tier3"};
+    tagData["dp_sum_over_subsets"] = { exp: "부분집합의_합_다이나믹_프로그래밍(dp_sum_over_subsets)", ko: "부분집합의 합 다이나믹 프로그래밍", tier: "tier4"};
+    tagData["dp_tree"] = { exp: "트리에서의_다이나믹_프로그래밍(dp_tree)", ko: "트리에서의 다이나믹 프로그래밍", tier: "tier3"};
+    tagData["dual_graph"] = { exp: "쌍대_그래프(dual_graph)", ko: "쌍대 그래프", tier: "tier4"};
+    tagData["duality"] = { exp: "쌍대성(duality)", ko: "쌍대성", tier: "tier4"};
+    tagData["euclidean"] = { exp: "유클리드_호제법(euclidean)", ko: "유클리드 호제법", tier: "tier1"};
+    tagData["euler_characteristic"] = { exp: "오일러_지표_(χ=V-E+F)(euler_characteristic)", ko: "오일러 지표 (χ=V-E+F)", tier: "tier3"};
+    tagData["euler_phi"] = { exp: "오일러_피_함수(euler_phi)", ko: "오일러 피 함수", tier: "tier3"};
+    tagData["euler_tour_technique"] = { exp: "오일러_경로_테크닉(euler_tour_technique)", ko: "오일러 경로 테크닉", tier: "tier3"};
+    tagData["eulerian_path"] = { exp: "오일러_경로(eulerian_path)", ko: "오일러 경로", tier: "tier2"};
+    tagData["exponentiation_by_squaring"] = { exp: "분할_정복을_이용한_거듭제곱(exponentiation_by_squaring)", ko: "분할 정복을 이용한 거듭제곱", tier: "tier2"};
+    tagData["extended_euclidean"] = { exp: "확장_유클리드_호제법(extended_euclidean)", ko: "확장 유클리드 호제법", tier: "tier3"};
+    tagData["fft"] = { exp: "고속_푸리에_변환(fft)", ko: "고속 푸리에 변환", tier: "tier4"};
+    tagData["flood_fill"] = { exp: "플러드_필(flood_fill)", ko: "플러드 필", tier: "tier2"};
+    tagData["flow"] = { exp: "최대_유량(flow)", ko: "최대 유량", tier: "tier3"};
+    tagData["floyd_warshall"] = { exp: "플로이드–워셜(floyd_warshall)", ko: "플로이드–워셜", tier: "tier2"};
+    tagData["flt"] = { exp: "페르마의_소정리(flt)", ko: "페르마의 소정리", tier: "tier2"};
+    tagData["functional_graph"] = { exp: "함수형_그래프(functional_graph)", ko: "함수형 그래프", tier: "tier3"};
+    tagData["game_theory"] = { exp: "게임_이론(game_theory)", ko: "게임 이론", tier: "tier2"};
+    tagData["gaussian_elimination"] = { exp: "가우스_소거법(gaussian_elimination)", ko: "가우스 소거법", tier: "tier3"};
+    tagData["general_matching"] = { exp: "일반적인_매칭(general_matching)", ko: "일반적인 매칭", tier: "tier5"};
+    tagData["generating_function"] = { exp: "생성_함수(generating_function)", ko: "생성 함수", tier: "tier4"};
+    tagData["geometric_boolean_operations"] = { exp: "도형에서의_불_연산(geometric_boolean_operations)", ko: "도형에서의 불 연산", tier: "tier5"};
+    tagData["geometry"] = { exp: "기하학(geometry)", ko: "기하학", tier: "tier1"};
+    tagData["geometry_3d"] = { exp: "3차원_기하학(geometry_3d)", ko: "3차원 기하학", tier: "tier1"};
+    tagData["geometry_hyper"] = { exp: "4차원_이상의_기하학(geometry_hyper)", ko: "4차원 이상의 기하학", tier: "tier2"};
+    tagData["gradient_descent"] = { exp: "경사_하강법(gradient_descent)", ko: "경사 하강법", tier: "tier3"};
+    tagData["graph_traversal"] = { exp: "그래프_탐색(graph_traversal)", ko: "그래프 탐색", tier: "tier2"};
+    tagData["graphs"] = { exp: "그래프_이론(graphs)", ko: "그래프 이론", tier: "tier2"};
+    tagData["greedy"] = { exp: "그리디_알고리즘(greedy)", ko: "그리디 알고리즘", tier: "tier1"};
+    tagData["green"] = { exp: "그린_정리(green)", ko: "그린 정리", tier: "tier4"};
+    tagData["hackenbush"] = { exp: "하켄부시_게임(hackenbush)", ko: "하켄부시 게임", tier: "tier5"};
+    tagData["half_plane_intersection"] = { exp: "반평면_교집합(half_plane_intersection)", ko: "반평면 교집합", tier: "tier4"};
+    tagData["hall"] = { exp: "홀의_결혼_정리(hall)", ko: "홀의 결혼 정리", tier: "tier4"};
+    tagData["hash_set"] = { exp: "해시를_사용한_집합과_맵(hash_set)", ko: "해시를 사용한 집합과 맵", tier: "tier1"};
+    tagData["hashing"] = { exp: "해싱(hashing)", ko: "해싱", tier: "tier3"};
+    tagData["heuristics"] = { exp: "휴리스틱(heuristics)", ko: "휴리스틱", tier: "tier2"};
+    tagData["hirschberg"] = { exp: "히르쉬버그(hirschberg)", ko: "히르쉬버그", tier: "tier4"};
+    tagData["hld"] = { exp: "Heavy-light_분할(hld)", ko: "Heavy-light 분할", tier: "tier4"};
+    tagData["hungarian"] = { exp: "헝가리안(hungarian)", ko: "헝가리안", tier: "tier3"};
+    tagData["implementation"] = { exp: "구현(implementation)", ko: "구현", tier: "tier0"};
+    tagData["inclusion_and_exclusion"] = { exp: "포함_배제의_원리(inclusion_and_exclusion)", ko: "포함 배제의 원리", tier: "tier2"};
+    tagData["kitamasa"] = { exp: "키타마사(kitamasa)", ko: "키타마사", tier: "tier4"};
+    tagData["kmp"] = { exp: "KMP(kmp)", ko: "KMP", tier: "tier3"};
+    tagData["knapsack"] = { exp: "배낭_문제(knapsack)", ko: "배낭 문제", tier: "tier2"};
+    tagData["knuth"] = { exp: "크누스_최적화(knuth)", ko: "크누스 최적화", tier: "tier4"};
+    tagData["knuth_x"] = { exp: "크누스_X(knuth_x)", ko: "크누스 X", tier: "tier4"};
+    tagData["lazyprop"] = { exp: "느리게_갱신되는_세그먼트_트리(lazyprop)", ko: "느리게 갱신되는 세그먼트 트리", tier: "tier3"};
+    tagData["lca"] = { exp: "최소_공통_조상(lca)", ko: "최소 공통 조상", tier: "tier3"};
+    tagData["lgv"] = { exp: "린드스트롬–게셀–비엔노_보조정리(lgv)", ko: "린드스트롬–게셀–비엔노 보조정리", tier: "tier5"};
+    tagData["line_intersection"] = { exp: "선분_교차_판정(line_intersection)", ko: "선분 교차 판정", tier: "tier2"};
+    tagData["linear_algebra"] = { exp: "선형대수학(linear_algebra)", ko: "선형대수학", tier: "tier3"};
+    tagData["linear_programming"] = { exp: "선형_계획법(linear_programming)", ko: "선형 계획법", tier: "tier4"};
+    tagData["linearity_of_expectation"] = { exp: "기댓값의_선형성(linearity_of_expectation)", ko: "기댓값의 선형성", tier: "tier2"};
+    tagData["link_cut_tree"] = { exp: "링크/컷_트리(link_cut_tree)", ko: "링크/컷 트리", tier: "tier4"};
+    tagData["linked_list"] = { exp: "연결_리스트(linked_list)", ko: "연결 리스트", tier: "tier2"};
+    tagData["lis"] = { exp: "가장_긴_증가하는_부분_수열:_O(n_log_n)(lis)", ko: "가장 긴 증가하는 부분 수열: O(n log n)", tier: "tier2"};
+    tagData["lte"] = { exp: "지수승강_보조정리(lte)", ko: "지수승강 보조정리", tier: "tier4"};
+    tagData["lucas"] = { exp: "뤼카_정리(lucas)", ko: "뤼카 정리", tier: "tier3"};
+    tagData["majority_vote"] = { exp: "보이어–무어_다수결_투표(majority_vote)", ko: "보이어–무어 다수결 투표", tier: "tier2"};
+    tagData["manacher"] = { exp: "매내처(manacher)", ko: "매내처", tier: "tier3"};
+    tagData["math"] = { exp: "수학(math)", ko: "수학", tier: "tier1"};
+    tagData["matroid"] = { exp: "매트로이드(matroid)", ko: "매트로이드", tier: "tier5"};
+    tagData["mcmf"] = { exp: "최소_비용_최대_유량(mcmf)", ko: "최소 비용 최대 유량", tier: "tier3"};
+    tagData["merge_sort_tree"] = { exp: "머지_소트_트리(merge_sort_tree)", ko: "머지 소트 트리", tier: "tier3"};
+    tagData["mfmc"] = { exp: "최대_유량_최소_컷_정리(mfmc)", ko: "최대 유량 최소 컷 정리", tier: "tier3"};
+    tagData["miller_rabin"] = { exp: "밀러–라빈_소수_판별법(miller_rabin)", ko: "밀러–라빈 소수 판별법", tier: "tier3"};
+    tagData["min_enclosing_circle"] = { exp: "최소_외접원(min_enclosing_circle)", ko: "최소 외접원", tier: "tier3"};
+    tagData["mitm"] = { exp: "중간에서_만나기(mitm)", ko: "중간에서 만나기", tier: "tier2"};
+    tagData["mo"] = { exp: "mo's(mo)", ko: "mo's", tier: "tier3"};
+    tagData["mobius_inversion"] = { exp: "뫼비우스_반전_공식(mobius_inversion)", ko: "뫼비우스 반전 공식", tier: "tier4"};
+    tagData["modular_multiplicative_inverse"] = { exp: "모듈로_곱셈_역원(modular_multiplicative_inverse)", ko: "모듈로 곱셈 역원", tier: "tier2"};
+    tagData["monotone_queue_optimization"] = { exp: "단조_큐를_이용한_최적화(monotone_queue_optimization)", ko: "단조 큐를 이용한 최적화", tier: "tier4"};
+    tagData["mst"] = { exp: "최소_스패닝_트리(mst)", ko: "최소 스패닝 트리", tier: "tier2"};
+    tagData["multi_segtree"] = { exp: "다차원_세그먼트_트리(multi_segtree)", ko: "다차원 세그먼트 트리", tier: "tier3"};
+    tagData["multipoint_evaluation"] = { exp: "다중_대입값_계산(multipoint_evaluation)", ko: "다중 대입값 계산", tier: "tier5"};
+    tagData["number_theory"] = { exp: "정수론(number_theory)", ko: "정수론", tier: "tier1"};
+    tagData["numerical_analysis"] = { exp: "수치해석(numerical_analysis)", ko: "수치해석", tier: "tier3"};
+    tagData["offline_dynamic_connectivity"] = { exp: "오프라인_동적_연결성_판정(offline_dynamic_connectivity)", ko: "오프라인 동적 연결성 판정", tier: "tier4"};
+    tagData["offline_queries"] = { exp: "오프라인_쿼리(offline_queries)", ko: "오프라인 쿼리", tier: "tier3"};
+    tagData["palindrome_tree"] = { exp: "회문_트리(palindrome_tree)", ko: "회문 트리", tier: "tier4"};
+    tagData["parametric_search"] = { exp: "매개_변수_탐색(parametric_search)", ko: "매개 변수 탐색", tier: "tier2"};
+    tagData["parsing"] = { exp: "파싱(parsing)", ko: "파싱", tier: "tier1"};
+    tagData["pbs"] = { exp: "병렬_이분_탐색(pbs)", ko: "병렬 이분 탐색", tier: "tier4"};
+    tagData["permutation_cycle_decomposition"] = { exp: "순열_사이클_분할(permutation_cycle_decomposition)", ko: "순열 사이클 분할", tier: "tier2"};
+    tagData["physics"] = { exp: "물리학(physics)", ko: "물리학", tier: "tier1"};
+    tagData["pick"] = { exp: "픽의_정리(pick)", ko: "픽의 정리", tier: "tier2"};
+    tagData["pigeonhole_principle"] = { exp: "비둘기집_원리(pigeonhole_principle)", ko: "비둘기집 원리", tier: "tier1"};
+    tagData["planar_graph"] = { exp: "평면_그래프(planar_graph)", ko: "평면 그래프", tier: "tier3"};
+    tagData["point_in_convex_polygon"] = { exp: "볼록_다각형_내부의_점_판정(point_in_convex_polygon)", ko: "볼록 다각형 내부의 점 판정", tier: "tier3"};
+    tagData["point_in_non_convex_polygon"] = { exp: "오목_다각형_내부의_점_판정(point_in_non_convex_polygon)", ko: "오목 다각형 내부의 점 판정", tier: "tier3"};
+    tagData["pollard_rho"] = { exp: "폴라드_로(pollard_rho)", ko: "폴라드 로", tier: "tier3"};
+    tagData["polygon_area"] = { exp: "다각형의_넓이(polygon_area)", ko: "다각형의 넓이", tier: "tier2"};
+    tagData["polynomial_interpolation"] = { exp: "다항식_보간법(polynomial_interpolation)", ko: "다항식 보간법", tier: "tier4"};
+    tagData["precomputation"] = { exp: "런타임_전의_전처리(precomputation)", ko: "런타임 전의 전처리", tier: "tier1"};
+    tagData["prefix_sum"] = { exp: "누적_합(prefix_sum)", ko: "누적 합", tier: "tier2"};
+    tagData["primality_test"] = { exp: "소수_판정(primality_test)", ko: "소수 판정", tier: "tier1"};
+    tagData["priority_queue"] = { exp: "우선순위_큐(priority_queue)", ko: "우선순위 큐", tier: "tier2"};
+    tagData["probability"] = { exp: "확률론(probability)", ko: "확률론", tier: "tier2"};
+    tagData["pst"] = { exp: "퍼시스턴트_세그먼트_트리(pst)", ko: "퍼시스턴트 세그먼트 트리", tier: "tier4"};
+    tagData["pythagoras"] = { exp: "피타고라스_정리(pythagoras)", ko: "피타고라스 정리", tier: "tier0"};
+    tagData["queue"] = { exp: "큐(queue)", ko: "큐", tier: "tier1"};
+    tagData["rabin_karp"] = { exp: "라빈–카프(rabin_karp)", ko: "라빈–카프", tier: "tier3"};
+    tagData["randomization"] = { exp: "무작위화(randomization)", ko: "무작위화", tier: "tier2"};
+    tagData["rb_tree"] = { exp: "레드-블랙_트리(rb_tree)", ko: "레드-블랙 트리", tier: "tier5"};
+    tagData["recursion"] = { exp: "재귀(recursion)", ko: "재귀", tier: "tier1"};
+    tagData["regex"] = { exp: "정규_표현식(regex)", ko: "정규 표현식", tier: "tier1"};
+    tagData["rope"] = { exp: "로프(rope)", ko: "로프", tier: "tier4"};
+    tagData["rotating_calipers"] = { exp: "회전하는_캘리퍼스(rotating_calipers)", ko: "회전하는 캘리퍼스", tier: "tier3"};
+    tagData["scc"] = { exp: "강한_연결_요소(scc)", ko: "강한 연결 요소", tier: "tier3"};
+    tagData["segtree"] = { exp: "세그먼트_트리(segtree)", ko: "세그먼트 트리", tier: "tier3"};
+    tagData["shortest_path"] = { exp: "최단_경로(shortest_path)", ko: "최단 경로", tier: "tier2"};
+    tagData["sieve"] = { exp: "에라토스테네스의_체(sieve)", ko: "에라토스테네스의 체", tier: "tier1"};
+    tagData["simulated_annealing"] = { exp: "담금질_기법(simulated_annealing)", ko: "담금질 기법", tier: "tier3"};
+    tagData["simulation"] = { exp: "시뮬레이션(simulation)", ko: "시뮬레이션", tier: "tier0"};
+    tagData["sliding_window"] = { exp: "슬라이딩_윈도우(sliding_window)", ko: "슬라이딩 윈도우", tier: "tier1"};
+    tagData["slope_trick"] = { exp: "함수_개형을_이용한_최적화(slope_trick)", ko: "함수 개형을 이용한 최적화", tier: "tier4"};
+    tagData["smaller_to_larger"] = { exp: "작은_집합에서_큰_집합으로_합치는_테크닉(smaller_to_larger)", ko: "작은 집합에서 큰 집합으로 합치는 테크닉", tier: "tier3"};
+    tagData["sorting"] = { exp: "정렬(sorting)", ko: "정렬", tier: "tier1"};
+    tagData["sparse_table"] = { exp: "희소_배열(sparse_table)", ko: "희소 배열", tier: "tier3"};
+    tagData["splay_tree"] = { exp: "스플레이_트리(splay_tree)", ko: "스플레이 트리", tier: "tier4"};
+    tagData["sprague_grundy"] = { exp: "스프라그–그런디_정리(sprague_grundy)", ko: "스프라그–그런디 정리", tier: "tier3"};
+    tagData["sqrt_decomposition"] = { exp: "제곱근_분할법(sqrt_decomposition)", ko: "제곱근 분할법", tier: "tier3"};
+    tagData["stable_marriage"] = { exp: "안정_결혼_문제(stable_marriage)", ko: "안정 결혼 문제", tier: "tier3"};
+    tagData["stack"] = { exp: "스택(stack)", ko: "스택", tier: "tier1"};
+    tagData["statistics"] = { exp: "통계학(statistics)", ko: "통계학", tier: "tier2"};
+    tagData["stoer_wagner"] = { exp: "스토어–바그너(stoer_wagner)", ko: "스토어–바그너", tier: "tier4"};
+    tagData["string"] = { exp: "문자열(string)", ko: "문자열", tier: "tier0"};
+    tagData["suffix_array"] = { exp: "접미사_배열과_LCP_배열(suffix_array)", ko: "접미사 배열과 LCP 배열", tier: "tier3"};
+    tagData["suffix_tree"] = { exp: "접미사_트리(suffix_tree)", ko: "접미사 트리", tier: "tier5"};
+    tagData["sweeping"] = { exp: "스위핑(sweeping)", ko: "스위핑", tier: "tier2"};
+    tagData["ternary_search"] = { exp: "삼분_탐색(ternary_search)", ko: "삼분 탐색", tier: "tier2"};
+    tagData["top_tree"] = { exp: "탑_트리(top_tree)", ko: "탑 트리", tier: "tier5"};
+    tagData["topological_sorting"] = { exp: "위상_정렬(topological_sorting)", ko: "위상 정렬", tier: "tier2"};
+    tagData["tree_compression"] = { exp: "트리_압축(tree_compression)", ko: "트리 압축", tier: "tier3"};
+    tagData["tree_decomposition"] = { exp: "트리_분할(tree_decomposition)", ko: "트리 분할", tier: "tier4"};
+    tagData["tree_isomorphism"] = { exp: "트리_동형_사상(tree_isomorphism)", ko: "트리 동형 사상", tier: "tier3"};
+    tagData["tree_set"] = { exp: "트리를_사용한_집합과_맵(tree_set)", ko: "트리를 사용한 집합과 맵", tier: "tier2"};
+    tagData["trees"] = { exp: "트리(trees)", ko: "트리", tier: "tier2"};
+    tagData["trie"] = { exp: "트라이(trie)", ko: "트라이", tier: "tier3"};
+    tagData["tsp"] = { exp: "외판원_순회_문제(tsp)", ko: "외판원 순회 문제", tier: "tier2"};
+    tagData["two_pointer"] = { exp: "두_포인터(two_pointer)", ko: "두 포인터", tier: "tier2"};
+    tagData["utf8"] = { exp: "utf-8_입력_처리(utf8)", ko: "utf-8 입력 처리", tier: "tier0"};
+    tagData["voronoi"] = { exp: "보로노이_다이어그램(voronoi)", ko: "보로노이 다이어그램", tier: "tier3"};
+    tagData["z"] = { exp: "z(z)", ko: "z", tier: "tier3"};
+    
+
+    console.log("boj tags loaded below:");
+    console.log(tagData);
+
+    let posts = {};posts["최대_유량(flow)"] = "/post/2024/02/01/flow.html";
+    posts["Heavy-light_분할(hld)"] = "/post/2024/01/31/hld.html";
+    posts["퍼시스턴트_세그먼트_트리(pst)"] = "/post/2024/01/30/pst.html";
+    posts["느리게_갱신되는_세그먼트_트리(lazyprop)"] = "/post/2024/01/29/lazyprop.html";
+    posts["최소_공통_조상(lca)"] = "/post/2024/01/20/lca.html";
+    posts["오일러_경로_테크닉(euler_tour_technique)"] = "/post/2024/01/18/euler_tour_technique.html";
+    posts["우선순위_큐(priority_queue)"] = "/post/2024/01/15/priority_queue.html";
+    posts["분리_집합(disjoint_set)"] = "/post/2024/01/13/disjoint_set.html";
+    posts["세그먼트_트리(segtree)"] = "/post/2024/01/11/segtree.html";
+    posts["플로이드–워셜(floyd_warshall)"] = "/post/2024/01/07/floyd_warshall.html";
+    posts["벨만–포드(bellman_ford)"] = "/post/2024/01/07/bellman_ford.html";
+    posts["트라이(trie)"] = "/post/2024/01/03/trie.html";
+    posts["데이크스트라(dijkstra)"] = "/post/2024/01/01/dijkstra.html";
+    
+
+    console.log("post loaded below:");
+    console.log(posts);
+    
+    // 홈 화면의 태그 블록과 블로그 포스트를 연결합니다.
+    // 태그 블록 트리를 터치 스크롤 화면으로 표시합니다.
+    document.querySelectorAll('pre.mermaid.tag-connection-define').forEach( pre => {
+        let newText = "";
+        newText += pre.innerHTML + "\n\n";
+        const tags = new Set(pre.innerHTML.split('#').slice(1).map( word => { return word.split(' ')[0].split('\n')[0] } ));
+        tags.forEach( tag => {
+            if (!(tag in tagData))
+                return;
+            let inner = "<span style=\"font-size: 1em;\">#" + tagData[tag].ko + "</span> <span style=\"opacity: 0.6; font-size: 0.8em;\">" + tag + "</span>";
+            if (tagData[tag].exp in posts)
+                inner = "<span style=\"background-color: red; border-radius: 50%; display:inline-block; width:28px; height:28px\">fa:fa-code</span> <a href=\"/algorithm_with_boj" + posts[tagData[tag].exp] + "\">" + inner + "</a>";
+            newText += "#" + tag + "([\"" + inner + "\"]):::" + tagData[tag].tier + "\n";
+        });
+        newText += "\n\n";
+        newText += `
+            classDef tier0 fill:#ad5600, color:#fff, stroke:#0000
+            classDef tier1 fill:#435f7a, color:#fff, stroke:#0000
+            classDef tier2 fill:#ec9a00, color:#fff, stroke:#0000
+            classDef tier3 fill:#27e2a4, color:#fff, stroke:#0000
+            classDef tier4 fill:#00b4fc, color:#fff, stroke:#0000
+            classDef tier5 fill:#ff0062, color:#fff, stroke:#0000
+        `;
+        pre.innerHTML = newText;
+    });
+</script>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">Index</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 50;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/algorithm_with_boj/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>Made by <a href="https://github.com/CHOYUNSIG">CHOYUNSIG</a>
+</div>
+      <div></div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>
+</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/algorithm_with_boj/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
